@@ -70,6 +70,10 @@ const menuConfig = [
 const uiText = {
   appName:           "IPAG Handbook",
   appLogo:           "layout-dashboard",
+  appLogoImg:        "images/chung/logo-ipa-group.png",   // Logo dùng ở welcome + sidebar (fallback: icon appLogo khi ảnh không tải được)
+  sidebarToggleAria: "Đóng/mở menu",
+  sidebarToggleClose:  "Đóng menu",
+  sidebarToggleOpen:   "Mở menu",
   // Welcome screen
   obStep1Title:      "Bạn thuộc đơn vị nào?",
   obStep2Title:      "Bạn thuộc khối nào trong",
