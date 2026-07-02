@@ -1071,3 +1071,340 @@ body {
   .bang-simple th, .bang-simple td { padding: 10px 12px; }
   .bang-simple td.bang-first { min-width: 100px; }
 }
+
+/* =============================================================================
+   v9 ADDITIONS — Logo + Sidebar toggle (desktop collapse + mobile hamburger)
+                  + Portrait mobile-first responsive
+   ============================================================================= */
+
+/* --- LOGO ở WELCOME SCREEN --- */
+.ob-logo {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 32px;
+  display: block;
+}
+
+/* --- SIDEBAR HEADER: logo + nút toggle --- */
+.sb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.sb-logo-full {
+  max-width: 150px;
+  height: auto;
+  flex-shrink: 1;
+  min-width: 0;
+}
+.sb-logo-icon {
+  display: none;   /* Chỉ hiện khi collapsed */
+  width: 32px; height: 32px;
+  color: var(--navy);
+  align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sb-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.toggle-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.sb-toggle-btn:hover .toggle-label {
+  color: var(--orange);
+}
+.sb-toggle-btn:hover {
+  background: var(--bg-main);
+  color: var(--orange);
+}
+.sb-toggle-btn i { width: 20px; height: 20px; }
+
+/* --- SIDEBAR COLLAPSED (desktop only) --- */
+.sidebar {
+  transition: width 0.3s ease, transform 0.3s ease;
+}
+.sidebar.collapsed {
+  width: 72px;
+}
+.sidebar.collapsed .sb-logo-full,
+.sidebar.collapsed .menu-item-text,
+.sidebar.collapsed .menu-group-title {
+  display: none;
+}
+.sidebar.collapsed .sb-logo-icon {
+  display: flex;
+}
+.sidebar.collapsed .sb-header {
+  padding: 18px 12px;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+}
+.sidebar.collapsed .menu-item {
+  justify-content: center;
+  padding: 12px 8px;
+}
+.sidebar.collapsed .menu-item i {
+  margin-right: 0;
+}
+/* Tooltip nhỏ khi hover menu item ở trạng thái collapsed */
+.sidebar.collapsed .menu-item {
+  position: relative;
+}
+.sidebar.collapsed .menu-item:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--navy);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* --- MOBILE HAMBURGER (trong top-header) --- */
+.mobile-hamburger {
+  display: none;   /* Chỉ hiện ở mobile */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-right: 8px;
+  border-radius: 6px;
+  color: var(--navy);
+  align-items: center; justify-content: center;
+}
+.mobile-hamburger:hover {
+  background: var(--bg-main);
+}
+.mobile-hamburger i { width: 22px; height: 22px; }
+
+/* --- MOBILE BACKDROP (nền tối khi menu mở) --- */
+.mobile-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 48, 87, 0.5);
+  z-index: 1400;
+  animation: fadeIn 0.2s ease-out;
+}
+.mobile-backdrop.active { display: block; }
+
+/* =============================================================================
+   RESPONSIVE PORTRAIT MOBILE (< 768px)
+   ============================================================================= */
+@media (max-width: 767px) {
+  /* --- WELCOME SCREEN — stack 2 cột thành 1 --- */
+  .ob-container {
+    flex-direction: column;
+    max-width: 100%;
+    margin: 12px;
+    border-radius: 12px;
+  }
+  .ob-left,
+  .ob-right {
+    padding: 28px 24px;
+    flex: none;
+    border-right: none;
+  }
+  .ob-left { border-bottom: 1px solid var(--border); }
+  .ob-title { font-size: 24px; }
+  .ob-desc { font-size: 14px; }
+  .ob-logo { max-width: 160px; margin-bottom: 20px; }
+
+  /* --- SIDEBAR: ẩn mặc định, slide-in dạng overlay --- */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: 280px !important;   /* override collapsed on mobile */
+    z-index: 1500;
+    transform: translateX(-100%);
+    box-shadow: 4px 0 24px rgba(0,0,0,0.15);
+  }
+  .sidebar.mobile-open { transform: translateX(0); }
+  /* Trên mobile bỏ hết logic collapsed */
+  .sidebar.collapsed .sb-logo-full,
+  .sidebar.collapsed .menu-item-text,
+  .sidebar.collapsed .menu-group-title {
+    display: revert;
+  }
+  .sidebar.collapsed .sb-logo-icon { display: none; }
+  .sidebar.collapsed .sb-header {
+    padding: 18px 20px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .sidebar.collapsed .menu-item {
+    justify-content: flex-start;
+    padding: 12px 20px;
+  }
+  /* Ẩn nút collapse trên mobile (chỉ dùng hamburger) */
+  .sb-toggle-btn { display: none; }
+
+  /* --- MAIN CONTENT — full width vì sidebar overlay --- */
+  .main-content { margin-left: 0; }
+
+  /* --- HAMBURGER trong header --- */
+  .mobile-hamburger { display: flex; }
+
+  /* --- TOP HEADER — compact, xếp lại nếu cần --- */
+  .top-header {
+    padding: 10px 14px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .header-breadcrumb {
+    font-size: 15px;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .header-context {
+    order: 3;
+    width: 100%;
+    font-size: 12px;
+    flex-wrap: wrap;
+  }
+  .context-value {
+    max-width: 100%;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+
+  /* --- CONTENT WRAPPER --- */
+  .content-wrapper { padding: 14px; }
+
+  /* --- MODULE HERO — compact --- */
+  .module-hero {
+    padding: 20px 20px 24px;
+    margin-bottom: 20px;
+  }
+  .module-hero h1 { font-size: 20px; margin-bottom: 8px; }
+  .module-hero p { font-size: 13.5px; line-height: 1.6; }
+  .btn-tip-hero { font-size: 12px; padding: 8px 14px; }
+
+  /* --- STATS GRID 4 → 2 cột --- */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .stat-card { padding: 12px 8px; }
+  .stat-card .stat-num { font-size: 22px; }
+  .stat-card .stat-label { font-size: 11px; }
+
+  /* --- MODULE ACCORDION --- */
+  .macc-head { padding: 16px 18px; gap: 12px; }
+  .macc-icon { width: 36px; height: 36px; }
+  .macc-title { font-size: 14.5px; }
+  .macc-item.expanded .macc-body { padding: 0 18px 18px; }
+  .macc-body p { font-size: 14px; }
+
+  /* --- IPAG WAY, HẠ TẦNG — 1 cột --- */
+  .ipag-way-grid, .hatang-grid { grid-template-columns: 1fr; }
+
+  /* --- LỘ TRÌNH TIMELINE — thu gọn marker --- */
+  .timeline-stage { gap: 14px; padding-bottom: 24px; }
+  .timeline-stage::before { left: 23px; top: 52px; }
+  .timeline-marker { width: 48px; height: 48px; border-width: 2px; }
+  .timeline-marker i { width: 22px; height: 22px; }
+  .timeline-content { padding: 18px 20px; }
+  .timeline-content::before { top: 20px; }
+  .timeline-content h3 { font-size: 16px; }
+  .timeline-list li { font-size: 13.5px; padding: 6px 0 6px 22px; }
+
+  /* --- ĐÀO TẠO hero + course grid --- */
+  .daotao-hero-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 24px; }
+  .daotao-hero-card { padding: 18px 20px; }
+
+  /* --- MẠNG LƯỚI info-grid --- */
+  .info-grid { grid-template-columns: 1fr; }
+
+  /* --- VAI TRÒ: cards + bảng --- */
+  .nguyenly-grid { grid-template-columns: 1fr; }
+  .nguyenly-card { padding: 20px; }
+  .vt-rieng { padding: 20px 18px; margin-bottom: 24px; }
+  .vt-rieng-head h2 { font-size: 17px; }
+  .vt-rieng-body p { font-size: 14px; }
+  .nguyenly-full { padding: 20px 18px; }
+  .nguyenly-full-head { flex-direction: column; gap: 10px; }
+  .nguyenly-full-head h3 { font-size: 16px; }
+  /* Bảng: gợi ý user vuốt ngang bằng shadow gradient bên phải */
+  .bang-wrapper {
+    position: relative;
+    margin: 12px -18px;   /* Bleed sát mép để dùng full width */
+    border-radius: 0;
+    border-left: none; border-right: none;
+  }
+  .bang-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 24px;
+    background: linear-gradient(to left, rgba(255,255,255,0.9), transparent);
+    pointer-events: none;
+  }
+  .bang-simple { font-size: 12.5px; min-width: 480px; }
+  .bang-simple th, .bang-simple td { padding: 10px 12px; }
+  .bang-simple td.bang-first { min-width: 90px; }
+
+  /* --- EPIC MODULE --- */
+  .epic-letter-grid { grid-template-columns: 1fr; }
+  .epic-card-frame { padding: 12px; }
+  .epic-letter-card { padding: 16px; gap: 12px; }
+  .epic-letter-big { font-size: 40px; width: 48px; }
+  .epic-card-actions { flex-direction: column; }
+  .btn-pdf { width: 100%; justify-content: center; }
+
+  /* --- FAQ + GLOSSARY --- */
+  .search-bar { padding: 10px 14px; }
+  .search-input { font-size: 14px; }
+  .faq-group-title, .glossary-section-title { font-size: 13px; }
+  .faq-q { font-size: 14.5px; }
+  .faq-a { font-size: 13.5px; }
+  .glossary-term { font-size: 16px; }
+  .glossary-def { font-size: 13.5px; }
+
+  /* --- MODAL / TIP / ZOOM: full-screen trên mobile --- */
+  .modal-content {
+    max-width: 100%;
+    margin: 12px;
+    max-height: calc(100vh - 24px);
+  }
+
+  /* --- ONBOARDING option cards --- */
+  .grid-options { grid-template-columns: 1fr; }
+  .option-card { padding: 16px 20px; }
+}
+
+/* =============================================================================
+   TABLET (768-1023px): sidebar giữ desktop behavior nhưng compact hơn
+   ============================================================================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .content-wrapper { padding: 20px; }
+  .module-hero { padding: 26px 28px; }
+  .stats-grid { gap: 12px; }
+}
