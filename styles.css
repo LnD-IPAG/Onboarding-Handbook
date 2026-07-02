@@ -249,6 +249,9 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
+  position: sticky;   
+  top: 0;
+  z-index: 50;
 }
 .header-breadcrumb {
   font-size: 18px;
