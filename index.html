@@ -25,7 +25,8 @@
 <section id="onboarding-screen">
   <div class="ob-container">
     <div class="ob-left">
-      <div class="ob-brand"><i data-lucide="compass"></i> <span id="welcome-brand"></span></div>
+      <img id="welcome-logo" class="ob-logo" alt="IPA Group">
+      <div class="ob-brand" style="display:none;" id="welcome-brand-fallback"><i data-lucide="compass"></i> <span id="welcome-brand"></span></div>
       <h1 class="ob-title" id="welcome-title"></h1>
       <p class="ob-desc" id="welcome-loichao" style="margin-bottom: 16px; color: var(--text-main); font-weight: 500;"></p>
       <p class="ob-desc" id="welcome-mota" style="margin-bottom: 24px;"></p>
@@ -36,16 +37,25 @@
 </section>
 
 <!-- ===================== SCREEN 2: MAIN DASHBOARD ===================== -->
+<div class="mobile-backdrop" id="mobile-backdrop" onclick="closeMobileMenu()"></div>
 <section id="main-app">
   <aside class="sidebar">
     <div class="sb-header">
-      <div class="sb-logo" id="sb-logo"></div>
+      <img class="sb-logo-full" id="sb-logo-full" alt="IPA Group">
+      <div class="sb-logo-icon"><i data-lucide="layout-dashboard"></i></div>
+      <button class="sb-toggle-btn" onclick="toggleSidebar()" aria-label="" id="sb-toggle-btn">
+  <i data-lucide="panel-left-close"></i>
+  <span class="toggle-label" id="sb-toggle-label"></span>
+</button>
     </div>
     <nav class="sb-menu" id="sb-menu"></nav>
   </aside>
 
   <main class="main-content">
     <header class="top-header">
+      <button class="mobile-hamburger" onclick="openMobileMenu()" aria-label="Mở menu">
+        <i data-lucide="menu"></i>
+      </button>
       <div class="header-breadcrumb" id="header-title"></div>
       <div class="header-context">
         <span class="context-label" id="header-context-label"></span>
@@ -113,13 +123,29 @@ function init() {
   document.getElementById('welcome-mota').innerHTML = welcomeContent.moTa;
   document.getElementById('welcome-huongdan').textContent = welcomeContent.huongDan;
 
+  // Inject logo hoặc fallback về text/icon nếu ảnh không tải được
+  const welcomeLogo = document.getElementById('welcome-logo');
+  const sbLogo = document.getElementById('sb-logo-full');
+  const logoSrc = uiText.appLogoImg;
+  welcomeLogo.src = logoSrc;
+  sbLogo.src = logoSrc;
+  welcomeLogo.onerror = () => {
+    welcomeLogo.style.display = 'none';
+    document.getElementById('welcome-brand-fallback').style.display = 'flex';
+  };
+  sbLogo.onerror = () => { sbLogo.style.display = 'none'; };
+
   // Inject UI text
-  document.getElementById('sb-logo').innerHTML = `<i data-lucide="${uiText.appLogo}"></i> ${uiText.appName}`;
   document.getElementById('header-context-label').textContent = uiText.headerContextLabel;
   document.getElementById('btn-change-context').textContent = uiText.headerChangeBtn;
+  document.getElementById('sb-toggle-btn').setAttribute('aria-label', uiText.sidebarToggleAria || 'Toggle menu');
+  document.getElementById('sb-toggle-label').textContent = uiText.sidebarToggleClose;
 
   // Build sidebar từ menuConfig
   buildSidebar();
+
+  // Khôi phục trạng thái sidebar collapsed (chỉ desktop)
+  initSidebarState();
 
   lucide.createIcons();
 
@@ -140,10 +166,51 @@ function buildSidebar() {
   menuConfig.forEach(group => {
     html += `<div class="menu-group-title">${group.nhom}</div>`;
     group.cacMuc.forEach(item => {
-      html += `<a class="menu-item" data-module="${item.id}" onclick="switchModule('${item.id}')"><i data-lucide="${item.icon}"></i> ${item.ten}</a>`;
+      html += `<a class="menu-item" data-module="${item.id}" title="${item.ten}" onclick="switchModule('${item.id}')"><i data-lucide="${item.icon}"></i> <span class="menu-item-text">${item.ten}</span></a>`;
     });
   });
   menuEl.innerHTML = html;
+}
+
+// --- SIDEBAR TOGGLE (desktop collapse + mobile overlay) ---
+function toggleSidebar() {
+  // Nút này chỉ có ở desktop (mobile dùng hamburger)
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.classList.toggle('collapsed');
+  localStorage.setItem('ipag-sidebar-collapsed', sidebar.classList.contains('collapsed'));
+  updateSidebarToggleIcon();
+}
+
+function openMobileMenu() {
+  document.querySelector('.sidebar').classList.add('mobile-open');
+  document.getElementById('mobile-backdrop').classList.add('active');
+}
+
+function closeMobileMenu() {
+  document.querySelector('.sidebar').classList.remove('mobile-open');
+  document.getElementById('mobile-backdrop').classList.remove('active');
+}
+
+function updateSidebarToggleIcon() {
+  const sidebar = document.querySelector('.sidebar');
+  const btn = document.getElementById('sb-toggle-btn');
+  const collapsed = sidebar.classList.contains('collapsed');
+  btn.innerHTML = `
+    <i data-lucide="${collapsed ? 'panel-left-open' : 'panel-left-close'}"></i>
+    <span class="toggle-label" id="sb-toggle-label">${collapsed ? uiText.sidebarToggleOpen : uiText.sidebarToggleClose}</span>
+  `;
+  lucide.createIcons();
+}
+
+function initSidebarState() {
+  // Chỉ apply cho desktop (>= 768px). Mobile luôn khởi tạo ở trạng thái ẩn.
+  if (window.innerWidth >= 768) {
+    const saved = localStorage.getItem('ipag-sidebar-collapsed');
+    if (saved === 'true') {
+      document.querySelector('.sidebar').classList.add('collapsed');
+      updateSidebarToggleIcon();
+    }
+  }
 }
 
 // --- ONBOARDING ---
@@ -261,6 +328,9 @@ function switchModule(moduleId) {
   state.currentModule = moduleId;
   localStorage.setItem('ipag-handbook-state', JSON.stringify(state));
   openAccordionId = null;  // reset accordion state khi chuyển module
+
+  // Auto-đóng mobile menu sau khi user chọn module
+  if (window.innerWidth < 768) closeMobileMenu();
 
   document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
   const activeMenuItem = document.querySelector(`.menu-item[data-module="${moduleId}"]`);
