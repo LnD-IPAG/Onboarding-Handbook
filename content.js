@@ -31,7 +31,7 @@ const sbus = {
   IPAG:  { tenDayDu: "IPAG",  khoi: { kinhDoanh: "Khối Kinh doanh", backOffice: "Khối Back office" } },
   VNDS:  { tenDayDu: "VNDIRECT",       khoi: { kinhDoanh: "Khối Kinh doanh", backOffice: "Khối Back office" } },
   PTI:   { tenDayDu: "PTI",            khoi: { kinhDoanh: "Khối Kinh doanh", backOffice: "Khối Back office" } },
-  IPAM:  { tenDayDu: "IPAM",           khoi: { kinhDoanh: "Khối Kinh doanh", backOffice: "Khối Back office" } },
+  //IPAM:  { tenDayDu: "IPAM",           khoi: { kinhDoanh: "Khối Kinh doanh", backOffice: "Khối Back office" } },
   IPAS: { tenDayDu: "IPAS", khoiMacDinh: "backOffice", khoi: { kinhDoanh: "Khối Kinh doanh", backOffice: "Khối Back office" } },
   ANVIE: { tenDayDu: "ANVIE",          khoi: { kinhDoanh: "Khối Kinh doanh", sanXuat: "Khối Sản xuất", vanHanh: "Khối Vận hành" } }
 };
@@ -356,43 +356,76 @@ const loTrinhContent = {
 };
 
 // --- 2.5. MODULE: QUY ĐỊNH NHÂN SỰ ---
+// Schema mới: theoKhoi (optional, ở TRÊN) + chung (bắt buộc, ở DƯỚI).
+// Hiện tại chưa có nội dung riêng theo SBU/Khối — chỉ dùng phần `chung`.
+// Khi cần customize: thêm nội dung vào theoKhoi[SBU][khoi] = { tieuDe, dienGiai, cacMuc: [...] }
 const quyDinhContent = {
   tieuDe: "Quy định nhân sự",
-  moTa: "Các quy định, mốc thời gian và biểu mẫu nhân sự cần tuân thủ trong thời gian hội nhập và thử việc.",
-  cacMuc: [
-    {
-      icon: "clock",
-      tieuDe: "Thời gian làm việc",
-      noiDung: "<strong>Giờ hành chính:</strong><br>- Sáng: 8h00 - 12h00<br>- Chiều: 13h00 - 17h00<br>- Làm việc từ Thứ 2 đến Thứ 6.<br><br><em>Chi tiết về làm thêm giờ, ca kíp (nếu có) sẽ được thông báo bởi Quản lý trực tiếp.</em>"
-    },
-    {
-      icon: "shirt",
-      tieuDe: "Trang phục (Dress code)",
-      noiDung: "- Trang phục lịch sự, chuyên nghiệp (Smart Casual)<br>- Thứ 6 được mặc thoải mái hơn (jeans, áo phông có cổ)<br><br><em>Tuỳ SBU/đơn vị có thể có quy định cụ thể hơn — sẽ được thông báo qua Quản lý trực tiếp.</em>"
-    },
-    {
-      icon: "shield-alert",
-      tieuDe: "Quy định khác",
-      noiDung: "- Tuyệt đối không chia sẻ tài khoản nội bộ cho người khác.<br>- Không mang dữ liệu khách hàng hoặc tài liệu mật ra khỏi hệ thống mạng lưới công ty.<br>- Tuân thủ <strong>Code of Conduct</strong> đã giới thiệu trong chương trình đào tạo.<br>- Bảo mật thông tin, khoá màn hình khi rời chỗ ngồi."
-    },
-    {
-      icon: "graduation-cap",
-      tieuDe: "Thời gian hoàn thành chương trình đào tạo hội nhập",
-      noiDung: "Bạn cần hoàn thành <strong>100% các khoá học Company Onboarding</strong> trên hệ thống LMS trong vòng <strong>tháng đầu tiên</strong>.<br><br>Các khoá Job Onboarding cần hoàn thành đầy đủ <strong>trước ngày kết thúc 2 tháng hội nhập</strong>.<br><br>Việc hoàn thành đúng hạn là một trong những điều kiện để được xác nhận đạt yêu cầu thử việc."
-    },
-    {
-      icon: "file-text",
-      tieuDe: "Báo cáo thử việc sau 2 tháng",
-      noiDung: "Bạn cần thực hiện báo cáo kết quả thử việc và nộp cho Quản lý trực tiếp <strong>chậm nhất 05 ngày trước khi kết thúc 2 tháng hội nhập</strong>.<br><br>Tải biểu mẫu báo cáo dưới đây, tự đánh giá mức độ hoàn thành công việc và nộp lại cho Quản lý trực tiếp. Quản lý và EPIC Partner sẽ tiến hành review và ra quyết định ký Hợp đồng lao động chính thức.",
-      fileDinhKem: {
-        loai: "csv-tao-tu-dong",
-        tenFile: "Bao_cao_thu_viec_IPAG.csv",
-        tieuDeNut: "Tải Biểu mẫu Báo cáo (.csv)",
-        headers: ["Họ và tên", "Phòng ban", "Tháng 1 (Mục tiêu)", "Tháng 1 (Kết quả)", "Tháng 2 (Mục tiêu)", "Tháng 2 (Kết quả)", "Đánh giá chung"],
-        sampleRow: ["Nguyễn Văn A", "Khối Kinh doanh", "Hoàn thành 100% Onboarding", "Đạt", "Nắm vững SP A", "Đạt", "Tốt"]
+  moTa: "Để đảm bảo quyền lợi tối đa cho cá nhân và cùng nhau xây dựng một môi trường làm việc chuyên nghiệp, mọi thành viên mới cần đọc kỹ, nắm vững và tuân thủ các quy định nền tảng dưới đây:",
+
+  // --- PHẦN RIÊNG THEO SBU × KHỐI ---
+  // Chuẩn bị cho customize sau. Ví dụ pattern (chưa kích hoạt):
+  // theoKhoi: {
+  //   IPAG: {
+  //     kinhDoanh: {
+  //       tieuDe: "Quy định riêng Khối Kinh doanh IPAG",
+  //       dienGiai: "Các quy định bổ sung dành riêng cho khối kinh doanh...",
+  //       cacMuc: [ { icon, tieuDe, noiDung, linkNgoai } ]
+  //     }
+  //   }
+  // }
+  theoKhoi: {},
+
+  // --- PHẦN CHUNG — áp dụng cho mọi SBU ---
+  chung: {
+    cacMuc: [
+      {
+        icon: "scroll-text",
+        tieuDe: "Nội quy lao động",
+        noiDung: "Văn bản pháp lý nền tảng quy định rõ ràng về quyền lợi, nghĩa vụ, kỷ luật lao động cũng như các hình thức khen thưởng tại công ty.",
+        linkNgoai: {
+          url: "https://kms.ipas.com.vn/post/noi-quy-lao-dong.5b654a75-9a9b-4ac1-a670-ea2143f0b6c2",
+          tieuDeNut: "Truy cập tại đây"
+        }
+      },
+      {
+        icon: "building-2",
+        tieuDe: "Quy định làm việc tại văn phòng",
+        noiDung: "Hướng dẫn chi tiết về thời gian biểu, tác phong làm việc, văn hóa ứng xử nội bộ và trách nhiệm giữ gìn không gian làm việc chung.",
+        linkNgoai: {
+          url: "https://kms.ipas.com.vn/post/quy-dinh-lam-viec-tai-van-phong.a19e8b85-db16-443b-aaed-4eee50af6d02",
+          tieuDeNut: "Truy cập tại đây"
+        }
+      },
+      {
+        icon: "gift",
+        tieuDe: "Chính sách Đãi ngộ & Phúc lợi",
+        noiDung: "Cẩm nang toàn diện về cơ chế tính lương – thưởng, lịch chi trả, các gói bảo hiểm sức khỏe, phụ cấp và các chế độ phúc lợi khác mà bạn được hưởng.",
+        linkNgoai: {
+          url: "https://kms.ipas.com.vn/folder/luong-thuong-va-phuc-loi",
+          tieuDeNut: "Truy cập tại đây"
+        }
+      },
+      {
+        icon: "laptop",
+        tieuDe: "Hướng dẫn sử dụng Phần mềm Nhân sự",
+        noiDung: "Hệ thống quản lý thông tin nhân sự cốt lõi của mỗi Cán bộ Nhân viên (CBNV). Bạn cần truy cập vào hệ thống này để:<ul><li>Tra cứu, cập nhật thông tin cá nhân và thông tin gia đình.</li><li>Theo dõi thông tin hợp đồng lao động, quá trình công tác và lương.</li><li>Kiểm tra thời gian làm việc, quản lý ngày phép và thực hiện các thao tác đăng ký nghỉ phép, báo cáo công tác hoặc đăng ký làm thêm giờ (OT).</li></ul>",
+        linkNgoai: {
+          url: "https://kms.ipas.com.vn/post/phan-mem-bizzone_-he-thong-quan-ly-thong-tin-ca-nhan-cua-cbnv.3120bfff-49dc-474c-981f-ccd85ac14699",
+          tieuDeNut: "Truy cập tại đây"
+        }
+      },
+      {
+        icon: "lock-keyhole",
+        tieuDe: "Nguyên tắc bảo mật thông tin",
+        noiDung: "Bộ nguyên tắc bắt buộc nhằm bảo mật thông tin nội bộ, dữ liệu khách hàng và tài sản số của doanh nghiệp, giúp CBNV nâng cao ý thức bảo an trong quá trình làm việc.",
+        linkNgoai: {
+          url: "https://dpolicy.ipam.vn/#/tim-kiem?referenceId=641c18879178057c673e7c4d&activeTab=1",
+          tieuDeNut: "Truy cập tại đây"
+        }
       }
-    }
-  ]
+    ]
+  }
 };
 
 // --- 2.6. MODULE: MẠNG LƯỚI ĐỒNG HÀNH ---
@@ -656,7 +689,7 @@ const globalTips = {
   },
   'quy-dinh': {
     tieuDe: "Lưu ý sống còn về Bảo mật",
-    noiDung: "Thói quen nhỏ, lợi ích lớn:\n- Luôn bấm **Windows + L** để khoá màn hình mỗi khi rời khỏi chỗ ngồi (dù chỉ đi lấy nước).\n- Không chụp ảnh màn hình chứa dữ liệu nội bộ gửi qua Zalo / Facebook cá nhân.\n- Không cài phần mềm lạ — mọi yêu cầu cài đặt phải qua IT Service Desk.\n- Báo cáo thử việc nên chuẩn bị sớm từ tuần 6-7, không đợi tới phút cuối."
+    noiDung: "Thói quen nhỏ, lợi ích lớn:\n- Luôn bấm **Windows + L** để khoá màn hình mỗi khi rời khỏi chỗ ngồi (dù chỉ đi lấy nước).\n- Không chụp ảnh màn hình chứa dữ liệu nội bộ gửi qua Zalo / Facebook cá nhân.\n- Không cài phần mềm lạ — mọi yêu cầu cài đặt phải qua IT Service Desk."
   },
   'nguon-luc': {
     tieuDe: "Nguyên tắc 'Hỏi đúng người'",

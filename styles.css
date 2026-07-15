@@ -332,6 +332,11 @@ body {
 .dl-btn { display: inline-flex; align-items: center; gap: 8px; background: #eaf1f8; color: var(--navy-light); padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: var(--transition); border: 1px solid #cce0f5; }
 .dl-btn:hover { background: var(--navy); color: white; border-color: var(--navy); }
 
+/* Nút link ra hệ thống nội bộ (KMS, dPolicy, IPAS...) — dùng trong module Quy định */
+.btn-external { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 10px 20px; background: #eaf1f8; color: var(--navy-light); border: 1px solid #cce0f5; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: var(--transition); }
+.btn-external:hover { background: var(--navy); color: white; border-color: var(--navy); transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.btn-external i { width: 16px; height: 16px; }
+
 /* DLink & Info Module */
 .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 24px; }
 .info-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-sm); }

@@ -701,39 +701,61 @@ function scrollToSection(id) {
 // MODULE: QUY ĐỊNH NHÂN SỰ
 // =============================================================================
 function renderQuyDinhModule(container) {
-  const itemsHtml = quyDinhContent.cacMuc.map((muc, idx) => {
-    const itemId = `quydinh-${idx}`;
-    let fileHtml = '';
-    if (muc.fileDinhKem) {
-      const f = muc.fileDinhKem;
-      if (f.loai === 'csv-tao-tu-dong') {
-        const csv = "data:text/csv;charset=utf-8,\uFEFF" + f.headers.join(',') + "\n" + f.sampleRow.join(',') + "\n";
-        fileHtml = `<a href="${encodeURI(csv)}" download="${f.tenFile}" class="dl-btn" style="margin-top:12px;">
-                      <i data-lucide="download" style="width:18px;"></i> ${f.tieuDeNut}
-                    </a>`;
-      } else if (f.loai === 'file') {
-        fileHtml = `<a href="${f.url}" download class="dl-btn" style="margin-top:12px;">
-                      <i data-lucide="download" style="width:18px;"></i> ${f.tieuDeNut}
-                    </a>`;
-      }
-    }
-    return `
-      <div class="macc-item" id="${itemId}">
-        <div class="macc-head" onclick="toggleMacc('${itemId}')">
-          <div class="macc-icon"><i data-lucide="${muc.icon}"></i></div>
-          <div class="macc-title-wrap"><div class="macc-title">${muc.tieuDe}</div></div>
-          <i data-lucide="chevron-down" class="macc-chevron"></i>
-        </div>
-        <div class="macc-body">
-          <p>${muc.noiDung}</p>
-          ${fileHtml}
+  // 1. PHẦN RIÊNG THEO KHỐI (nếu có) — chưa kích hoạt
+  const rieng = quyDinhContent.theoKhoi?.[state.khoi];
+  let riengHtml = '';
+  if (rieng) {
+    const rieUngItemsHtml = (rieng.cacMuc || []).map((muc, idx) =>
+      renderQuyDinhItem(muc, `quydinh-rieng-${idx}`)
+    ).join('');
+    riengHtml = `
+      <div class="vt-rieng">
+        <div class="vt-rieng-head"><i data-lucide="user-round-check"></i> <h2>${rieng.tieuDe}</h2></div>
+        <div class="vt-rieng-body">
+          ${rieng.dienGiai ? `<p>${rieng.dienGiai}</p>` : ''}
+          <div class="module-accordion">${rieUngItemsHtml}</div>
         </div>
       </div>
     `;
-  }).join('');
+  }
 
-  container.innerHTML = renderHero(quyDinhContent.tieuDe, quyDinhContent.moTa, 'quy-dinh') +
-                        `<div class="module-accordion">${itemsHtml}</div>`;
+  // 2. PHẦN CHUNG — áp dụng cho mọi SBU
+  const chungItemsHtml = quyDinhContent.chung.cacMuc.map((muc, idx) =>
+    renderQuyDinhItem(muc, `quydinh-chung-${idx}`)
+  ).join('');
+
+  // 3. Section header "Quy định chung" chỉ hiện khi có phần riêng ở trên
+  const chungHeader = rieng ? `
+    <div class="vt-section-title">
+      <i data-lucide="layers"></i> Quy định chung của IPAG
+    </div>` : '';
+
+  container.innerHTML =
+    renderHero(quyDinhContent.tieuDe, quyDinhContent.moTa, 'quy-dinh') +
+    riengHtml +
+    chungHeader +
+    `<div class="module-accordion">${chungItemsHtml}</div>`;
+}
+
+// Helper: render 1 item accordion cho module Quy định
+function renderQuyDinhItem(muc, itemId) {
+  const linkHtml = muc.linkNgoai ? `
+    <a href="${muc.linkNgoai.url}" target="_blank" rel="noopener noreferrer" class="btn-external">
+      <i data-lucide="external-link"></i>${muc.linkNgoai.tieuDeNut}
+    </a>` : '';
+  return `
+    <div class="macc-item" id="${itemId}">
+      <div class="macc-head" onclick="toggleMacc('${itemId}')">
+        <div class="macc-icon"><i data-lucide="${muc.icon}"></i></div>
+        <div class="macc-title-wrap"><div class="macc-title">${muc.tieuDe}</div></div>
+        <i data-lucide="chevron-down" class="macc-chevron"></i>
+      </div>
+      <div class="macc-body">
+        <div>${muc.noiDung}</div>
+        ${linkHtml}
+      </div>
+    </div>
+  `;
 }
 
 // =============================================================================
