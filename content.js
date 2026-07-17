@@ -104,9 +104,8 @@ const uiText = {
   faqSearchPlaceholder: "Nhập từ khoá để tìm câu hỏi...",
   faqNoResult:          "Không tìm thấy câu hỏi nào phù hợp.",
   // Module: EPIC
-  epicCardCaption:   "Bấm vào ảnh để mở PDF (có thể phóng to / thu nhỏ trực tiếp trong PDF viewer).",
-  epicPdfFullscreen: "Mở fullscreen",
-  epicPdfCloseHint:  "Nhấn Esc để đóng · Dùng Ctrl + cuộn chuột để zoom"
+  epicCardCaption:   "Bấm vào ảnh để xem bản đầy đủ (phóng to / thu nhỏ trực tiếp bằng thao tác chạm hoặc cuộn chuột).",
+  epicPdfFullscreen: "Xem ảnh đầy đủ"
 };
 
 // --- 1.4. NỘI DUNG WELCOME SCREEN ---
@@ -274,9 +273,10 @@ const vaiTroContent = {
 const epicContent = {
   tieuDe: "Văn hoá EPIC",
   moTa: "Để vận hành Ngân hàng Năng lực, IPA Group đã kiến tạo một triết lý quản trị nguồn lực con người hoàn toàn khác biệt — một kiến trúc tổ chức hướng tới con người, nơi mỗi con người sống tỉnh thức sẽ tạo ra một tổ chức tỉnh thức, có khả năng nhận diện, sửa chữa và phát triển liên tục xuyên nhiều thế hệ.",
+// Chỉ dùng 1 file PNG hi-res duy nhất (export 2x-3x từ Canva).
+  // Khi update: export PNG mới, tăng version trong tên file (v7, v8...) để tránh cache.
   pocketCard: {
-    anh: "images/chung/EPIC_Pocket_Card_v6_VN_v1.png",
-    pdf: "files/chung/EPIC_Pocket_Card_v6_VN_v1.pdf"
+    anh: "images/chung/epic-pocket-card-v6.png"
   },
   // 4 chữ EPIC dưới ảnh
   bonChu: [

@@ -80,13 +80,6 @@
   </div>
 </div>
 
-<!-- ===================== MODAL: PDF FULLSCREEN (browser PDF viewer + native zoom) ===================== -->
-<div class="pdf-overlay" id="pdf-overlay">
-  <button class="pdf-close-btn" onclick="closePdf()" title="Đóng"><i data-lucide="x"></i></button>
-  <div class="pdf-hint" id="pdf-hint"></div>
-  <iframe id="pdf-frame" src=""></iframe>
-</div>
-
 <!-- ===================== MODAL: IMAGE ZOOM (fullscreen) — dùng khi cần zoom ảnh khác ===================== -->
 <div class="zoom-overlay" id="zoom-overlay">
   <button class="zoom-close" onclick="closeZoom()" title="Đóng"><i data-lucide="x"></i></button>
@@ -562,16 +555,19 @@ function renderBangSimple(bang) {
 // MODULE: VĂN HOÁ EPIC
 // =============================================================================
 function renderEpicModule(container) {
+  // Mở ảnh gốc ở tab mới — browser tự cung cấp viewer với pinch-zoom (mobile)
+  // và click/scroll zoom (desktop). Không dùng modal/iframe để tương thích Android.
   const cardHtml = `
     <div class="epic-card-frame">
-      <img src="${epicContent.pocketCard.anh}" alt="EPIC Pocket Card"
-           class="epic-card-image"
-           onclick="openPdfFullscreen('${epicContent.pocketCard.pdf}')">
+      <a href="${epicContent.pocketCard.anh}" target="_blank" rel="noopener">
+        <img src="${epicContent.pocketCard.anh}" alt="EPIC Pocket Card"
+             class="epic-card-image">
+      </a>
       <div class="epic-card-caption">${uiText.epicCardCaption}</div>
       <div class="epic-card-actions">
-        <button class="btn-pdf" onclick="openPdfFullscreen('${epicContent.pocketCard.pdf}')">
+        <a class="btn-pdf" href="${epicContent.pocketCard.anh}" target="_blank" rel="noopener">
           <i data-lucide="maximize" style="width:16px;"></i> ${uiText.epicPdfFullscreen}
-        </button>
+        </a>
       </div>
     </div>
   `;
@@ -987,7 +983,7 @@ function openTip(moduleId) {
     alert("Tip cho phần này đang được biên tập và sẽ sớm ra mắt!");
     return;
   }
-  document.getElementById('modal-title').textContent = tip.tieuDe;
+  document.getElementById('pdf-overlay')('modal-title').textContent = tip.tieuDe;
   let html = parseTipText(tip.noiDung);
   if (tip.anh) {
     html += `<img src="${tip.anh}" onerror="this.src='https://via.placeholder.com/600x300?text=Image+Placeholder'" alt="Minh hoạ" style="width:100%; border-radius:8px; margin-top:16px; border:1px solid var(--border);">`;
@@ -999,24 +995,6 @@ function openTip(moduleId) {
 function closeModal(event) {
   if (event && event.target !== event.currentTarget) return;
   document.getElementById('tips-modal').classList.remove('active');
-}
-
-// =============================================================================
-// MODAL: PDF FULLSCREEN (dùng cho EPIC Pocket Card — browser PDF viewer native zoom)
-// =============================================================================
-function openPdfFullscreen(pdfUrl) {
-  const frame = document.getElementById('pdf-frame');
-  // #view=FitH ép PDF viewer fit width mặc định, user vẫn zoom tự do được
-  frame.src = pdfUrl + '#view=FitH';
-  document.getElementById('pdf-hint').innerHTML = `<i data-lucide="info" style="width:14px;"></i> ${uiText.epicPdfCloseHint}`;
-  document.getElementById('pdf-overlay').classList.add('active');
-  setTimeout(() => lucide.createIcons(), 0);
-}
-
-function closePdf() {
-  document.getElementById('pdf-overlay').classList.remove('active');
-  // Clear iframe src để dừng PDF loading nếu chưa xong
-  document.getElementById('pdf-frame').src = '';
 }
 
 // =============================================================================
@@ -1076,8 +1054,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Esc để đóng modal/zoom/pdf
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-      if (document.getElementById('pdf-overlay').classList.contains('active')) closePdf();
-      else if (document.getElementById('zoom-overlay').classList.contains('active')) closeZoom();
+      if (document.getElementById('zoom-overlay').classList.contains('active')) closeZoom();
       else if (document.getElementById('tips-modal').classList.contains('active')) closeModal();
     }
   });
