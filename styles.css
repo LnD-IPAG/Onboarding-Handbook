@@ -1378,3 +1378,53 @@ body {
   .module-hero { padding: 26px 28px; }
   .stats-grid { gap: 12px; }
 }
+
+/* =============================================================================
+   BOX THƯ CHỦ TỊCH (welcome screen) — thêm 07/2026
+   ============================================================================= */
+.thu-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, #fdf6ee 0%, #fff 100%);
+  border: 1px solid var(--orange);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+}
+.thu-box-icon {
+  flex-shrink: 0;
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--orange);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+}
+.thu-box-icon i { width: 22px; height: 22px; }
+.thu-box-text { flex: 1; min-width: 0; }
+.thu-box-title { font-weight: 700; color: var(--navy); font-size: 14px; line-height: 1.4; }
+.thu-box-desc  { font-size: 13px; color: var(--text-muted); margin-top: 2px; line-height: 1.5; }
+.btn-doc-thu {
+  flex-shrink: 0;
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px; font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-doc-thu:hover { background: var(--navy-light); }
+.btn-doc-thu i { width: 16px; height: 16px; }
+
+/* Trang thư trong modal */
+.modal-body .thu-page { margin: 0 0 16px; display: block; cursor: zoom-in; }
+.thu-ghichu { font-size: 12px; color: var(--text-muted); font-style: italic; text-align: center; }
+
+/* Mobile: box xếp dọc, nút full-width */
+@media (max-width: 640px) {
+  .thu-box { flex-direction: column; align-items: flex-start; }
+  .btn-doc-thu { width: 100%; justify-content: center; }
+}

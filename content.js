@@ -115,9 +115,23 @@ const welcomeContent = {
   // Đoạn lời chào (đoạn đầu)
   loiChao: "Bạn vừa gia nhập một tổ chức được kiến tạo qua gần 30 năm — không phải để trở thành một tập đoàn lớn hơn, mà để trở thành một tổ chức làm nghề tử tế và bền vững hơn. Ở đây, mỗi người được nhìn nhận là một nguồn lực có trí tuệ, có năng lực tự thân, và có khả năng phát triển cùng tập thể.",
   // Đoạn mô tả handbook — gộp đoạn 2 và 3 từ spec
-  moTa: "Cuốn sổ tay hội nhập sẽ giúp bạn hiểu IPAG là ai, vì sao chúng tôi tồn tại, và bạn đứng ở đâu trong bức tranh chung. Hãy đọc thong thả. Những điều quan trọng nhất ở IPAG không nằm ở quy trình, mà ở cách chúng tôi nhìn về con người, về giá trị, và về hành trình dài phía trước.<br><br>Chúng tôi tin rằng một người sống tỉnh thức sẽ góp phần tạo nên một tổ chức tỉnh thức. Hành trình của bạn ở IPAG bắt đầu từ hôm nay — và chúng tôi mong được đồng hành cùng bạn trên chặng đường ấy.",
+  moTa: "Cuốn sổ tay hội nhập sẽ giúp bạn hiểu IPAG là ai, vì sao chúng tôi tồn tại, và bạn đứng ở đâu trong bức tranh chung. Hãy đọc thong thả. Những điều quan trọng nhất ở IPAG không nằm ở quy trình, mà ở cách chúng tôi nhìn về con người, về giá trị, và về hành trình dài phía trước.",
   // Câu footer
-  huongDan: "Hệ sinh thái Wellbeing Việt Nam · Vận hành theo mô hình Ngân hàng Năng lực"
+  huongDan: "Hệ sinh thái Wellbeing Việt Nam · Vận hành theo mô hình Ngân hàng Năng lực",
+  // Box Thư Chủ tịch trên welcome screen.
+  // Thay thư mới: export ảnh mới vào images/chung/, cập nhật đường dẫn trong `anh`.
+  // Muốn ẩn box: đổi hienThi thành false.
+  thuChuTich: {
+    hienThi: true,
+    tieuDe: "Thư từ Chủ tịch gửi người bạn mới của IPA Group",
+    moTa: "Trước khi bắt đầu, hãy dành ít phút đọc bức thư Chủ tịch Phạm Minh Hương gửi riêng cho bạn.",
+    nutMo: "Đọc thư",
+    ghiChu: "Tap vào trang thư để mở bản đầy đủ (phóng to / thu nhỏ trực tiếp).",
+    anh: [
+      "images/chung/thu-chu-tich-p1.png",
+      "images/chung/thu-chu-tich-p2.png"
+    ]
+  }
 };
 
 

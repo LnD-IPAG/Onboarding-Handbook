@@ -30,6 +30,7 @@
       <h1 class="ob-title" id="welcome-title"></h1>
       <p class="ob-desc" id="welcome-loichao" style="margin-bottom: 16px; color: var(--text-main); font-weight: 500;"></p>
       <p class="ob-desc" id="welcome-mota" style="margin-bottom: 24px;"></p>
+      <div id="welcome-thu"></div>
       <p class="ob-desc" id="welcome-huongdan" style="font-style: italic; font-size: 14px;"></p>
     </div>
     <div class="ob-right" id="ob-step-container"></div>
@@ -115,6 +116,23 @@ function init() {
   document.getElementById('welcome-loichao').textContent = welcomeContent.loiChao;
   document.getElementById('welcome-mota').innerHTML = welcomeContent.moTa;
   document.getElementById('welcome-huongdan').textContent = welcomeContent.huongDan;
+
+  // Box Thư Chủ tịch (config trong content.js — welcomeContent.thuChuTich)
+  const thu = welcomeContent.thuChuTich;
+  if (thu && thu.hienThi !== false) {
+    document.getElementById('welcome-thu').innerHTML = `
+      <div class="thu-box">
+        <div class="thu-box-icon"><i data-lucide="mail-open"></i></div>
+        <div class="thu-box-text">
+          <div class="thu-box-title">${thu.tieuDe}</div>
+          <div class="thu-box-desc">${thu.moTa}</div>
+        </div>
+        <button class="btn-doc-thu" onclick="openThuChuTich()">
+          <i data-lucide="book-open-text"></i> ${thu.nutMo}
+        </button>
+      </div>
+    `;
+  }
 
   // Inject logo hoặc fallback về text/icon nếu ảnh không tải được
   const welcomeLogo = document.getElementById('welcome-logo');
@@ -1018,6 +1036,24 @@ function openTip(moduleId) {
 function closeModal(event) {
   if (event && event.target !== event.currentTarget) return;
   document.getElementById('tips-modal').classList.remove('active');
+}
+
+// Mở thư Chủ tịch trong modal (tái dùng tips-modal).
+// Mỗi trang thư là 1 ảnh; tap ảnh mở bản gốc ở tab mới (pinch-zoom trên mobile).
+function openThuChuTich() {
+  const thu = welcomeContent.thuChuTich;
+  if (!thu) return;
+  document.getElementById('modal-title').textContent = thu.tieuDe;
+  const html =
+    thu.anh.map((src, i) => `
+      <a href="${src}" target="_blank" rel="noopener" title="Mở trang ${i + 1} bản đầy đủ">
+        <img src="${src}" alt="Thư Chủ tịch — trang ${i + 1}" class="thu-page" loading="lazy">
+      </a>
+    `).join('') +
+    (thu.ghiChu ? `<div class="thu-ghichu">${thu.ghiChu}</div>` : '');
+  document.getElementById('modal-body-content').innerHTML = html;
+  document.getElementById('tips-modal').classList.add('active');
+  if (window.lucide) lucide.createIcons();
 }
 
 // =============================================================================
