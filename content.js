@@ -113,7 +113,7 @@ const welcomeContent = {
   brand: "IPAG GROUP",
   tieuDe: "Chào mừng đến với<br><span>IPA Group!</span>",
   // Đoạn lời chào (đoạn đầu)
-  loiChao: "Bạn vừa gia nhập một tổ chức được kiến tạo qua 27 năm — không phải để trở thành một tập đoàn lớn hơn, mà để trở thành một tổ chức làm nghề tử tế và bền vững hơn. Ở đây, mỗi người được nhìn nhận là một nguồn lực có trí tuệ, có năng lực tự thân, và có khả năng phát triển cùng tập thể.",
+  loiChao: "Bạn vừa gia nhập một tổ chức được kiến tạo qua gần 30 năm — không phải để trở thành một tập đoàn lớn hơn, mà để trở thành một tổ chức làm nghề tử tế và bền vững hơn. Ở đây, mỗi người được nhìn nhận là một nguồn lực có trí tuệ, có năng lực tự thân, và có khả năng phát triển cùng tập thể.",
   // Đoạn mô tả handbook — gộp đoạn 2 và 3 từ spec
   moTa: "Cuốn sổ tay hội nhập sẽ giúp bạn hiểu IPAG là ai, vì sao chúng tôi tồn tại, và bạn đứng ở đâu trong bức tranh chung. Hãy đọc thong thả. Những điều quan trọng nhất ở IPAG không nằm ở quy trình, mà ở cách chúng tôi nhìn về con người, về giá trị, và về hành trình dài phía trước.<br><br>Chúng tôi tin rằng một người sống tỉnh thức sẽ góp phần tạo nên một tổ chức tỉnh thức. Hành trình của bạn ở IPAG bắt đầu từ hôm nay — và chúng tôi mong được đồng hành cùng bạn trên chặng đường ấy.",
   // Câu footer
@@ -125,38 +125,27 @@ const welcomeContent = {
    PHẦN 2: NỘI DUNG MODULE CHUNG
    ============================================================================= */
 
-// --- 2.1. MODULE: IPAG LÀ AI? ---
+// --- 2.1. MODULE: IPAG LÀ AI? — NHỊP ĐẾM IPAG ---
+// Cấu trúc mới (07/2026): 6 nhịp Một → Sáu. Mỗi nhịp là 1 accordion.
+// Field tuỳ chọn cho mỗi nhịp: ipagWay (grid 4 chữ) / hangTang (grid card) /
+// nhomNen (nhóm card có tiêu đề riêng) / ketLuan (câu chốt dạng quote).
 const iPAGContent = {
   tieuDe: "IPAG là ai?",
-  moTa: "Trước khi tìm hiểu công việc, hãy hiểu tổ chức bạn vừa gia nhập. Sáu phần dưới đây là bức tranh ngắn gọn nhất về IPAG — đọc theo thứ tự hoặc nhảy thẳng vào phần bạn quan tâm.",
+  moTa: "Chào mừng bạn đến với IPAG.<br><br>Ngày đầu bước vào một tổ chức mới, điều chúng ta thường cần nhất không chỉ là biết mình ngồi ở đâu, báo cáo cho ai, hay dùng hệ thống nào. Điều quan trọng hơn là hiểu: mình đang bước vào một ngôi nhà như thế nào, nơi này tin vào điều gì, và mình sẽ lớn lên cùng tổ chức ra sao.<br><br>Ở IPAG, chúng ta có một cách rất giản dị để bắt đầu hành trình ấy — đó là <strong>Nhịp Đếm IPAG</strong>. Nhịp đếm này không phải để học thuộc lòng. Nó là một bản đồ ngắn, giúp mỗi cán bộ nhân viên mới hiểu IPAG từ tổng thể cho đến đời sống làm việc hằng ngày, theo sáu nhịp thật tự nhiên:<br><strong>Một ngôi nhà · Hai nền tảng · Ba tầng · Bốn la bàn · Năm nếp nhà · Sáu vườn ươm.</strong><br><br>Hãy để sáu nhịp đó dẫn bạn đi — không vội, không áp lực. Chỉ cần bắt đầu từ Một.",
   // 4 con số nổi bật ở hero card đầu module
   conSo: [
-    { soLieu: "27",    nhan: "Năm kiến tạo",            icon: "calendar-clock" },
-    { soLieu: "32+",   nhan: "Công ty thành viên",      icon: "building" },
-    { soLieu: "4.500+", nhan: "Cán bộ nhân viên",        icon: "users" },
-    { soLieu: "4",     nhan: "Hạ tầng năng lực",        icon: "layers" }
+    { soLieu: "Gần 30", nhan: "Năm kiến tạo",       icon: "calendar-clock" },
+    { soLieu: "35+",    nhan: "Công ty thành viên", icon: "building" },
+    { soLieu: "7.000+", nhan: "Cán bộ nhân viên",   icon: "users" },
+    { soLieu: "6",      nhan: "Vườn ươm",           icon: "sprout" }
   ],
-  // 6 phần dạng accordion
+  // 6 nhịp dạng accordion
   cacPhan: [
     {
-      icon: "lightbulb",
-      tieuDe: "Vì sao IPAG tồn tại",
-      noiDung: "Trong 27 năm, IPAG quan sát một thực tế của thị trường vốn Việt Nam: thị trường không thiếu vốn, mà thiếu năng lực kết nối vốn với năng lực thực thi — để vốn đi đến đúng nơi cần và tạo ra giá trị bền vững.<br><br>Doanh nghiệp Việt, đặc biệt là doanh nghiệp vừa và nhỏ, thường thiếu năng lực quản trị theo chuẩn mực, thiếu hạ tầng công nghệ đủ quy mô, thiếu mạng lưới phân phối có chiều sâu.<br><br>IPAG được hình thành để kiến tạo lời giải cho bài toán đó — bằng cách kết nối nhiều năng lực thành sức mạnh tổng hợp, giúp doanh nghiệp Việt phát huy thế mạnh toàn diện và hướng tới wellbeing."
-    },
-    {
-      icon: "target",
-      tieuDe: "Định vị",
-      noiDung: "<strong>IPA Group là Hệ sinh thái Wellbeing Việt Nam</strong> — kết tinh sau 27 năm kiến tạo, từ một định chế tài chính thành tập đoàn đầu tư vận hành theo mô hình Ngân hàng Năng lực.<br><br>Tập đoàn niêm yết trên Sở Giao dịch Chứng khoán Hà Nội (HNX: IPA), với hơn 32 công ty thành viên và hơn 4.500 cán bộ nhân viên.<br><br>Điều làm IPAG khác biệt: chúng tôi không chỉ cung cấp vốn. Chúng tôi kết tinh và kết nối bốn năng lực thiết yếu cho doanh nghiệp Việt — công nghệ, quản trị, vốn và nguồn lực con người — qua bốn hạ tầng năng lực tích hợp."
-    },
-    {
-      icon: "settings-2",
-      tieuDe: "Mô hình vận hành: Ngân hàng Năng lực",
-      noiDung: "Ngân hàng Năng lực (Capability Bank) là mô hình tổ chức mới của IPA Group — định hình lại cách đóng gói sản phẩm dịch vụ trong việc định vị và kiến tạo giá trị cho thị trường.<br><br>Không cạnh tranh với ngân hàng thương mại (quản lý tiền), không cạnh tranh với các công ty quản lý tài sản truyền thống (quản lý danh mục đầu tư).<br><br>IPAG là một loại kiến trúc tổ chức mới — kiến tạo và kết nối năng lực của hệ sinh thái, đóng gói thành giải pháp toàn diện phù hợp với từng nhu cầu phát triển của doanh nghiệp, từ đó tạo cơ hội tiếp cận cho các nhà đầu tư tài chính cá nhân, huy động sức mạnh của cộng đồng cùng phát triển và cùng hưởng thành tựu."
-    },
-    {
-      icon: "compass",
-      tieuDe: "Tầm nhìn, Sứ mệnh & IPAG Way",
-      noiDung: "<strong>TẦM NHÌN</strong><br>Mỗi người Việt trong cộng đồng Việt sống tỉnh thức và trọn vẹn mỗi ngày — qua một hệ sinh thái Wellbeing kết nối gia tài trí tuệ, mạng lưới tri thức và năng lực Việt toàn cầu.<br><br><strong>SỨ MỆNH</strong><br>IPA Group đảm nhiệm sứ mệnh của một Ngân hàng Năng lực — kết nối Công nghệ, Con người và Chuỗi giá trị để khai thông dòng vốn cho doanh nghiệp Việt, kiến tạo giải pháp phát triển năng lực toàn diện, và cung ứng giải pháp cho cuộc sống tỉnh thức và trọn vẹn của cộng đồng người Việt.<br><br>Chúng tôi hướng tới giấc mơ đại đồng — nơi mỗi người Việt có cơ hội tiếp cận giải pháp Wellbeing và phụng sự hệ sinh thái, bảo vệ gia tài di sản truyền thống và gìn giữ giá trị xuyên thế hệ.",
+      icon: "home",
+      tieuDe: "Một — Một nhà IPAG: Hệ sinh thái Wellbeing & Văn hoá quản trị EPIC",
+      noiDung: "Có một câu hỏi đã đi cùng IPA Group gần 30 năm: điều gì đáng để tích lũy? Không phải doanh thu quý này, không phải một danh mục công ty — mà là năng lực và gia tài trí tuệ Việt, được tích lũy để phụng sự một cách sống. Cách sống ấy gọi bằng một chữ: <strong>Wellbeing</strong>. Và câu trả lời đó làm nên hình hài của hệ sinh thái hôm nay — không phải một tập đoàn đa ngành thông thường, mà là một ngôi nhà được xây để người trong nhà sống tốt hơn, và lan tỏa điều đó ra ngoài xã hội.<br><br><strong>IPA Group (HNX: IPA) là hệ sinh thái Wellbeing của Việt Nam</strong> — gần 30 năm kiến tạo trên ba dòng chảy: tài chính, bảo hiểm và đời sống. IPAG là mái nhà chung của hơn 35 công ty thành viên, hơn 7.000 con người, cùng theo đuổi một tầm nhìn và phụng sự một sứ mệnh giản dị mà sâu sắc:<br><br><strong>TẦM NHÌN</strong><br>Một Việt Nam Wellbeing — nơi sống tỉnh thức là nền, sống trọn vẹn là nếp: người người sống khỏe, nhà nhà sống giàu, cộng đồng sống vui — bắt đầu từ những lựa chọn nhỏ mỗi ngày.<br><br><strong>SỨ MỆNH</strong><br>Kết nối, gìn giữ và trao truyền gia tài trí tuệ Việt — vun bồi Wellbeing cho mỗi người, mỗi gia đình và mỗi tổ chức.",
+      // IPAG Way — giữ nguyên nội dung hiện hành
       ipagWay: [
         { chu: "I", tieuDe: "Insight & Integration", phuDe: "Thấu hiểu và Tích hợp", noiDung: "Trí tuệ thấu hiểu là nền tảng của tích hợp. Chúng tôi hiểu sâu doanh nghiệp, thị trường và cộng đồng trước khi kết nối các năng lực rời rạc thành sức mạnh tổng hợp. Với bạn: hiểu trước khi hành động, lắng nghe trước khi đề xuất." },
         { chu: "P", tieuDe: "Pathway & Partnership", phuDe: "Định hướng và Đồng hành", noiDung: "Với định hướng của một tầm nhìn dài hạn, chúng tôi đồng hành theo toàn trình của chặng đường phát triển, không chỉ phục vụ theo từng giao dịch đơn lẻ. Đội ngũ IPAG thực hành và thực chứng nếp sống tỉnh thức trước khi chia sẻ giải pháp với cộng đồng." },
@@ -166,29 +155,66 @@ const iPAGContent = {
     },
     {
       icon: "layers",
-      tieuDe: "Kiến trúc hệ sinh thái: 4 hạ tầng năng lực",
-      noiDung: "IPAG vận hành qua bốn hạ tầng năng lực. Bốn hạ tầng cùng vận hành tạo nên sức mạnh tổng hợp của Ngân hàng Năng lực — không cao không thấp, không trước không sau, mỗi đơn vị điều phối một phương diện riêng của hệ sinh thái mở.",
+      tieuDe: "Hai — Hai nền tảng: IPAG Capability và IPA Living",
+      noiDung: "Hệ vận hành trên hai nền tảng: <strong>IPA Capability</strong> là nền — nơi năng lực được tích lũy theo mô hình Ngân hàng Năng lực; và <strong>IPA Living</strong> là nếp — nơi nếp sống được trải vào đời thường qua ba nếp Sống Khỏe · Sống Giàu · Sống Vui.",
+      nhomNen: [
+        {
+          tieuDe: "IPAG Capability — nơi năng lực được tích lũy",
+          cards: [
+            { ten: "IPA Solution",   phuDe: "Hạ tầng Công nghệ Số",          icon: "monitor",     noiDung: "Hơn 700 chuyên gia phần mềm và dữ liệu, vận hành công nghệ cho toàn hệ sinh thái và kết nối số giữa doanh nghiệp, nhà đầu tư và cộng đồng." },
+            { ten: "IPA Management", phuDe: "Hạ tầng Quản trị Doanh nghiệp", icon: "briefcase",   noiDung: "Đồng hành các công ty trong portfolio sau đầu tư: tái cấu trúc quản trị theo chuẩn niêm yết, chuẩn hoá vận hành, tích hợp vào chuỗi giá trị hệ sinh thái." },
+            { ten: "IPA Partners",   phuDe: "Hạ tầng Đầu tư",                icon: "trending-up", noiDung: "Công ty quản lý quỹ được cấp phép UBCKNN, kết nối dòng vốn từ cộng đồng nhà đầu tư đến chuỗi giá trị hệ sinh thái qua ba giải pháp: Quỹ Đầu tư Tư nhân, Quỹ Hưu Trí Tự Nguyện và Dịch vụ Tín thác." }
+          ]
+        },
+        {
+          tieuDe: "IPA Living — nơi gia tài được sống",
+          cards: [
+            { ten: "IPA Living", phuDe: "Nền tảng đời sống", icon: "leaf", noiDung: "Ba nếp <strong>Sống Khỏe · Sống Giàu · Sống Vui</strong> đi vào đời thường qua cụm sản phẩm/giải pháp về sức khỏe (Anvie), cụm giải pháp/sản phẩm tài chính – bảo an (VNDIRECT và PTI), và ba cộng đồng cùng thuộc về nếp Sống Vui: Cộng đồng Sống Khỏe của AnVie Life, Cộng đồng Sống Giàu của VNDGO, Cộng đồng Sống An của PTICare." }
+          ]
+        }
+      ],
+      ketLuan: "Hai nền tảng — một dòng chảy: năng lực đi từ nơi được tích lũy đến nơi đời sống cần."
+    },
+    {
+      icon: "mountain",
+      tieuDe: "Ba — Ba tầng HWG",
+      noiDung: "HWG là ba tầng của một hành trình sống trọn vẹn: <strong>Health — Wealth — Grow</strong>, và đó chính là ba nếp mà IPAG vun bồi cho mỗi người, mỗi gia đình: đi từ Sống Khỏe, lên Sống Giàu, tới đỉnh Sống Vui.<br><br>Trong một hệ sinh thái rộng lớn với hơn 35 công ty thành viên, hơn 7.000 con người và hàng chục sản phẩm dịch vụ khác nhau, HWG là sợi chỉ đỏ giữ cho tất cả cùng chảy về một hướng: nền vững trước — tăng trưởng sau — cộng đồng là đích.",
       hangTang: [
-        { ten: "IPA Solution",   phuDe: "Hạ tầng Công nghệ Số",         icon: "monitor", noiDung: "Hơn 700 chuyên gia phần mềm và dữ liệu, vận hành công nghệ cho toàn hệ sinh thái và kết nối số giữa doanh nghiệp, nhà đầu tư và cộng đồng." },
-        { ten: "IPA Management", phuDe: "Hạ tầng Quản trị Doanh nghiệp", icon: "briefcase", noiDung: "Đồng hành các công ty trong portfolio sau đầu tư: tái cấu trúc quản trị theo chuẩn niêm yết, chuẩn hoá vận hành, tích hợp vào chuỗi giá trị hệ sinh thái." },
-        { ten: "IPA Partners",   phuDe: "Hạ tầng Đầu tư",                icon: "trending-up", noiDung: "Công ty quản lý quỹ được cấp phép UBCKNN, kết nối dòng vốn từ cộng đồng nhà đầu tư đến chuỗi giá trị hệ sinh thái qua ba giải pháp: Quỹ Đầu tư Tư nhân, Quỹ Hưu Trí Tự Nguyện và Dịch vụ Tín thác." },
-        { ten: "IPA Living",     phuDe: "Hạ tầng Phân phối Wellbeing",   icon: "leaf", noiDung: "Đưa giải pháp và sản phẩm của hệ sinh thái đến cộng đồng người Việt qua mạng lưới Dstation toàn quốc, theo ba chiều HWG: <strong>Sống Khỏe (Health)</strong> — Anvie Life, Homefood Macrobiotics, Ong Trung ương. <strong>Sống Giàu (Wealth)</strong> — VNDGO, VNDirect. <strong>Sống An (Grow)</strong> — PTIcare, bảo hiểm PTI." }
+        { ten: "Health · Sống Khỏe", phuDe: "Tầng đầu tiên — là nền",                icon: "heart-pulse", noiDung: "Trước khi nói đến bất cứ điều gì, nền phải vững: sức khỏe thân thể được chăm chút, tài chính có lưới bảo vệ, rủi ro lớn đã được che chắn. Đây là tầng mà cả ba gian IPAG đều bắt đầu từ đó — quỹ dự phòng và bảo hiểm ở gian tài chính, dinh dưỡng và nhịp sống ở gian sức khỏe, lưới bảo vệ trước rủi ro hiểm nghèo ở gian bảo an." },
+        { ten: "Wealth · Sống Giàu", phuDe: "Tầng thứ hai — gìn giữ và tích lũy",    icon: "coins",       noiDung: "Khi nền đã vững, người ta mới có thể tích sản theo mục tiêu, tiếp nối sức sống qua năm tháng, và tích lũy sự an toàn thành gia tài lâu dài. Sống Giàu không chỉ là tiền — đó là mọi thứ lớn dần theo thời gian khi ta sống đúng nếp: tài sản được tích lũy, sức khỏe được tiếp nối, sự bảo an được dày thêm từng năm." },
+        { ten: "Grow · Sống Vui",    phuDe: "Tầng thứ ba — đỉnh mở ra cộng đồng",    icon: "sun",         noiDung: "Khi một người đã có nền vững và gia tài được gìn giữ, họ không chỉ sống tốt cho mình — họ trở thành người cùng chở che cho người khác, lan tỏa trí tuệ đầu tư, tinh thần tương hỗ và nếp sống Wellbeing ra rộng hơn. Sống Vui là tầng mà niềm vui không đến từ sở hữu, mà đến từ thuộc về — thuộc về một cộng đồng cùng lớn lên. Ba cộng đồng của ba gian — VNDGO, AnVie Life, PTICare — đều là nơi tầng Grow được sống thật." }
       ]
     },
     {
-      icon: "history",
-      tieuDe: "Câu chuyện 27 năm",
-      noiDung: "Hành trình 27 năm của IPAG là câu chuyện về một mô hình tổ chức làm nghề chuyên nghiệp được kết tinh qua thời gian — từ những bài học thực tiễn về vận hành, quản trị và đồng hành với doanh nghiệp Việt.",
-      mocLichSu: [
-        { nam: "1998",      tieuDe: "Khởi đầu hành trình",                 moTa: "Thành lập Công ty TNHH VTS tại Hà Nội — tiền thân của IPA Group. Đặt viên gạch đầu tiên cho hành trình đầu tư tài chính dài hạn." },
-        { nam: "2006",      tieuDe: "Bước vào thị trường chứng khoán",     moTa: "Tham gia thành lập VNDirect — sau này trở thành một trong những công ty chứng khoán hàng đầu Việt Nam." },
-        { nam: "2007–2008", tieuDe: "Mở rộng định chế tài chính",          moTa: "Phát triển mạng lưới các định chế tài chính, đa dạng hoá hoạt động trong lĩnh vực chứng khoán và đầu tư." },
-        { nam: "2010–2015", tieuDe: "Củng cố nền tảng",                    moTa: "Củng cố và phát triển các công ty thành viên cốt lõi, chuẩn hoá vận hành theo chuẩn niêm yết." },
-        { nam: "2016–2017", tieuDe: "Mở rộng sang bảo hiểm phi nhân thọ", moTa: "Đầu tư chiến lược vào PTI (Bảo hiểm Bưu điện), mở rộng hệ sinh thái sang ngành bảo hiểm phi nhân thọ." },
-        { nam: "2021–2022", tieuDe: "Định hình Ngân hàng Năng lực",        moTa: "Chuyển mình từ định chế tài chính thành tập đoàn đầu tư vận hành theo mô hình Ngân hàng Năng lực — tiên phong khái niệm này tại Việt Nam." },
-        { nam: "2024",      tieuDe: "Định hình ba trụ cột năng lực",       moTa: "Định hình ba trụ cột vận hành — IPA Solution, IPA Living, IPA Management — làm nền tảng cho kiến trúc bốn hạ tầng." },
-        { nam: "2025–2026", tieuDe: "Hệ sinh thái Wellbeing Việt Nam",     moTa: "Định vị lại tập đoàn dưới danh nghĩa Hệ sinh thái Wellbeing Việt Nam, hoàn thiện bốn hạ tầng năng lực và hướng tới phục vụ cộng đồng Việt toàn cầu qua hệ sinh thái." }
-      ]
+      icon: "compass",
+      tieuDe: "Bốn — Bộ la bàn IPA Map",
+      noiDung: "Khi bước vào một môi trường mới, ai cũng cần la bàn. La bàn giúp ta không chỉ làm nhanh, mà còn làm đúng. Không chỉ đạt việc, mà còn hiểu vì sao việc đó quan trọng và tạo ra giá trị gì.<br><br>Ở IPAG, hệ La bàn được gọi là <strong>IPA Map</strong>. Bạn có thể nhớ IPA Map qua bốn hướng vận hành:",
+      ipagWay: [
+        { chu: "D", tieuDe: "La bàn DGo",    phuDe: "Thấy đúng mục đích", noiDung: "" },
+        { chu: "C", tieuDe: "La bàn DLink",  phuDe: "Thông đúng người",   noiDung: "" },
+        { chu: "S", tieuDe: "La bàn DWork",  phuDe: "Cộng đúng việc",     noiDung: "" },
+        { chu: "P", tieuDe: "La bàn DValue", phuDe: "Tạo giá trị đúng",   noiDung: "" }
+      ],
+      ketLuan: "Thông tin chi tiết về 4 la bàn, Anh/Chị sẽ được tìm hiểu trong chương trình đào tạo hội nhập."
+    },
+    {
+      icon: "heart-handshake",
+      tieuDe: "Năm — Năm nếp nhà IPAG",
+      noiDung: "Nếu La bàn giúp biết đường đi, thì nếp nhà giúp người IPAG biết cách sống trên đường ấy. Năm nếp nhà để một người bước vào IPAG không chỉ nhận việc, mà nhận một gia tài; không chỉ làm phần mình, mà biết bồi thêm cho người đến sau.",
+      hangTang: [
+        { ten: "Nếp Trà Việt",    phuDe: "Dừng lại — lắng xuống — hiện diện",     icon: "coffee",    noiDung: "Trong một chén trà có sự chậm rãi, có đối thoại, có sự kính trọng giữa người với người. Đó là nếp để người IPAG học cách có mặt thật sự trước khi hành động." },
+        { ten: "Nếp La Bàn",      phuDe: "Biết soi hướng trước khi đi",           icon: "compass",   noiDung: "Làm việc không chỉ cần nhanh, mà cần đúng: đúng mục đích, đúng người, đúng việc, đúng giá trị theo 4 la bàn IPA Map." },
+        { ten: "Nếp Soi Sáng",    phuDe: "Soi mình cho sáng mình",                icon: "lightbulb", noiDung: "Mỗi người học cách nhìn lại mình, nhận ra điểm mạnh, điểm yếu, điều cần sửa và điều cần bồi. Đây không phải nếp phán xét, mà là nếp trưởng thành." },
+        { ten: "Nếp Gửi Trao",    phuDe: "Không giữ riêng điều mình học được",    icon: "send",      noiDung: "Người IPAG nhận năng lực từ người đi trước, dùng nó trong công việc hôm nay, rồi gửi lại thành tri thức, kinh nghiệm, quy trình, bài học cho người đến sau." },
+        { ten: "Nếp Trao Truyền", phuDe: "Vòng xa hơn của gửi trao",              icon: "repeat",    noiDung: "Không chỉ gửi một tài liệu hay một kinh nghiệm, mà trao lại một cách sống nghề, một tinh thần phụng sự, một nếp nhà có thể tiếp tục lớn lên qua nhiều thế hệ." }
+      ],
+      ketLuan: "Vì vậy, IPAG giữ câu khóa: «VÀO LÀ NGƯỜI THỪA KẾ — RA LÀ NGƯỜI GỬI TRAO.» Gia tài IPAG không nằm yên trong kho — gia tài ấy sống tiếp khi mỗi người biết gieo, biết tích và biết trao: «CÙNG GIEO — CÙNG TÍCH — CÙNG TRAO.»"
+    },
+    {
+      icon: "sprout",
+      tieuDe: "Sáu — Sáu vườn ươm",
+      noiDung: "IPAG có 6 lĩnh vực kinh doanh chính, gọi là 6 vườn ươm. Gọi là «vườn ươm» vì mỗi vườn có 2 việc phải làm cùng lúc: <strong>giữ</strong> (chăm lo cho những gì đã có tốt hơn) và <strong>ươm</strong> (tạo ra những cái mới cho tương lai).<ul><li><strong>Vườn ươm 1:</strong> Tài chính bền vững</li><li><strong>Vườn ươm 2:</strong> Sức khỏe và đời sống</li><li><strong>Vườn ươm 3:</strong> Công nghệ sinh học và môi trường</li><li><strong>Vườn ươm 4:</strong> Công nghệ số</li><li><strong>Vườn ươm 5:</strong> Giáo dục và đào tạo</li><li><strong>Vườn ươm 6:</strong> Tiêu dùng và bán lẻ</li></ul>",
+      ketLuan: "Nguyên tắc chung của 6 vườn: khác nhau ở cách làm nghề, nhưng giống nhau ở nếp sống và giá trị."
     }
   ]
 };
@@ -197,8 +223,13 @@ const iPAGContent = {
 // Schema mới: theoKhoi (optional, ở TRÊN) + chung (bắt buộc, ở DƯỚI).
 // Nếu khối nào không được định nghĩa trong theoKhoi → engine tự bỏ qua, chỉ hiện phần chung.
 const vaiTroContent = {
-  tieuDe: "Vai trò của bạn trong hệ sinh thái",
-  moTa: "Dù bạn làm việc ở hạ tầng nào, bạn đều là một phần của cùng một hệ sinh thái mở. Ở IPAG, các đơn vị không vận hành độc lập như những công ty riêng lẻ — chúng kết nối năng lực với nhau, chia sẻ hạ tầng chung làm đòn bẩy, và cộng hưởng để cùng phát triển.",
+  tieuDe: "Bạn trong bức tranh chung: Người gửi và người thừa kế",
+  moTa: "Gia nhập IPAG là bước vào một dòng chảy năng lực đã được tích lũy qua gần 30 năm. Tại đây, mỗi CBNV vừa là người thừa kế những kinh nghiệm, tri thức và cách làm của thế hệ đi trước, vừa là người gửi thêm năng lực của mình vào «Ngân hàng Năng lực» cho người đến sau.<br><br>Một quy trình bạn chuẩn hóa, một dòng code bạn viết, một cách làm bạn cải tiến hôm nay có thể tiếp tục tạo giá trị cho nhiều dự án, khách hàng và doanh nghiệp trong tương lai.",
+
+  // Ẩn nhóm "Nguyên lý chung" (4 card) với các khối liệt kê dưới đây.
+  // Card "Vai trò lãnh đạo" (noiDungMoRong) LUÔN hiển thị cho mọi khối.
+  // Bật lại cho Khối Kinh doanh: xoá "kinhDoanh" khỏi mảng.
+  anNguyenLyChoKhoi: ["kinhDoanh"],
 
   // --- PHẦN RIÊNG THEO KHỐI ---
   // Khối nào có nội dung riêng thì khai báo tại đây. Khối chưa có → chỉ hiện phần chung.
@@ -225,22 +256,22 @@ const vaiTroContent = {
       {
         icon: "heart-handshake",
         tieuDe: "Con người là trung tâm",
-        noiDung: "IPAG xem con người là nguồn lực trung tâm và là tài sản chính của Ngân hàng Năng lực. Đầu tư vào con người là cam kết đầu tư dài hạn nhất của tổ chức — qua môi trường làm nghề, cơ hội trải nghiệm, và sự trợ lực của tập thể."
+        noiDung: "IPAG xem con người là tài sản quan trọng nhất. Vì vậy, tổ chức cam kết đầu tư dài hạn vào con người thông qua môi trường làm nghề, cơ hội trải nghiệm và sự đồng hành của tập thể.<br><br>Mỗi CBNV được trao cơ hội khai phá năng lực tự thân, phát triển năng lực chuyên môn, xây dựng tinh thần làm chủ và ý thức đóng góp cho sự trưởng thành chung của tổ chức."
       },
       {
         icon: "key-round",
         tieuDe: "Trao quyền đi cùng trách nhiệm",
-        noiDung: "Mỗi người được trao thẩm quyền trong phạm vi của mình, cùng tinh thần làm chủ và chịu trách nhiệm với kết quả. Đây là cách IPAG giúp bạn khai phá năng lực tự thân và phát huy trí tuệ tập thể."
+        noiDung: "Mỗi người được trao thẩm quyền trong phạm vi của mình, cùng tinh thần làm chủ và chịu trách nhiệm với kết quả — không có thẩm quyền mà không có trách nhiệm, không có trách nhiệm mà không có thẩm quyền."
       },
       {
         icon: "target",
-        tieuDe: "Đo bằng tác động",
-        noiDung: "Giá trị công việc ở IPAG được đo bằng tác động tích cực tạo ra cho khách hàng, đội ngũ, cổ đông và cộng đồng — không bằng nỗ lực bỏ ra hay số lượng hoạt động."
+        tieuDe: "Bạn được đo bằng tác động",
+        noiDung: "Giá trị công việc không chỉ nằm ở nỗ lực hay số lượng hoạt động, mà ở tác động tích cực tạo ra cho khách hàng, đội ngũ, cổ đông, cộng đồng và tổ chức.<br><br>Mỗi việc làm có giá trị khi góp phần giải quyết vấn đề, cải thiện cách vận hành hoặc làm giàu thêm Ngân hàng Năng lực của IPAG."
       },
       {
-        icon: "sparkles",
-        tieuDe: "Văn hoá EPIC",
-        noiDung: "Cách làm việc ở IPAG được kết tinh trong văn hoá EPIC — <strong>Empowering People to create Impact through Collaboration</strong>. Bạn sẽ được giới thiệu chi tiết về EPIC trong module tiếp theo và trong các chương trình đào tạo hội nhập."
+        icon: "pen-line",
+        tieuDe: "Hành trình bắt đầu từ Một lời cam kết với nghề",
+        noiDung: "Ở cuối giai đoạn Onboarding, mỗi CBNV sẽ viết một lời cam kết với nghề nghiệp của mình: một câu sứ mệnh cá nhân và một câu tầm nhìn hướng đến điều lớn hơn trong hành trình làm nghề.<br><br>Lời cam kết không cần nộp lại, không có sự đánh giá đúng sai. Đó là lời tự nhắc nhở chân thật về lý do mình làm nghề và cách mình muốn phụng sự.<br><br>Đây là điểm khởi đầu của tinh thần <strong>Sống nghề — Phụng sự</strong> tại IPAG."
       },
       {
         icon: "crown",
@@ -272,7 +303,11 @@ const vaiTroContent = {
 // --- 2.3. MODULE: VĂN HOÁ EPIC ---
 const epicContent = {
   tieuDe: "Văn hoá EPIC",
-  moTa: "Để vận hành Ngân hàng Năng lực, IPA Group đã kiến tạo một triết lý quản trị nguồn lực con người hoàn toàn khác biệt — một kiến trúc tổ chức hướng tới con người, nơi mỗi con người sống tỉnh thức sẽ tạo ra một tổ chức tỉnh thức, có khả năng nhận diện, sửa chữa và phát triển liên tục xuyên nhiều thế hệ.",
+  moTa: "EPIC là văn hóa quản trị con người của IPAG, nơi mỗi CBNV tiếp nhận, thực hành và trao truyền những giá trị đã làm nên bản sắc của tổ chức. Thông qua EPIC, mỗi người được dẫn dắt để hiểu mình, hiểu vai trò, hiểu cách IPAG vận hành và từng bước trưởng thành trong hành trình sự nghiệp tại tổ chức.<br><br>EPIC được xây dựng trên bốn giá trị cốt lõi: <strong>Empowering – People – Impact – Collaboration</strong> — trao quyền bằng sự rõ ràng, đặt con người ở trung tâm, hướng đến giá trị thật có thể đo được và cộng tác để tạo nên kết quả lớn hơn từng cá nhân. Đây không phải là một bộ khẩu hiệu, mà là cách IPAG định hướng để mỗi người hiểu đúng vai, kết nối đúng người, cộng đúng việc và tạo đúng giá trị.<br><br>Trong hành trình hội nhập, EPIC đồng hành cùng CBNV mới qua ba chặng: <strong>Văn để Hóa</strong> (Đọc để cảm văn hóa) — <strong>Duyên để Giác</strong> (Thực hành để hiểu nếp sống) — <strong>Hạnh để Hành</strong> (Sống nghề để phụng sự). Qua đó, mỗi người từng bước hình thành nền tảng làm việc có chủ tâm, có kết nối, có trách nhiệm và có đóng góp.<br><br>Tinh thần cốt lõi của EPIC là: con người trưởng thành thì tổ chức trưởng thành. Vì vậy, EPIC không chỉ giúp CBNV mới hòa nhập với IPAG, mà còn mở ra hành trình để mỗi người trưởng thành trong trí tuệ, trong năng lực và trong giá trị mình tạo ra cho tổ chức.<br><br><em>Hãy giữ EPIC Pocket Card như kim chỉ nam để bạn dần hiểu và thấm nhuần văn hóa quản trị EPIC của IPAG.</em>",
+
+  // Tạm ẩn 4 card chữ E-P-I-C bên dưới Pocket Card (07/2026).
+  // Bật lại: đổi thành true. Dữ liệu bonChu vẫn giữ nguyên bên dưới.
+  hienBonChu: false,
 // Chỉ dùng 1 file PNG hi-res duy nhất (export 2x-3x từ Canva).
   // Khi update: export PNG mới, tăng version trong tên file (v7, v8...) để tránh cache.
   pocketCard: {
@@ -477,8 +512,8 @@ const nguonLucContent = {
       {
         ma: "IP",
         tenDayDu: "Bộ phận IP — Đào tạo Hội nhập",
-        moTa: "Liên quan đến chương trình đào tạo hội nhập, hỗ trợ kỹ thuật LMS, tư vấn lộ trình học.",
-        email: "Ms Hoàn Trần — hoan.tranthu@ipam.vn",
+        moTa: "<strong>Kỹ thuật & hệ thống LMS:</strong> Mr Nguyễn Sỹ Đắc — dac.nguyensy@ipam.vn — 0985 511 164 · Ms Nguyễn Thu Hương — huong.nguyenthu13@ipam.vn — 0366 737 557.<br><strong>Lộ trình & chuyên môn đào tạo hội nhập:</strong> đơn vị PTI — Ms Phạm Hiếu Ngân — ngan.phamhieu@ipam.vn — 0963 278 246 · các SBU còn lại — Ms Nguyễn Thu Hương.",
+        email: "huong.nguyenthu13@ipam.vn",
         mauNhan: "orange"
       }
     ]
@@ -536,61 +571,68 @@ const glossaryData = {
 glossaryData.thuatNgu.sort((a, b) => a.term.localeCompare(b.term));
 
 // --- 2.8. MODULE: FAQ ---
-// 5 nhóm, mỗi câu có q (câu hỏi) + a (câu trả lời).
+// Bộ FAQ tổng hợp (07/2026) — 6 nhóm, mỗi câu có q (câu hỏi) + a (câu trả lời).
 const faqData = [
   {
-    nhom: "Phần 1 — IPAG là ai?",
+    nhom: "Phần 1 — Tổng quan & Lộ trình đào tạo hội nhập",
     cacCau: [
-      { q: "Vì sao IPAG tồn tại?", a: "Sau 27 năm quan sát thị trường vốn Việt Nam, IPAG nhận thấy thị trường không thiếu vốn mà thiếu năng lực kết nối vốn với năng lực thực thi. IPAG được hình thành để kết nối nhiều năng lực thành sức mạnh tổng hợp, giúp doanh nghiệp Việt phát huy thế mạnh toàn diện và hướng tới wellbeing." },
-      { q: "IPA Group là ai?", a: "IPA Group là Hệ sinh thái Wellbeing Việt Nam, niêm yết trên Sở Giao dịch Chứng khoán Hà Nội (HNX: IPA), với hơn 32 công ty thành viên và hơn 4.500 cán bộ nhân viên, vận hành theo mô hình Ngân hàng Năng lực." },
-      { q: "IPAG khác gì so với ngân hàng hay công ty quản lý tài sản truyền thống?", a: "IPAG không cạnh tranh với ngân hàng thương mại (quản lý tiền) hay công ty quản lý tài sản (quản lý danh mục đầu tư). IPAG là một kiến trúc tổ chức mới, kiến tạo và kết nối năng lực của hệ sinh thái, đóng gói thành giải pháp toàn diện cho từng doanh nghiệp." },
-      { q: "Mô hình Ngân hàng Năng lực (Capability Bank) là gì?", a: "Là mô hình tổ chức định hình lại cách IPAG đóng gói sản phẩm dịch vụ, kết nối bốn năng lực thiết yếu — công nghệ, quản trị, vốn và nguồn lực con người — qua bốn hạ tầng năng lực tích hợp." },
-      { q: "Tầm nhìn của IPAG là gì?", a: "Mỗi người Việt trong cộng đồng Việt sống tỉnh thức và trọn vẹn mỗi ngày — qua một hệ sinh thái Wellbeing kết nối gia tài trí tuệ, mạng lưới tri thức và năng lực Việt toàn cầu." },
-      { q: "Sứ mệnh của IPAG là gì?", a: "IPA Group đảm nhiệm sứ mệnh của một Ngân hàng Năng lực — kết nối Công nghệ, Con người và Chuỗi giá trị để khai thông dòng vốn cho doanh nghiệp Việt, kiến tạo giải pháp phát triển năng lực toàn diện, và cung ứng giải pháp cho cuộc sống tỉnh thức, trọn vẹn của cộng đồng người Việt." },
-      { q: "IPAG Way gồm những giá trị cốt lõi nào?", a: "Bốn giá trị: <strong>I</strong> — Insight & Integration (Thấu hiểu và Tích hợp); <strong>P</strong> — Pathway & Partnership (Định hướng và Đồng hành); <strong>A</strong> — Action & Accountability (Hành động và Trách nhiệm); <strong>G</strong> — Greatness & Generation (Vượt trội và Xuyên thế hệ)." },
-      { q: "IPAG vận hành qua bao nhiêu hạ tầng năng lực? Đó là gì?", a: "Bốn hạ tầng: IPA Solution (Công nghệ Số), IPA Management (Quản trị Doanh nghiệp), IPA Partners (Đầu tư), và IPA Living (Phân phối Wellbeing)." },
-      { q: "IPA Living phân phối giải pháp Wellbeing theo mấy chiều?", a: "Ba chiều HWG: Sống Khỏe (Health) với Anvie Life, Homefood Macrobiotics, Ong Trung ương; Sống Giàu (Wealth) với VNDGO, VNDirect; Sống An (Grow) với PTIcare, bảo hiểm PTI." },
-      { q: "Những dấu mốc quan trọng trong 27 năm phát triển của IPAG?", a: "1998: thành lập VTS (tiền thân IPAG); 2006: tham gia thành lập VNDirect; 2007-2008: mở rộng định chế tài chính; 2010-2015: củng cố nền tảng; 2016-2017: mở rộng sang bảo hiểm phi nhân thọ (PTI); 2021-2022: định hình mô hình Ngân hàng Năng lực; 2024: định hình ba trụ cột năng lực; 2025-2026: định vị Hệ sinh thái Wellbeing Việt Nam." }
+      { q: "LMS là gì và vì sao tôi cần học trên LMS?", a: "LMS (Learning Management System) là hệ thống học tập trực tuyến chính thức của tổ chức, giúp CBNV học tập thuận tiện, được ghi nhận kết quả và gắn với lộ trình phát triển năng lực." },
+      { q: "Khi nào tôi nhận được thông báo hướng dẫn về việc tham gia đào tạo Hội nhập?", a: "Trong ngày đầu tiên khi gia nhập, thông báo về hướng dẫn tham gia đào tạo Hội nhập sẽ được bộ phận Đào tạo gửi đến email nội bộ của bạn." },
+      { q: "Việc học trên LMS có bắt buộc không?", a: "Có. Với các khóa học được phân công, CBNV cần hoàn thành đúng hạn theo yêu cầu đào tạo của đơn vị." },
+      { q: "LMS có thay thế hoàn toàn lớp học truyền thống không?", a: "Không. LMS được sử dụng song song với đào tạo tập trung hoặc online, tùy từng chương trình." },
+      { q: "Khóa học trên LMS được phân như thế nào và tôi cần tham gia bao nhiêu khóa trong thời gian hội nhập?", a: "Các khóa học được phân theo vị trí công việc, chương trình bắt buộc, lộ trình phát triển hoặc đăng ký tự chọn. Trong thời gian hội nhập, bạn cần hoàn thành các khóa học theo lộ trình sau:<ul><li><strong>Toàn bộ nhân viên mới:</strong> bắt buộc hoàn thành các khóa học trong lộ trình <em>Company Onboarding</em>.</li><li><strong>Nếu bạn thuộc khối Kinh doanh:</strong> bắt buộc hoàn thành thêm các khóa học trong lộ trình <em>Job Onboarding</em>.</li><li>Ngoài ra, sẽ có các khóa học phát sinh theo thời điểm và sẽ có thông báo gửi tới email của bạn.</li></ul>" },
+      { q: "Tôi có thể tự chọn thêm khóa học để học không?", a: "Có. Ngoài khóa bắt buộc, bạn có thể đăng ký các khóa tự chọn trong thư viện học tập." },
+      { q: "Kết quả học trên LMS được sử dụng để làm gì?", a: "Để ghi nhận kết quả quá trình đào tạo hội nhập, đánh giá năng lực và phục vụ phát triển nghề nghiệp cho CBNV." }
     ]
   },
   {
-    nhom: "Phần 2 — Bạn là ai trong hệ sinh thái",
+    nhom: "Phần 2 — Đăng nhập và quản lý tài khoản",
     cacCau: [
-      { q: "Các đơn vị trong IPAG vận hành độc lập hay kết nối với nhau?", a: "Các đơn vị không vận hành độc lập như công ty riêng lẻ, mà kết nối năng lực với nhau, chia sẻ hạ tầng chung làm đòn bẩy và cộng hưởng để cùng phát triển." },
-      { q: "Con người được nhìn nhận như thế nào trong tổ chức?", a: "Con người là nguồn lực trung tâm và là tài sản chính của Ngân hàng Năng lực. Đầu tư vào con người là cam kết đầu tư dài hạn nhất của tổ chức." },
-      { q: "Quyền và trách nhiệm của nhân viên được trao như thế nào?", a: "Mỗi người được trao thẩm quyền trong phạm vi của mình, đi cùng tinh thần làm chủ và chịu trách nhiệm với kết quả." },
-      { q: "Giá trị công việc được đo bằng gì?", a: "Được đo bằng tác động tích cực tạo ra cho khách hàng, đội ngũ, cổ đông và cộng đồng — không bằng nỗ lực bỏ ra hay số lượng hoạt động." },
-      { q: "Văn hóa EPIC là gì?", a: "Văn hóa EPIC — Empowering People to create Impact through Collaboration — là cách làm việc kết tinh tại IPAG, được giới thiệu chi tiết trong module <a onclick='switchModule(\"epic\")' class='text-link'>Văn hoá EPIC</a> và trong các chương trình đào tạo hội nhập." }
+      { q: "Tôi đăng nhập hệ thống bằng cách nào và thông tin tài khoản là gì?", a: "<strong>Cách truy cập:</strong> vào đường link hệ thống E-learning (LMS): <a href='https://lms.ipam.vn/' target='_blank' rel='noopener'>https://lms.ipam.vn/</a><ul><li><strong>Tên đăng nhập:</strong> là user do công ty cấp. Quy tắc: luôn bắt đầu bằng <strong>pti\\</strong> (nếu CBNV thuộc Tổng Công ty Cổ phần Bảo hiểm Bưu điện) hoặc <strong>ipa\\</strong> (đối với CBNV thuộc các công ty khác). <em>Ví dụ: pti\\hoan.tran hoặc ipa\\huong.nguyenthu13</em>.</li><li><strong>Mật khẩu:</strong> là mật khẩu đăng nhập Email/Dlink công ty.</li></ul>" },
+      { q: "Tôi quên mật khẩu hoặc không đăng nhập được thì làm sao?", a: "Bạn vui lòng chọn chức năng <strong>«Quên mật khẩu»</strong> tại màn hình đăng nhập hoặc liên hệ trực tiếp với bộ phận đào tạo/đầu mối quản trị hệ thống để được hỗ trợ cấp lại quyền truy cập." },
+      { q: "Tôi có bắt buộc học bằng máy tính và mạng nội bộ tại công ty không? Có học bằng điện thoại được không?", a: "Không bắt buộc học tại công ty. Bạn hoàn toàn có thể học trên máy tính cá nhân/laptop và mạng wifi/3G/4G tại bất kỳ đâu. Bạn cũng có thể học bằng điện thoại di động, tuy nhiên học bằng máy tính/laptop sẽ ổn định và dễ thao tác hơn." },
+      { q: "Tôi có thể dùng chung tài khoản với người khác không?", a: "Không. Mỗi tài khoản gắn liền với một CBNV duy nhất để ghi nhận kết quả học tập theo cá nhân đó." }
     ]
   },
   {
-    nhom: "Phần 3 — Văn hoá EPIC",
+    nhom: "Phần 3 — Phương pháp học và tiến độ học tập",
     cacCau: [
-      { q: "EPIC là viết tắt của gì?", a: "<strong>Empowering People to create Impact through Collaboration</strong> — Trao quyền cho con người để tạo ra tác động thông qua phương thức hợp tác tập thể." },
-      { q: "E — Empowering nghĩa là gì?", a: "IPAG trao quyền cho tập thể đội ngũ cùng ra quyết định và cùng sở hữu kết quả, là điều kiện để con người khai phá tiềm năng nội lực và phát huy năng lực, trí tuệ tập thể." },
-      { q: "P — People nghĩa là gì?", a: "Con người là nguồn lực trung tâm và tài sản chính của Ngân hàng Năng lực. IPAG đầu tư vào môi trường làm nghề và cơ hội trải nghiệm để mỗi người phát triển trí tuệ, tích lũy tri thức và khám phá năng lực tự thân." },
-      { q: "I — Impact nghĩa là gì?", a: "Giá trị được đo bằng tác động tạo ra, không phải nỗ lực bỏ ra. Tác động tích cực tới wellbeing của khách hàng, đội ngũ, cổ đông và cộng đồng là mục đích công việc, đồng điệu với Action & Accountability trong IPAG Way." },
-      { q: "C — Collaboration nghĩa là gì?", a: "Hợp tác là nguyên tắc vận hành của hệ sinh thái mở. Mỗi đơn vị — IPA Solution, IPA Management, IPA Partners, IPA Living — kết nối, chia sẻ và cộng hưởng giá trị với nhau qua Tích hợp, Hợp lực, Cộng sức và Cộng hưởng xuyên thế hệ." }
+      { q: "Tôi có cần học theo đúng thứ tự bài không?", a: "Tùy thuộc vào từng khóa học. Một số khóa học sẽ có yêu cầu bắt buộc học tuần tự từng bài thì mới được ghi nhận hoàn thành." },
+      { q: "Tôi có thể học ngắt quãng hay phải học liên tục? Hệ thống có tự động lưu tiến độ không?", a: "Bạn hoàn toàn có thể học ngắt quãng, tạm dừng và quay lại học tiếp vào thời điểm khác. Hệ thống sẽ tự động lưu lại tiến độ học tập trước đó của bạn." },
+      { q: "Làm thế nào để được tính là «Hoàn thành» một khóa học cụ thể?", a: "Bạn cần đảm bảo đồng thời <strong>02 điều kiện</strong> sau:<ul><li><strong>Xem hết/đủ nội dung bắt buộc:</strong> xem toàn bộ nội dung, không tua nhanh và không chuyển tab trong quá trình học. Hệ thống sẽ kiểm tra bất kỳ bằng câu hỏi <em>«Bạn có đang học không?»</em>. Nếu học viên không tương tác kịp trong <strong>5 giây</strong>, tiến độ học vừa rồi sẽ tự động bị hủy và hệ thống quay trở lại màn hình chính.</li><li><strong>Hoàn thành bài kiểm tra:</strong> làm các bài quiz và bài kiểm tra cuối khóa đạt từ <strong>80 điểm trở lên</strong>.</li></ul>" },
+      { q: "Làm thế nào để được tính là tôi đã «Hoàn thành» các lộ trình đào tạo hội nhập?", a: "Bạn cần đảm bảo <strong>hoàn thành toàn bộ</strong> các khóa học thuộc lộ trình đã được gửi (ví dụ: hoàn thành hết các khóa trong Company Onboarding hoặc Job Onboarding)." },
+      { q: "Tôi có được cấp chứng nhận sau khóa học không?", a: "Có. Đối với các khóa học đủ điều kiện và có thiết lập chứng nhận, bạn sẽ được nhận chứng nhận và lưu trữ trực tiếp trên hệ thống." },
+      { q: "Tôi có thể xem lại bài học đã hoàn thành không?", a: "Có. Bạn có thể chủ động xem lại video và tài liệu học tập bất cứ lúc nào cần." }
     ]
   },
   {
-    nhom: "Phần 4 — Hành trình hội nhập",
+    nhom: "Phần 4 — Xử lý lỗi và các trường hợp thường gặp",
     cacCau: [
-      { q: "Lộ trình hội nhập (OB) kéo dài bao lâu?", a: "Lộ trình hội nhập kéo dài 60 ngày, là không gian để nhân viên mới định vị bản sắc, xây dựng kết nối và tạo ra tác động thực. Xem chi tiết tại <a onclick='switchModule(\"lo-trinh\")' class='text-link'>Lộ trình 60 ngày</a>." },
-      { q: "Tuần 1 của lộ trình hội nhập tập trung vào điều gì?", a: "Hiểu hệ sinh thái và định vị vai trò cá nhân: đọc sổ tay hội nhập, tìm hiểu SOA (Span of Accountability) cùng FD Head và FC Head, gặp gỡ đội ngũ trong la bàn Dlink, xây dựng kế hoạch làm việc trong la bàn Dwork theo mốc 30-60 ngày." },
-      { q: "Tuần 2-4 của lộ trình hội nhập gồm những hoạt động gì?", a: "Tham gia Company Onboarding, Job Onboarding; tìm hiểu cách đơn vị kết nối với hạ tầng khác; tham gia On-job training, mentor/coaching 1-1 cùng Buddy, FD Head, FC Head; thực hiện nhiệm vụ đầu tiên trong la bàn Dwork; thực hành Nền và Nếp của IPAG qua IPAC Reflect." },
-      { q: "Tháng 2 của lộ trình hội nhập tập trung vào điều gì?", a: "Tăng tốc và ghi dấu: tìm nhịp điệu làm việc cá nhân, tối ưu hiệu suất tại nhiệm vụ FC; tham gia dự án OC khi được trao cơ hội; nhận diện 4 la bàn IPAG Compass sau 2 tháng hội nhập; xây dựng IDP (kế hoạch phát triển cá nhân) cho giai đoạn tiếp theo." },
-      { q: "Có những chương trình đào tạo hội nhập nào?", a: "Company Onboarding và Job Onboarding. Xem danh sách khoá học tại <a onclick='switchModule(\"dao-tao\")' class='text-link'>Chương trình đào tạo</a>." }
+      { q: "Nếu tôi đã làm hết số lần thi cho phép nhưng chưa đạt điểm tối thiểu để hoàn thành thì phải làm sao?", a: "Tùy thuộc vào quy định của từng khóa học, bạn có thể liên hệ đầu mối quản trị hệ thống/bộ phận phụ trách (và đưa ra giải trình hợp lý nếu có) để được hỗ trợ mở thêm số lần thi. Tuy nhiên, bạn nên học thật kỹ lại nội dung kiến thức trước khi làm lại bài thi." },
+      { q: "Tôi thao tác sai trên hệ thống thì có ảnh hưởng đến kết quả không?", a: "Không. Bạn hoàn toàn có thể học lại và thực hiện thao tác lại theo đúng hướng dẫn." },
+      { q: "Tôi gặp lỗi video không chạy hoặc bị giật/lag thì xử lý thế nào?", a: "Bạn hãy kiểm tra lại kết nối Internet, tiến hành tải lại trang (F5) hoặc thử đổi sang trình duyệt khác (hệ thống ưu tiên tối ưu trên Google Chrome)." },
+      { q: "Tôi đã học xong rồi nhưng hệ thống không ghi nhận trạng thái hoàn thành?", a: "Bạn cần kiểm tra lại các yếu tố sau:<ul><li>Đã xem hết nội dung, không tua nhanh, không chuyển tab và đã phản hồi kịp thời (trong 5 giây) các câu hỏi kiểm tra bất ngờ của hệ thống trong lúc học.</li><li>Đã hoàn thành đầy đủ bài kiểm tra/quiz theo đúng điểm số yêu cầu (từ 80 điểm trở lên).</li></ul>" }
     ]
   },
   {
-    nhom: "Phần 5 — Nguồn lực hỗ trợ",
+    nhom: "Phần 5 — Đầu mối liên hệ & hỗ trợ",
     cacCau: [
-      { q: "FD Head là ai?", a: "Là người quản lý trực tiếp trong la bàn dGO, chịu trách nhiệm phát triển nhân viên mới về mặt chuyên môn và năng lực cốt lõi tại IPAG. Xem chi tiết tại <a onclick='switchModule(\"nguon-luc\")' class='text-link'>Mạng lưới đồng hành</a>." },
-      { q: "Buddy là ai và vai trò là gì?", a: "Buddy là đồng nghiệp trong cùng team hoặc cùng chuyên môn, hỗ trợ nhân viên mới nhanh chóng hoà nhập, hiểu văn hoá, nắm bắt công việc và cảm thấy được chào đón. Thông tin chi tiết về Buddy được gửi trong thư chào mừng." },
-      { q: "EPIC Partner là ai?", a: "Là cầu nối giữa nhân viên và bộ phận nhân sự, lắng nghe và hỗ trợ giải quyết các vấn đề liên quan đến nhân sự. Thông tin chi tiết được gửi trong thư chào mừng." },
-      { q: "FC Manager / OC Manager đóng vai trò gì?", a: "Là người giao và dẫn việc, phụ trách công việc và phạm vi nhiệm vụ trong trục Dwork." },
-      { q: "Khi cần hỗ trợ về đào tạo hội nhập, liên hệ đầu mối nào?", a: "Bộ phận IP (liên quan đến chương trình đào tạo hội nhập). Đầu mối liên hệ: <strong>Ms Hoàn Trần — hoan.tranthu@ipam.vn</strong>." }
+      { q: "Tôi có thể liên hệ đầu mối nào để được hỗ trợ vấn đề liên quan đến kỹ thuật và hệ thống LMS?", a: "Bạn có thể liên hệ bộ phận đào tạo, kênh hỗ trợ LMS được công bố trên hệ thống hoặc liên hệ trực tiếp các đầu mối quản trị hệ thống sau:<ul><li><strong>Mr Nguyễn Sỹ Đắc</strong> — dac.nguyensy@ipam.vn — 0985 511 164</li><li><strong>Ms Nguyễn Thu Hương</strong> — huong.nguyenthu13@ipam.vn — 0366 737 557</li></ul>" },
+      { q: "Tôi có thể liên hệ đầu mối nào để hỏi thông tin về lộ trình và chuyên môn đào tạo hội nhập?", a: "Bạn vui lòng liên hệ đầu mối phụ trách theo SBU tương ứng:<ul><li><strong>Đơn vị PTI:</strong> Ms Phạm Hiếu Ngân — ngan.phamhieu@ipam.vn — 0963 278 246</li><li><strong>Các SBU còn lại:</strong> Ms Nguyễn Thu Hương — huong.nguyenthu13@ipam.vn — 0366 737 557</li></ul>" }
+    ]
+  },
+  {
+    nhom: "Phần 6 — Câu hỏi liên quan CnB (Chế độ & Phúc lợi)",
+    cacCau: [
+      { q: "Tôi có thắc mắc về hợp đồng lao động, bảo hiểm và lương thưởng thì liên hệ ai?", a: "Anh/Chị vui lòng liên hệ <strong>Bộ phận C&amp;B</strong> để được hỗ trợ các nội dung liên quan đến Hợp đồng lao động, tiền lương, thưởng, BHXH, BHYT, BHTN, thuế TNCN và các chế độ phúc lợi.<br><br>Ngoài ra, tham khảo các bộ phận khác tại <a href='https://kms.ipas.com.vn/post/danh-ba-dau-moi-ho-tro-doi-ngu.a02852dd-15de-4ef4-bfc9-8c5c11cdbe8f' target='_blank' rel='noopener'>Danh bạ đầu mối hỗ trợ đội ngũ</a>." },
+      { q: "Thời gian làm việc chính thức tại công ty là từ mấy giờ?", a: "Thời gian làm việc thông thường:<ul><li><strong>Thứ Hai đến Thứ Sáu:</strong> từ 08h30 đến 17h30.</li><li><strong>Nghỉ giữa ca:</strong> từ 12h00 đến 13h00, không tính vào thời giờ làm việc.</li><li><strong>Sáng Thứ Bảy:</strong> làm việc khi có phát sinh và theo thông báo của Công ty/Đơn vị.</li></ul>Tùy theo tính chất công việc, một số vị trí hoặc đơn vị có thể áp dụng thời gian làm việc khác. Tuy nhiên, thời gian làm việc được bố trí theo quy định của Công ty, không quá 10 giờ/ngày và 44 giờ/tuần." },
+      { q: "Trong thời gian thử việc tôi có được nghỉ phép không?", a: "Trong thời gian thử việc, Anh/Chị chưa được sử dụng ngày phép năm. Sau khi hoàn thành thử việc và ký Hợp đồng lao động chính thức với Công ty, Anh/Chị được sử dụng phép năm theo quy định; số ngày phép tương ứng với thời gian thử việc sẽ được ghi nhận bổ sung vào quỹ phép." },
+      { q: "Quy trình đánh giá thử việc thực hiện trên hệ thống nào?", a: "Anh/Chị thực hiện quy trình đánh giá thử việc trên hệ thống <strong>iLead</strong> theo thông báo và hướng dẫn của Công ty.<br><br>Khi đến kỳ đánh giá, Anh/Chị cần chủ động hoàn thành nội dung tự đánh giá và phối hợp với Quản lý trực tiếp để hoàn tất quy trình đúng thời hạn." },
+      { q: "Máy nhận diện khuôn mặt không nhận ra tôi, tôi phải báo cho ai?", a: "Anh/Chị vui lòng liên hệ <strong>Bộ phận C&amp;B</strong> để được kiểm tra và hỗ trợ cập nhật thông tin nhận diện khuôn mặt.<br><br>Ngoài ra, tham khảo các bộ phận khác tại <a href='https://kms.ipas.com.vn/post/danh-ba-dau-moi-ho-tro-doi-ngu.a02852dd-15de-4ef4-bfc9-8c5c11cdbe8f' target='_blank' rel='noopener'>Danh bạ đầu mối hỗ trợ đội ngũ</a>." },
+      { q: "Ngày chi trả lương của công ty?", a: "Thực hiện chi trả lương theo kỳ thanh toán áp dụng với từng công ty, cụ thể:<ul><li>Ngày cuối cùng của tháng; hoặc</li><li>Ngày đầu tiên của tháng kế tiếp; hoặc</li><li>Ngày mùng 05 hằng tháng.</li></ul>Trong một số trường hợp, thời điểm chi trả có thể được điều chỉnh sớm hoặc muộn hơn theo kế hoạch thực tế của Công ty, nhưng không quá 07 ngày làm việc so với thời điểm chi trả theo quy định." },
+      { q: "Nếu ngày đầu tiên đi làm tôi chưa kịp chuẩn bị hồ sơ nhân sự thì thời gian chậm nhất để nộp hồ sơ là khi nào?", a: "Trong trường hợp chưa có/chưa đầy đủ hồ sơ, Anh/Chị vui lòng hoàn thành trong vòng <strong>1 tuần làm việc</strong>.<br><br><strong>Đầu mối tiếp nhận hồ sơ:</strong> Bộ phận C&amp;B, VP 95 Trần Thái Tông, Cầu Giấy, Hà Nội." },
+      { q: "Khi nào tôi được tham gia BHXH, BHYT, BHTN tại công ty?", a: "Sau khi hoàn thành thử việc và ký Hợp đồng lao động chính thức với Công ty, Anh/Chị được báo tăng tham gia BHXH, BHYT, BHTN theo quy định.<br><br>Ngoài ra, các chế độ phúc lợi khác Anh/Chị tham khảo tại: <a href='https://id.ipas.com.vn/login?redirect-app=kms' target='_blank' rel='noopener'>KMS — Kho tri thức tập đoàn</a>." },
+      { q: "Nếu thông tin trên hợp đồng lao động bị sai, tôi cần liên hệ ai để điều chỉnh?", a: "Anh/Chị vui lòng liên hệ <strong>Bộ phận C&amp;B</strong> để được kiểm tra và hỗ trợ cập nhật thông tin." }
     ]
   }
 ];
@@ -667,8 +709,8 @@ const daoTaoData = {
    ============================================================================= */
 const globalTips = {
   'ipag-la-ai': {
-    tieuDe: "Đọc nhanh trước, đào sâu sau",
-    noiDung: "Module này có 6 phần — không cần đọc hết trong 1 lần.\n\n1. **Lượt 1:** đọc phần *Định vị* + *Tầm nhìn / Sứ mệnh* để có overview.\n2. **Lượt 2:** đọc *Mô hình vận hành* + *Kiến trúc 4 hạ tầng* khi bạn bắt đầu làm việc với các đơn vị khác.\n3. **Lượt 3:** đọc *27 năm* khi muốn hiểu rõ tổ chức đã đi qua những đâu.\n\nMẹo: tap vào con số ở đầu module để xem nhanh."
+    tieuDe: "Đọc theo Nhịp Đếm — không cần thuộc lòng",
+    noiDung: "Module này có 6 nhịp: **Một nhà · Hai nền tảng · Ba tầng · Bốn la bàn · Năm nếp nhà · Sáu vườn ươm** — không cần đọc hết trong 1 lần.\n\n1. **Lượt 1:** đọc nhịp *Một* để hiểu ngôi nhà, tầm nhìn và sứ mệnh.\n2. **Lượt 2:** đọc *Hai* + *Ba* khi bạn bắt đầu làm việc với các đơn vị khác trong hệ sinh thái.\n3. **Lượt 3:** đọc *Bốn* + *Năm* + *Sáu* song song với chương trình đào tạo hội nhập.\n\nMẹo: tap vào từng nhịp để mở/đóng — chỉ cần bắt đầu từ Một."
   },
   'vai-tro': {
     tieuDe: "Bạn không phải cấp dưới — bạn là một nguồn lực",
@@ -693,7 +735,7 @@ const globalTips = {
   },
   'nguon-luc': {
     tieuDe: "Nguyên tắc 'Hỏi đúng người'",
-    noiDung: "- Chuyên môn, KPI, OKR công việc → Hỏi **FD Head**.\n- Văn hoá team, công cụ làm việc, mẹo hoà nhập → Hỏi **Buddy**.\n- Hợp đồng, lương, bảo hiểm, chế độ → Hỏi **EPIC Partner / CnB**.\n- Lỗi LMS, lộ trình đào tạo → Liên hệ **IP** (Ms Hoàn Trần — hoan.tranthu@ipam.vn).\n- Quy trình, sản phẩm, nhiệm vụ Dwork → Hỏi **FC / OC Manager**."
+    noiDung: "- Chuyên môn, KPI, OKR công việc → Hỏi **FD Head**.\n- Văn hoá team, công cụ làm việc, mẹo hoà nhập → Hỏi **Buddy**.\n- Hợp đồng, lương, bảo hiểm, chế độ → Hỏi **EPIC Partner / CnB**.\n- Lỗi kỹ thuật LMS → **Mr Nguyễn Sỹ Đắc** (dac.nguyensy@ipam.vn) hoặc **Ms Nguyễn Thu Hương** (huong.nguyenthu13@ipam.vn).\n- Lộ trình đào tạo hội nhập → PTI: **Ms Phạm Hiếu Ngân** (ngan.phamhieu@ipam.vn); SBU khác: **Ms Nguyễn Thu Hương**.\n- Quy trình, sản phẩm, nhiệm vụ Dwork → Hỏi **FC / OC Manager**."
   },
   'glossary': {
     tieuDe: "Cách dùng từ điển hiệu quả",
@@ -701,6 +743,6 @@ const globalTips = {
   },
   'faq': {
     tieuDe: "Cách tìm câu trả lời nhanh",
-    noiDung: "FAQ chia làm 5 phần theo chủ đề.\n\n- Gõ vào ô tìm kiếm để lọc câu hỏi theo từ khoá (vd: 'EPIC', 'Buddy', 'báo cáo').\n- Nếu không tìm thấy câu trả lời, liên hệ **IP** (Ms Hoàn Trần — hoan.tranthu@ipam.vn) hoặc **EPIC Partner**."
+    noiDung: "FAQ chia làm 6 phần theo chủ đề.\n\n- Gõ vào ô tìm kiếm để lọc câu hỏi theo từ khoá (vd: 'LMS', 'mật khẩu', 'nghỉ phép').\n- Kỹ thuật & hệ thống LMS: **Mr Nguyễn Sỹ Đắc** — dac.nguyensy@ipam.vn — 0985 511 164, hoặc **Ms Nguyễn Thu Hương** — huong.nguyenthu13@ipam.vn — 0366 737 557.\n- Lộ trình đào tạo hội nhập: PTI — **Ms Phạm Hiếu Ngân**; các SBU còn lại — **Ms Nguyễn Thu Hương**.\n- Chế độ, hợp đồng, lương thưởng → **Bộ phận C&B / EPIC Partner**."
   }
 };

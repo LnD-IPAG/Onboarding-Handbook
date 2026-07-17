@@ -436,6 +436,24 @@ function renderIPAGModule(container) {
       </div>`;
     }
 
+    // Phần có nhóm nền tảng (nhịp Hai) -> mỗi nhóm: tiêu đề + grid card
+    if (phan.nhomNen) {
+      bodyExtra += phan.nhomNen.map(nhom => `
+        <div class="vt-section-title" style="margin-top: 16px;">
+          <i data-lucide="layers"></i> ${nhom.tieuDe}
+        </div>
+        <div class="hatang-grid">
+          ${nhom.cards.map(h => `
+            <div class="hatang-card">
+              <div class="hatang-head"><i data-lucide="${h.icon}"></i> <span class="hatang-name">${h.ten}</span></div>
+              <div class="hatang-sub">${h.phuDe}</div>
+              <div class="hatang-desc">${h.noiDung}</div>
+            </div>
+          `).join('')}
+        </div>
+      `).join('');
+    }
+
     // Phần lịch sử -> render timeline dọc
     if (phan.mocLichSu) {
       bodyExtra += `<div class="lichsu-list">
@@ -461,6 +479,7 @@ function renderIPAGModule(container) {
         <div class="macc-body">
           <p>${phan.noiDung}</p>
           ${bodyExtra}
+          ${phan.ketLuan ? `<div class="vt-nguyentac"><i data-lucide="quote"></i> <em>${phan.ketLuan}</em></div>` : ''}
         </div>
       </div>
     `;
@@ -496,7 +515,10 @@ function renderVaiTroModule(container) {
   // 2. PHẦN CHUNG — chia nguyên lý thành 2 nhóm:
   //    a) Card đơn giản (không có noiDungMoRong) → grid 2×2
   //    b) Card mở rộng (có noiDungMoRong) → full-width phía dưới
-  const nguyenLyThuong = vaiTroContent.chung.nguyenLy.filter(n => !n.noiDungMoRong);
+  // Ẩn nhóm nguyên lý chung (card đơn giản) với các khối khai báo trong
+  // vaiTroContent.anNguyenLyChoKhoi. Card mở rộng (Vai trò lãnh đạo) luôn hiển thị.
+  const anNguyenLy = (vaiTroContent.anNguyenLyChoKhoi || []).includes(state.khoi);
+  const nguyenLyThuong = anNguyenLy ? [] : vaiTroContent.chung.nguyenLy.filter(n => !n.noiDungMoRong);
   const nguyenLyMoRong = vaiTroContent.chung.nguyenLy.filter(n =>  n.noiDungMoRong);
 
   const cardsHtml = nguyenLyThuong.map(n => `
@@ -530,8 +552,8 @@ function renderVaiTroModule(container) {
     `;
   }).join('');
 
-  // 3. Section header "Nguyên lý chung" (chỉ hiện khi có phần riêng ở trên — cho rõ ranh giới)
-  const chungHeader = rieng ? `
+  // 3. Section header "Nguyên lý chung" (chỉ hiện khi có phần riêng ở trên VÀ nhóm nguyên lý không bị ẩn)
+  const chungHeader = (rieng && nguyenLyThuong.length > 0) ? `
     <div class="vt-section-title">
       <i data-lucide="layers"></i> Nguyên lý chung của IPAG
     </div>` : '';
@@ -572,7 +594,8 @@ function renderEpicModule(container) {
     </div>
   `;
 
-  const lettersHtml = `<div class="epic-letter-grid">
+  // 4 card chữ E-P-I-C chỉ render khi epicContent.hienBonChu !== false (config trong content.js)
+  const lettersHtml = epicContent.hienBonChu === false ? '' : `<div class="epic-letter-grid">
     ${epicContent.bonChu.map(c => `
       <div class="epic-letter-card">
         <div class="epic-letter-big">${c.chu}</div>
@@ -900,7 +923,7 @@ function renderFaqModule(container) {
 
   container.innerHTML = `
     <h1 class="module-title">Câu hỏi thường gặp (FAQ)</h1>
-    <p class="module-desc">Tổng hợp các câu hỏi phổ biến về IPAG, văn hoá EPIC, hành trình hội nhập và nguồn lực hỗ trợ.</p>
+    <p class="module-desc">Tổng hợp các câu hỏi thường gặp về hệ thống LMS, lộ trình đào tạo hội nhập, tài khoản, và các chế độ nhân sự (CnB).</p>
 
     <div class="search-bar">
       <i data-lucide="search"></i>
@@ -983,7 +1006,7 @@ function openTip(moduleId) {
     alert("Tip cho phần này đang được biên tập và sẽ sớm ra mắt!");
     return;
   }
-  document.getElementById('pdf-overlay')('modal-title').textContent = tip.tieuDe;
+  document.getElementById('modal-title').textContent = tip.tieuDe;
   let html = parseTipText(tip.noiDung);
   if (tip.anh) {
     html += `<img src="${tip.anh}" onerror="this.src='https://via.placeholder.com/600x300?text=Image+Placeholder'" alt="Minh hoạ" style="width:100%; border-radius:8px; margin-top:16px; border:1px solid var(--border);">`;
