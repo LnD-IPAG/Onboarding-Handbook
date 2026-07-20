@@ -536,7 +536,7 @@ const nguonLucContent = {
   nenTang: {
     tieuDe: "Hệ sinh thái Nền tảng (Platforms)",
     danhSach: [
-      { icon: "monitor-play", tieuDe: "eLearning (LMS)", moTa: "Hệ thống đào tạo trực tuyến tập trung. Nơi bạn tham gia các khoá học Onboarding, làm bài kiểm tra và theo dõi lộ trình phát triển năng lực. <em>Lưu ý: LMS hiện chưa hỗ trợ trên điện thoại — vui lòng truy cập bằng máy tính.</em>",
+      { icon: "monitor-play", tieuDe: "eLearning (LMS)", moTa: "Hệ thống đào tạo trực tuyến. Nơi bạn tham gia các khoá học Onboarding, làm bài kiểm tra và theo dõi lộ trình phát triển năng lực. <em>Lưu ý: LMS hiện chưa hỗ trợ trên điện thoại — vui lòng truy cập bằng máy tính.</em>",
         linkNgoai: { url: "https://id.ipas.com.vn/login?redirect-app=elearning-web", tieuDeNut: "Truy cập tại đây" } },
       { icon: "database",      tieuDe: "KMS",             moTa: "Kho tri thức tập đoàn (Knowledge Management System). Nơi lưu trữ, chia sẻ các tài liệu nghiệp vụ, thư viện số và bài viết chuyên môn từ chuyên gia IPAG.",
         linkNgoai: { url: "https://kms.ivnd.com.vn/", tieuDeNut: "Truy cập tại đây" } },
