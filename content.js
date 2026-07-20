@@ -124,7 +124,7 @@ const welcomeContent = {
   thuChuTich: {
     hienThi: true,
     tieuDe: "Thư từ Chủ tịch gửi người bạn mới của IPA Group",
-    moTa: "Trước khi bắt đầu, hãy dành ít phút đọc bức thư Chủ tịch Phạm Minh Hương gửi riêng cho bạn.",
+    moTa: "Trước khi bắt đầu, hãy dành ít phút đọc bức thư Chủ tịch Phạm Minh Hương gửi người bạn mới.",
     nutMo: "Đọc thư",
     ghiChu: "Tap vào trang thư để mở bản đầy đủ (phóng to / thu nhỏ trực tiếp).",
     anh: [
