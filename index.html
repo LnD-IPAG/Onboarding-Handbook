@@ -686,6 +686,7 @@ function renderDaoTaoModule(container) {
         <div>
           <h1>${daoTaoData.intro.tieuDe}</h1>
           <p>${daoTaoData.intro.moTa}</p>
+          ${daoTaoData.intro.luuY ? `<div class="notice-box"><i data-lucide="monitor-x"></i><span>${daoTaoData.intro.luuY}</span></div>` : ''}
         </div>
         <button class="btn-tip-hero" onclick="openTip('dao-tao')">
           <i data-lucide="lightbulb"></i> ${uiText.tipButton}
@@ -845,7 +846,7 @@ function renderNguonLucModule(container) {
           </div>
           <i data-lucide="chevron-down" class="accordion-chevron"></i>
         </div>
-        <div class="accordion-body"><p>${item.moTa}</p></div>
+        <div class="accordion-body"><p>${item.moTa}</p>${item.linkNgoai ? `<a href="${item.linkNgoai.url}" target="_blank" rel="noopener noreferrer" class="btn-external"><i data-lucide="external-link"></i>${item.linkNgoai.tieuDeNut}</a>` : ''}</div>
       </div>
     `;
   }).join('');

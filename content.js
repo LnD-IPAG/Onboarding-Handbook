@@ -536,10 +536,14 @@ const nguonLucContent = {
   nenTang: {
     tieuDe: "Hệ sinh thái Nền tảng (Platforms)",
     danhSach: [
-      { icon: "monitor-play", tieuDe: "eLearning (LMS)", moTa: "Hệ thống đào tạo trực tuyến tập trung. Nơi bạn tham gia các khoá học Onboarding, làm bài kiểm tra và theo dõi lộ trình phát triển năng lực." },
-      { icon: "database",      tieuDe: "KMS",             moTa: "Kho tri thức tập đoàn (Knowledge Management System). Nơi lưu trữ, chia sẻ các tài liệu nghiệp vụ, thư viện số và bài viết chuyên môn từ chuyên gia IPAG." },
-      { icon: "file-text",     tieuDe: "dPolicy",         moTa: "Cổng tra cứu chính sách, quy trình, quy định nội bộ. Đảm bảo mọi hoạt động vận hành luôn tuân thủ đúng quy chuẩn của tập đoàn." },
-      { icon: "check-square",  tieuDe: "iLead",           moTa: "Hệ thống trình duyệt điện tử. Nơi bạn khởi tạo, đề xuất và phê duyệt các yêu cầu, tờ trình, hợp đồng thay cho giấy tờ truyền thống." }
+      { icon: "monitor-play", tieuDe: "eLearning (LMS)", moTa: "Hệ thống đào tạo trực tuyến tập trung. Nơi bạn tham gia các khoá học Onboarding, làm bài kiểm tra và theo dõi lộ trình phát triển năng lực. <em>Lưu ý: LMS hiện chưa hỗ trợ trên điện thoại — vui lòng truy cập bằng máy tính.</em>",
+        linkNgoai: { url: "https://id.ipas.com.vn/login?redirect-app=elearning-web", tieuDeNut: "Truy cập tại đây" } },
+      { icon: "database",      tieuDe: "KMS",             moTa: "Kho tri thức tập đoàn (Knowledge Management System). Nơi lưu trữ, chia sẻ các tài liệu nghiệp vụ, thư viện số và bài viết chuyên môn từ chuyên gia IPAG.",
+        linkNgoai: { url: "https://kms.ivnd.com.vn/", tieuDeNut: "Truy cập tại đây" } },
+      { icon: "file-text",     tieuDe: "dPolicy",         moTa: "Cổng tra cứu chính sách, quy trình, quy định nội bộ. Đảm bảo mọi hoạt động vận hành luôn tuân thủ đúng quy chuẩn của tập đoàn.",
+        linkNgoai: { url: "https://dpolicy.ipam.vn/#/dang-nhap?targetUrl=%2F", tieuDeNut: "Truy cập tại đây" } },
+      { icon: "check-square",  tieuDe: "iLead",           moTa: "Hệ thống trình duyệt điện tử. Nơi bạn khởi tạo, đề xuất và phê duyệt các yêu cầu, tờ trình, hợp đồng thay cho giấy tờ truyền thống.",
+        linkNgoai: { url: "https://ilead.ipam.vn/", tieuDeNut: "Truy cập tại đây" } }
     ]
   }
 };
@@ -661,6 +665,7 @@ const daoTaoData = {
   intro: {
     tieuDe: "Chương trình đào tạo hội nhập",
     moTa: "Toàn bộ khoá học Onboarding được đồng bộ từ lộ trình chuẩn. Click vào nút <em>Tới lớp học LMS</em> để hệ thống tự động chuyển hướng sang LMS.",
+    luuY: "Hệ thống LMS hiện chưa hỗ trợ học trên điện thoại. Bạn vui lòng mở các khoá học bằng <strong>máy tính / laptop</strong> để đảm bảo quá trình học và kết quả được ghi nhận đầy đủ.",
     mucTieu: "Trang bị cho bạn kiến thức nền tảng về IPAG Group, văn hoá tập đoàn, hệ sinh thái sản phẩm và kỹ năng nghiệp vụ.",
     quyDinh: "Hoàn thành đầy đủ tất cả khoá học trong lộ trình đào tạo là một trong những điều kiện để được xác nhận đạt yêu cầu thử việc."
   },
@@ -731,8 +736,8 @@ const globalTips = {
     noiDung: "Bốn nguyên lý ở module này không phải lời slogan. Đây là cách IPAG thực sự đối xử với từng cá nhân.\n\n- Khi bạn được giao một việc → đó là **trao quyền**, không phải chỉ thị.\n- Khi bạn báo cáo → tập trung vào **tác động** (impact), không phải số giờ bỏ ra.\n- Khi bạn thấy điều gì chưa đúng → bạn có **trách nhiệm** lên tiếng."
   },
   'epic': {
-    tieuDe: "Đọc theo nhịp E-P-I-C, không cần thuộc lòng",
-    noiDung: "EPIC Pocket Card chứa toàn bộ tinh thần văn hoá IPAG trong 1 trang.\n\n- **E** trao quyền → **P** vì con người → **I** đo bằng tác động → **C** thông qua hợp tác.\n- Mỗi khi gặp tình huống khó, tự hỏi: *điều này có giúp tạo Impact không? có Empower team không?*\n\nTải PDF gốc để in ra dán bàn làm việc."
+    tieuDe: "EPIC Pocket Card — đọc dần, không cần thuộc lòng",
+    noiDung: "EPIC Pocket Card chứa toàn bộ tinh thần văn hoá quản trị IPAG trong 1 trang.\n\n- Đọc từ trên xuống theo ba chặng: **Văn để Hóa** (cảm văn hoá) → **Duyên để Giác** (thực hành để hiểu) → **Hạnh để Hành** (sống nghề để phụng sự).\n- Mỗi khi gặp tình huống khó, tự hỏi: *điều này có tạo ra tác động thật không? có cùng làm với người khác không?*\n\nBấm vào ảnh để mở bản đầy đủ, phóng to đọc rõ từng phần."
   },
   'lo-trinh': {
     tieuDe: "Mẹo vượt qua 60 ngày hội nhập xuất sắc",
