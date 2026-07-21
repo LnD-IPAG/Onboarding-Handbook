@@ -1200,11 +1200,16 @@ body {
    ============================================================================= */
 @media (max-width: 767px) {
   /* --- WELCOME SCREEN — stack 2 cột thành 1 --- */
+  /* Màn dọc: box trắng tràn hết màn hình, không còn viền navy */
+  #onboarding-screen { padding: 0; }
   .ob-container {
     flex-direction: column;
     max-width: 100%;
-    margin: 12px;
-    border-radius: 12px;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
   .ob-left,
   .ob-right {
@@ -1445,12 +1450,25 @@ body {
 .modal-body .thu-page { margin: 0 0 16px; display: block; cursor: zoom-in; }
 .thu-ghichu { font-size: 12px; color: var(--text-muted); font-style: italic; text-align: center; }
 
-/* Mobile: giữ dạng ngang gọn — icon nhỏ, nút compact, tiết kiệm ~120px chiều cao */
+/* Mobile màn dọc: lưới 2 cột — icon | chữ, nút Đọc thư full-width hàng dưới */
 @media (max-width: 640px) {
-  .thu-box { gap: 10px; padding: 12px; margin-bottom: 16px; }
-  .thu-box-icon { width: 32px; height: 32px; border-radius: 8px; }
-  .thu-box-icon i { width: 18px; height: 18px; }
-  .thu-box-title { font-size: 13px; }
-  .thu-box-desc { font-size: 12px; }
-  .btn-doc-thu { padding: 8px 12px; font-size: 12.5px; }
+  .thu-box {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 10px 12px;
+    align-items: start;
+    padding: 14px;
+    margin-bottom: 16px;
+  }
+  .thu-box-icon { width: 36px; height: 36px; border-radius: 8px; }
+  .thu-box-icon i { width: 19px; height: 19px; }
+  .thu-box-title { font-size: 13.5px; }
+  .thu-box-desc { font-size: 12.5px; }
+  .btn-doc-thu {
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+    font-size: 13px;
+  }
 }
