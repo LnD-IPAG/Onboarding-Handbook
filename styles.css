@@ -1271,6 +1271,8 @@ body {
     padding: 10px 14px;
     gap: 8px;
     flex-wrap: wrap;
+    height: auto;        /* bỏ chiều cao cứng 72px của desktop — header 2 hàng tự co, sticky ghim đúng */
+    min-height: 56px;    /* hàng 1 (hamburger + tiêu đề) vẫn đủ cao */
   }
   .header-breadcrumb {
     font-size: 15px;
