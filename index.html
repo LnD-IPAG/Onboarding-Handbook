@@ -256,8 +256,8 @@ function renderObStep1() {
   Object.keys(sbus).forEach(key => {
     const s = sbus[key];
     const isSel = state.sbu === key ? 'selected' : '';
-    html += `<div class="option-card ${isSel}" onclick="selectSbu('${key}')" style="display:flex; align-items:center; justify-content:center; padding: 24px;">
-               <span class="opt-code" style="margin:0; font-size:22px; text-align:center;">${s.tenDayDu}</span>
+    html += `<div class="option-card option-card-sbu ${isSel}" onclick="selectSbu('${key}')">
+               <span class="opt-code">${s.tenDayDu}</span>
              </div>`;
   });
   html += `</div>`;

@@ -138,7 +138,12 @@ body {
   font-size: 13px;
   color: var(--text-muted);
 }
+
+/* Card chọn SBU (bước 1) — tách style khỏi JS để mobile override được. Giá trị = inline style cũ, desktop không đổi. */
+.option-card-sbu { display: flex; align-items: center; justify-content: center; padding: 24px; }
+.option-card-sbu .opt-code { margin: 0; font-size: 22px; text-align: center; }
 .btn {
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1207,10 +1212,19 @@ body {
     flex: none;
     border-right: none;
   }
+  .ob-left,
+  .ob-right {
+    padding: 24px 20px;
+    flex: none;
+    border-right: none;
+  }
   .ob-left { border-bottom: 1px solid var(--border); }
-  .ob-title { font-size: 24px; }
-  .ob-desc { font-size: 14px; }
-  .ob-logo { max-width: 160px; margin-bottom: 20px; }
+  .ob-title { font-size: 22px; margin-bottom: 12px; }
+  .ob-desc { font-size: 13.5px; line-height: 1.55; }
+  .ob-logo { max-width: 110px; margin-bottom: 14px; }
+  /* Đè inline margin của 2 đoạn intro (khai báo inline trong HTML nên cần !important) */
+  #welcome-loichao { margin-bottom: 10px !important; }
+  #welcome-mota { margin-bottom: 16px !important; }
 
   /* --- SIDEBAR: ẩn mặc định, slide-in dạng overlay --- */
   .sidebar {
@@ -1371,8 +1385,11 @@ body {
   }
 
   /* --- ONBOARDING option cards --- */
-  .grid-options { grid-template-columns: 1fr; }
-  .option-card { padding: 16px 20px; }
+  .grid-options { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .option-card { padding: 14px 12px; }
+  .option-card .opt-code { font-size: 15px; }
+  .option-card-sbu { padding: 16px 10px; }
+  .option-card-sbu .opt-code { font-size: 16px; }
 }
 
 /* =============================================================================
@@ -1428,8 +1445,12 @@ body {
 .modal-body .thu-page { margin: 0 0 16px; display: block; cursor: zoom-in; }
 .thu-ghichu { font-size: 12px; color: var(--text-muted); font-style: italic; text-align: center; }
 
-/* Mobile: box xếp dọc, nút full-width */
+/* Mobile: giữ dạng ngang gọn — icon nhỏ, nút compact, tiết kiệm ~120px chiều cao */
 @media (max-width: 640px) {
-  .thu-box { flex-direction: column; align-items: flex-start; }
-  .btn-doc-thu { width: 100%; justify-content: center; }
+  .thu-box { gap: 10px; padding: 12px; margin-bottom: 16px; }
+  .thu-box-icon { width: 32px; height: 32px; border-radius: 8px; }
+  .thu-box-icon i { width: 18px; height: 18px; }
+  .thu-box-title { font-size: 13px; }
+  .thu-box-desc { font-size: 12px; }
+  .btn-doc-thu { padding: 8px 12px; font-size: 12.5px; }
 }
