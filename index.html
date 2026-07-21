@@ -594,7 +594,7 @@ function renderVaiTroModule(container) {
 function renderBangSimple(bang) {
   const thead = `<thead><tr>${bang.headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>`;
   const tbody = `<tbody>${bang.rows.map(r => `<tr>${r.map((cell, i) => i === 0 ? `<td class="bang-first">${cell}</td>` : `<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody>`;
-  return `<div class="bang-wrapper"><table class="bang-simple">${thead}${tbody}</table></div>`;
+  return `<div class="bang-wrapper"><div class="bang-scroll"><table class="bang-simple">${thead}${tbody}</table></div></div>`;
 }
 
 // =============================================================================

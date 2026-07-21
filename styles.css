@@ -1003,10 +1003,15 @@ body {
 
 /* --- Bảng đơn giản (reusable) --- */
 .bang-wrapper {
-  overflow-x: auto;
+  position: relative;        /* neo cho dải gradient ::after — khung này KHÔNG cuộn */
   margin: 16px 0;
   border-radius: 10px;
   border: 1px solid var(--border);
+  overflow: hidden;          /* cắt gọn bo góc cho lớp cuộn bên trong */
+}
+.bang-scroll {
+  overflow-x: auto;          /* vùng cuộn ngang thật sự nằm ở đây */
+  -webkit-overflow-scrolling: touch;
 }
 .bang-simple {
   width: 100%;
