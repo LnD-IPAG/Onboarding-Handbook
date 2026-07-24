@@ -80,7 +80,7 @@ const uiText = {
   obBackButton:      "Quay lại chọn đơn vị",
   // Header
   headerContextLabel:"Bạn đang xem:",
-  headerChangeBtn:   "Thay đổi",
+  headerChangeBtn:   "Quay lại trang chủ",
   // Module common
   tipButton:         "Tip / Mẹo",
   emptyTitle:        "Module đang phát triển",
