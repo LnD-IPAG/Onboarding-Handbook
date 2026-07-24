@@ -675,7 +675,12 @@ function renderLoTrinhModule(container) {
 // =============================================================================
 function renderDaoTaoModule(container) {
   const jobCourses = daoTaoData.jobOnboarding.theoKhoi[state.sbu]?.[state.khoi] || [];
-  const companyCount = daoTaoData.companyOnboarding.khoaHoc.length;
+  // Company Onboarding = khoá chung + khoá bổ sung riêng của SBU (nếu có)
+  const companyCourses = [
+    ...(daoTaoData.companyOnboarding.chung || []),
+    ...(daoTaoData.companyOnboarding.theoSBU?.[state.sbu] || [])
+  ];
+  const companyCount = companyCourses.length;
   const jobCount = jobCourses.length;
 
   const heroExtra = `
@@ -716,7 +721,7 @@ function renderDaoTaoModule(container) {
       <span class="badge-count">${companyCount}</span>
     </div>
     <div class="course-grid">
-      ${daoTaoData.companyOnboarding.khoaHoc.map(renderCourseCard).join('')}
+      ${companyCourses.map(renderCourseCard).join('')}
     </div>
 
     <div class="section-header" id="section-job">

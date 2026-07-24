@@ -693,55 +693,34 @@ const daoTaoData = {
     quyDinh: "Hoàn thành đầy đủ tất cả khoá học trong lộ trình đào tạo là một trong những điều kiện để được xác nhận đạt yêu cầu thử việc."
   },
 
-  // Khoá học chung — cho mọi SBU
+  // Company Onboarding — schema: chung (mọi SBU) + theoSBU (khoá bổ sung riêng)
+  // Cách thêm khoá riêng cho 1 SBU: thêm key SBU vào theoSBU với mảng khoá học.
   companyOnboarding: {
-    khoaHoc: [
-      { ten: "IPAG Onboarding (T11/2025)", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/10b2c440-ce36-4d87-bc68-d559387efe2b", batBuoc: true },
-      { ten: "IPAG Compass - La bàn sự nghiệp T6.2026", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/a419ddc9-bd8d-4c39-b41e-47d533c71e92", batBuoc: true },
-      { ten: "Dstation (3 nếp sống)_Anvie Life_T11.2025", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/374fb55d-c134-47e8-a139-1871a3c63895", batBuoc: true },
-      { ten: "Dstation (3 nếp sống)_VNDGO_T11.2025", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/5df888b3-60db-4716-9c7c-0554ebc58e04", batBuoc: true },
-      { ten: "Dstation (3 nếp sống)_PTICARE_T11.2025", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/d0ebfea0-3a04-4156-9030-92a639d018f3", batBuoc: true },
-      { ten: "COE Onboarding (T12.2025)", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/d4449058-78f3-48b4-b157-00dec6bd0e44", batBuoc: true },
+    // Khoá học áp dụng cho MỌI SBU
+    chung: [
       { ten: "SAS - An ninh, Tuân thủ & Giám sát", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/0df99e1a-8c1c-428b-9bd2-f464e397dabc", batBuoc: true },
-      { ten: "Code of conduct_V2", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/650f458a-589a-4d3a-beba-ba8080992e5a", batBuoc: true },
-      { ten: "Nhận thức An ninh thông tin", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/2b1fdadd-fd39-4715-afe4-842f955e09e5", batBuoc: true }
-    ]
+      { ten: "Code of conduct_V2", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/650f453a-589e-4d3a-beba-ba8080392e5a", batBuoc: true },
+      { ten: "Nhận thức An ninh thông tin", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/2b1fdadd-f439-4215-afe4-842f955d09e5", batBuoc: true },
+      { ten: "IPAG Company profile", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/564d0b72-ce29-4a85-9788-0c4551abb60a", batBuoc: true },
+      { ten: "IPAG Compass - La bàn sự nghiệp T6.2026", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/a419ddc9-b38d-4c39-b49a-47d533c71e92", batBuoc: true }
+    ],
+    // Khoá bổ sung riêng theo SBU — hiển thị NGAY SAU danh sách chung
+    theoSBU: {
+      VNDS: [
+        { ten: "Thông tin chung về VNDS", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/54e6eb9c-241a-4e5f-98a1-f900374cd7f2", batBuoc: true }
+      ],
+      PTI: [
+        { ten: "Thông tin chung về PTI", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/c9b1bdfd-dda5-48de-b506-925aec69cecb", batBuoc: true }
+      ]
+      // IPAG, IPAS, ANVIE: chưa có khoá bổ sung riêng -> chỉ hiện danh sách chung
+    }
   },
 
-  // Khoá học theo SBU × Khối — giữ nguyên VNDS, PTI; các SBU khác để khi mở
+  // Job Onboarding — TẠM THỜI ĐỂ TRỐNG cho mọi SBU/khối.
+  // Engine tự hiển thị uiText.daoTaoEmptyJob khi không có khoá học.
+  // Khi có nội dung: thêm lại theo mẫu theoKhoi[SBU][khoi] = [ { ten, moTa, lmsUrl, batBuoc } ]
   jobOnboarding: {
-    theoKhoi: {
-      IPAG: {
-        kinhDoanh: [],
-        backOffice: []
-      },
-      VNDS: {
-        kinhDoanh: [
-          { ten: "Cây doanh nhân", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/37722112-9ce2-47ac-bb2b-7f103079651b", batBuoc: true },
-          { ten: "DGO Life - Nhập môn đầu tư", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/9017b51e-e6b7-49f5-b770-c392d815b78e", batBuoc: true },
-          { ten: "Nguyên tắc chung sản phẩm trái phiếu", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/ead85b35-f9cc-48f0-9870-00d86702085c", batBuoc: true },
-          { ten: "Trái phiếu DBOND", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/847fdc71-cc53-4eec-87f6-a2d71109fbb2", batBuoc: true },
-          { ten: "Trái phiếu VBOND", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/74166fb1-d17e-40b4-9733-30885a00c789", batBuoc: true },
-          { ten: "Sản phẩm Tích sản", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/0fbce4e5-82b1-4f60-9b28-974af6a87b67", batBuoc: true },
-          { ten: "Quỹ mở trái phiếu VNDBF_V2", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/1a59def6-f776-4089-ab5f-dc8a64cdb8f3", batBuoc: true },
-          { ten: "Quỹ mở cổ phiếu VNDAF", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/971c970e-31af-4c09-81c2-d98693f5d81b", batBuoc: true },
-          { ten: "Sản phẩm Quỹ mở trái phiếu linh hoạt VNDCF", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/cf6f2de3-8efd-4c7d-aaf8-1e3e1adbe056", batBuoc: true },
-          { ten: "Dmargin - Giao dịch ký quỹ và ứng trước tiền bán", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/1eec1c28-40b0-4ad2-80a3-82d86c6333e7", batBuoc: true },
-          { ten: "Tư vấn theo 3B (Bạn - Bàn - Bày)_V2", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/061f94ec-9c8e-48bb-a18d-edad1f2df8cd", batBuoc: true },
-          { ten: "Tư vấn đầu tư tích sản", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/8828432c-e11b-4d57-b0f0-8f3569df0b53", batBuoc: true },
-          { ten: "Digital Platform", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/6db7c16d-af40-4edd-a286-031ca3c0da43", batBuoc: true },
-          { ten: "DSR_MG", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/1777c901-b01d-4781-943a-5408096cb0a9", batBuoc: true },
-          { ten: "Bài kiểm tra cuối chương trình Job Onboarding_MG", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/b0814bbe-c97b-433b-8ac9-c82e0fce58bd", batBuoc: true }
-        ],
-        backOffice: [
-          { ten: "Cây doanh nhân", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/37722112-9ce2-47ac-bb2b-7f103079651b", batBuoc: true },
-          { ten: "DGO Life - Nhập môn đầu tư", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/9017b51e-e6b7-49f5-b770-c392d815b78e", batBuoc: true },
-          { ten: "Digital Platform", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/6db7c16d-af40-4edd-a286-031ca3c0da43", batBuoc: true },
-          { ten: "DSR_WA", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/4a80bc5d-b410-4acf-8ed3-3ff996aae4da", batBuoc: true },
-          { ten: "Bài kiểm tra cuối chương trình Job Onboarding_WA", moTa: "Học tập trên hệ thống E-learning nội bộ.", lmsUrl: "https://elearning.ipam.vn/lop-hoc/chi-tiet/97b38bb5-eaad-45fd-bff3-4d2d3070fdff", batBuoc: true }
-        ]
-      }
-    }
+    theoKhoi: {}
   }
 };
 
