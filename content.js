@@ -28,12 +28,12 @@
 // Hiện tại chỉ kích hoạt IPAG. Các SBU khác tạm ẩn (comment //).
 // Khi sẵn sàng, xoá // ở đầu dòng để bật lại.
 const sbus = {
-  IPAG:  { tenDayDu: "IPAG",  khoi: { kinhDoanh: "Khối Kinh doanh", backOffice: "Khối Back office" } },
-  VNDS:  { tenDayDu: "VNDIRECT",       khoi: { kinhDoanh: "Khối Kinh doanh", backOffice: "Khối Back office" } },
-  PTI:   { tenDayDu: "PTI",            khoi: { kinhDoanh: "Khối Kinh doanh", backOffice: "Khối Back office" } },
+  IPAG:  { tenDayDu: "IPAG", khoiMacDinh: "backOffice",  khoi: { kinhDoanh: "Khối Kinh doanh", backOffice: "." } },
+  VNDS:  { tenDayDu: "VNDIRECT",       khoi: { kinhDoanh: "Đội ngũ Kinh doanh", backOffice: "Đội ngũ chuyên môn, nghiệp vụ, share service" } },
+  PTI:   { tenDayDu: "PTI",            khoi: { kinhDoanh: "Đội ngũ Kinh doanh", backOffice: "Đội ngũ chuyên môn, nghiệp vụ, share service" } },
   //IPAM:  { tenDayDu: "IPAM",           khoi: { kinhDoanh: "Khối Kinh doanh", backOffice: "Khối Back office" } },
-  IPAS: { tenDayDu: "IPAS", khoiMacDinh: "backOffice", khoi: { kinhDoanh: "Khối Kinh doanh", backOffice: "Khối Back office" } },
-  ANVIE: { tenDayDu: "ANVIE",          khoi: { kinhDoanh: "Khối Kinh doanh", sanXuat: "Khối Sản xuất", vanHanh: "Khối Vận hành" } }
+  IPAS: { tenDayDu: "IPAS", khoiMacDinh: "backOffice", khoi: { kinhDoanh: "Khối Kinh doanh", backOffice: "." } },
+  ANVIE: { tenDayDu: "ANVIE", khoiMacDinh: "vanHanh", khoi: { kinhDoanh: "Đơn vị Kinh doanh", sanXuat: "Khối Sản xuất", vanHanh: "." } }
 };
 
 // --- 1.2. CẤU TRÚC MENU SIDEBAR ---
@@ -44,7 +44,7 @@ const menuConfig = [
     cacMuc: [
       { id: "ipag-la-ai",     ten: "IPAG là ai?",          icon: "compass" },
       { id: "vai-tro",        ten: "Vai trò của bạn",      icon: "user-cog" },
-      { id: "epic",           ten: "Văn hoá EPIC",         icon: "sparkles" }
+      { id: "epic",           ten: "Văn hoá quản trị EPIC",         icon: "sparkles" }
     ]
   },
   {
@@ -75,8 +75,8 @@ const uiText = {
   sidebarToggleClose:  "Đóng menu",
   sidebarToggleOpen:   "Mở menu",
   // Welcome screen
-  obStep1Title:      "Bạn thuộc đơn vị nào?",
-  obStep2Title:      "Bạn thuộc khối nào trong",
+  obStep1Title:      "Bạn thuộc SBU nào?",
+  obStep2Title:      "Bạn thuộc đội ngũ nào trong",
   obBackButton:      "Quay lại chọn đơn vị",
   // Header
   headerContextLabel:"Bạn đang xem:",
@@ -323,7 +323,7 @@ const vaiTroContent = {
 
 // --- 2.3. MODULE: VĂN HOÁ EPIC ---
 const epicContent = {
-  tieuDe: "Văn hoá EPIC",
+  tieuDe: "Văn hoá quản trị EPIC",
   moTa: "EPIC là văn hóa quản trị con người của IPAG, nơi mỗi CBNV tiếp nhận, thực hành và trao truyền những giá trị đã làm nên bản sắc của tổ chức. Thông qua EPIC, mỗi người được dẫn dắt để hiểu mình, hiểu vai trò, hiểu cách IPAG vận hành và từng bước trưởng thành trong hành trình sự nghiệp tại tổ chức.<br><br>EPIC được xây dựng trên bốn giá trị cốt lõi: <strong>Empowering – People – Impact – Collaboration</strong> — trao quyền bằng sự rõ ràng, đặt con người ở trung tâm, hướng đến giá trị thật có thể đo được và cộng tác để tạo nên kết quả lớn hơn từng cá nhân. Đây không phải là một bộ khẩu hiệu, mà là cách IPAG định hướng để mỗi người hiểu đúng vai, kết nối đúng người, cộng đúng việc và tạo đúng giá trị.<br><br>Trong hành trình hội nhập, EPIC đồng hành cùng CBNV mới qua ba chặng: <strong>Văn để Hóa</strong> (Đọc để cảm văn hóa) — <strong>Duyên để Giác</strong> (Thực hành để hiểu nếp sống) — <strong>Hạnh để Hành</strong> (Sống nghề để phụng sự). Qua đó, mỗi người từng bước hình thành nền tảng làm việc có chủ tâm, có kết nối, có trách nhiệm và có đóng góp.<br><br>Tinh thần cốt lõi của EPIC là: con người trưởng thành thì tổ chức trưởng thành. Vì vậy, EPIC không chỉ giúp CBNV mới hòa nhập với IPAG, mà còn mở ra hành trình để mỗi người trưởng thành trong trí tuệ, trong năng lực và trong giá trị mình tạo ra cho tổ chức.<br><br><em>Hãy giữ EPIC Pocket Card như kim chỉ nam để bạn dần hiểu và thấm nhuần văn hóa quản trị EPIC của IPAG.</em>",
 
   // Tạm ẩn 4 card chữ E-P-I-C bên dưới Pocket Card (07/2026).
@@ -376,9 +376,9 @@ const loTrinhContent = {
       moTaNgan: "Đặt nền móng — hiểu IPAG, hiểu vai trò, gặp đội ngũ.",
       hoatDong: [
         "Đọc trọn cuốn sổ tay hội nhập để tìm hiểu về hệ sinh thái IPAG và bức tranh chung trong giai đoạn hội nhập",
-        "Tìm hiểu vai trò, phạm vi trách nhiệm (SOA – Span of Accountability) cùng với FD Head và FC Head",
-        "Gặp gỡ và hoà nhập cùng đội ngũ trong la bàn Dlink",
-        "Xây dựng kế hoạch làm việc trong la bàn Dwork (theo các mốc 30-60 ngày) cùng FD Head và FC Head"
+        "Tìm hiểu vai trò, phạm vi trách nhiệm (SOA – Span of Accountability) cùng với FCM",
+        "Gặp gỡ và hoà nhập cùng đội ngũ trong la bàn Dlink (Dưới sự hỗ trợ của EPIC Partner - IC, Buddy, FCM)",
+        "Xây dựng kế hoạch làm việc trong la bàn Dwork (theo các mốc 30-60 ngày) cùng FCM"
       ]
     },
     {
@@ -389,10 +389,9 @@ const loTrinhContent = {
       moTaNgan: "Bắt đầu thực hành — hiểu sâu, kết nối, tạo output đầu tiên.",
       hoatDong: [
         "Tham gia các chương trình Company Onboarding, Job Onboarding để hiểu sâu về văn hoá tổ chức và xây dựng các kỹ năng làm việc nền tảng tại IPAG",
-        "Tìm hiểu cách đơn vị của bạn kết nối với hạ tầng khác trong hệ sinh thái",
-        "Tham gia chương trình On-job training, các cuộc mentor 1-1, coaching 1-1 cùng Buddy, FD Head, FC Head để hiểu sâu về hệ thống, quy trình nghiệp vụ, sản phẩm liên quan đến công việc",
+        "Tham gia chương trình On-job training, các cuộc mentor 1-1, coaching 1-1 cùng FD Head, FCM để hiểu sâu về hệ thống, quy trình nghiệp vụ, sản phẩm, và các yêu cầu năng lực liên quan đến vị trí công việc",
         "Bắt đầu thực hiện những nhiệm vụ đầu tiên trong la bàn Dwork đã thống nhất và tạo ra các output đầu tiên",
-        "Thực hành Nền và Nếp của IPAG, thực hiện IPAC Reflect để nhận diện: điều gì đã rõ và điều gì còn cần hỗ trợ từ phía tổ chức"
+        "Thực hành Nền và Nếp của IPAG, thực hiện IPAX Reflect để nhận diện: điều gì đã rõ và điều gì còn cần hỗ trợ từ phía tổ chức (Dưới sự hỗ trợ của EPIC Partner - IC, Buddy, FCM)"
       ]
     },
     {
@@ -402,10 +401,10 @@ const loTrinhContent = {
       mauNhan: "steel",
       moTaNgan: "Tìm nhịp riêng — tối ưu hiệu suất, ghi dấu giá trị.",
       hoatDong: [
-        "Tìm thấy nhịp điệu làm việc của cá nhân, tối ưu hoá hiệu suất tại các nhiệm vụ chức năng FC, ghi dấu bằng những giá trị đóng góp đầu tiên",
+        "Tiếp tục thực hiện các nhiệm vụ FC trong la bàn Dwork theo kế hoạch đã được thống nhất",
         "Tham gia dự án OC khi được trao cơ hội",
-        "Nhận diện 4 la bàn IPAG Compass sau 2 tháng hội nhập",
-        "Xây dựng IDP (Individual Development Plan) cho giai đoạn tiếp theo"
+        "Nhận diện 4 la bàn IPA Map sau 2 tháng hội nhập",
+        "Thực hiện báo cáo hội nhập (Onboarding report) và xây dựng IDP (Individual Development Plan) cho giai đoạn tiếp theo",
       ]
     }
   ]
@@ -486,37 +485,37 @@ const quyDinhContent = {
 
 // --- 2.6. MODULE: MẠNG LƯỚI ĐỒNG HÀNH ---
 const nguonLucContent = {
-  tieuDe: "Mạng lưới đồng hành & Nền tảng",
-  moTa: "Bốn vai trò chính sẽ đồng hành cùng bạn trong la bàn Dlink, cùng các đầu mối hỗ trợ và nền tảng số khác trong hệ sinh thái.",
+  tieuDe: "Mạng lưới đồng hành",
+  moTa: "Ở Một Nhà, bạn có Tam Bảo — Lãnh đạo giỏi · Phương pháp hay · Đồng nghiệp tốt. Mạng lưới đồng hành chính là Tam Bảo ấy hiện ra thành người thật, việc thật quanh bạn — một bên đồng hành cùng bạn lớn lên, một bên đồng hành cùng bạn làm việc mỗi ngày.",
   // 4 vai trò luôn hiện dạng card
   vaiTroChinh: [
     {
       icon: "user-check",
       mauVien: "orange",
       tieuDe: "FD Head",
-      phuDe: "Người quản lý trực tiếp",
-      noiDung: "Người quản lý trực tiếp trong la bàn dGO — chịu trách nhiệm phát triển bạn về mặt chuyên môn và năng lực cốt lõi tại IPAG."
+      phuDe: "Người giữ chuẩn nghề của bạn",
+      noiDung: "Là người chịu trách nhiệm cho cả một miền nghề trong IPAG — không giao việc hằng ngày cho bạn, nhưng là người đặt ra chuẩn để đánh giá bạn đã giỏi nghề đến đâu, và mở lộ trình để bạn lên bậc. Khi bạn muốn biết mình cần học gì để tiến xa hơn trong nghề, đây là người có câu trả lời rõ nhất."
     },
     {
       icon: "user-round-plus",
       mauVien: "navy",
       tieuDe: "Buddy",
       phuDe: "Bạn đồng hành",
-      noiDung: "Đồng nghiệp trong cùng team hoặc cùng chuyên môn, sẽ hỗ trợ bạn nhanh chóng hoà nhập, hiểu văn hoá, nắm bắt công việc và cảm thấy được chào đón trong tổ chức.<br><br><em>Thông tin chi tiết về người bạn đồng hành đã được gửi tới bạn trong thư chào mừng.</em>"
+      noiDung: "Là đồng nghiệp cùng team hoặc cùng chuyên môn, đi cùng bạn những ngày đầu chưa quen việc, chưa quen người. Một Buddy tốt là người khiến bạn được nhớ — nhớ bạn đang vướng gì, đang cần hỏi gì; được hiểu — hiểu con người trước khi góp ý cách làm; và có mặt khi bạn khó, không để bạn tự xoay xở một mình.<br><br><em>Thông tin chi tiết đã được gửi tới bạn trong thư chào mừng.</em>"
     },
     {
       icon: "users",
       mauVien: "orange",
-      tieuDe: "EPIC Partner",
+      tieuDe: "EPIC Partner (iLead Care Partner)",
       phuDe: "Cầu nối với nhân sự",
-      noiDung: "Cầu nối giữa bạn và bộ phận nhân sự, lắng nghe và hỗ trợ bạn giải quyết các vấn đề liên quan đến nhân sự.<br><br><em>Thông tin chi tiết đã được gửi tới bạn trong thư chào mừng.</em>"
+      noiDung: "Là người lắng nghe và gỡ giúp bạn những vướng mắc liên quan đến nhân sự — hợp đồng, chế độ, quy định. Cùng với FD Head và Buddy, EPIC Partner là một trong ba người đồng hành chiều trưởng thành của bạn.<br><br><em>Thông tin chi tiết đã được gửi tới bạn trong thư chào mừng.</em>"
     },
     {
       icon: "briefcase",
       mauVien: "navy",
-      tieuDe: "FC / OC Manager",
+      tieuDe: "FCM / OCM",
       phuDe: "Người giao và dẫn việc",
-      noiDung: "Người giao và dẫn việc — công việc và phạm vi nhiệm vụ trong trục Dwork."
+      noiDung: "Là người xác định công việc cụ thể của bạn mỗi ngày. Nếu công việc của bạn là việc thường xuyên trong một chuỗi giá trị, người dẫn dắt bạn là FCM (Functional Chain Manager). Nếu bạn tham gia một dự án có thời hạn, người dẫn dắt là OCM (Opportunity Chain Manager) — đồng hành cùng bạn đến ngày dự án về đích.<br><br><em>Thông tin chi tiết đã được gửi tới bạn trong thư chào mừng.</em>"
     }
   ],
   // Đầu mối khác — dạng accordion
@@ -525,15 +524,27 @@ const nguonLucContent = {
     danhSach: [
       {
         ma: "CnB",
-        tenDayDu: "Bộ phận CnB (Compensation & Benefits)",
+        tenDayDu: "CnB (Compensation & Benefits)",
         moTa: "Phụ trách chế độ đãi ngộ, lương thưởng, bảo hiểm, phúc lợi cho nhân viên IPAG.",
         email: "(Đầu mối liên hệ theo SBU — vui lòng tham khảo Quản lý trực tiếp)",
         mauNhan: "navy"
       },
       {
         ma: "IP",
-        tenDayDu: "Bộ phận IP — Đào tạo Hội nhập",
-        moTa: "<strong>Kỹ thuật & hệ thống LMS:</strong> Mr Nguyễn Sỹ Đắc — dac.nguyensy@ipam.vn — 0985 511 164 · Ms Nguyễn Thu Hương — huong.nguyenthu13@ipam.vn — 0366 737 557.<br><strong>Lộ trình & chuyên môn đào tạo hội nhập:</strong> đơn vị PTI — Ms Phạm Hiếu Ngân — ngan.phamhieu@ipam.vn — 0963 278 246 · các SBU còn lại — Ms Nguyễn Thu Hương.",
+        tenDayDu: "IP (iLead Partner)",
+        moTa: "Phụ trách Đào tạo và Phát triển năng lực.",
+        // Đầu mối riêng theo SBU — engine tự lọc theo SBU đã chọn ở màn welcome.
+        // Cách thêm/sửa: mỗi SBU là 1 mảng, mỗi người là 1 dòng { ten, email }.
+        dauMoiTheoSBU: {
+          IPAG:  [ { ten: "Ms Nga Đặng",       email: "nga.dang2@ipam.vn" } ],
+          VNDS:  [ { ten: "Ms Mai Hoàng",      email: "mai.vuhoang@ipam.vn" },
+                   { ten: "Ms Thu Hương",      email: "huong.nguyenthu13@ipam.vn" } ],
+          PTI:   [ { ten: "Ms Trần Thu Hằng",  email: "hang.tranthu@ipam.vn" },
+                   { ten: "Ms Phạm Hiếu Ngân", email: "ngan.phamhieu@ipam.vn" } ],
+          IPAS:  [ { ten: "Ms Nga Đặng",       email: "nga.dang2@ipam.vn" } ],
+          ANVIE: [ { ten: "Ms Hoàn Trần",      email: "hoan.tranthu@ipam.vn" } ]
+        },
+        // Dự phòng: hiện khi SBU chưa được khai báo ở trên
         email: "huong.nguyenthu13@ipam.vn",
         mauNhan: "orange"
       }
@@ -543,13 +554,18 @@ const nguonLucContent = {
   nenTang: {
     tieuDe: "Hệ sinh thái Nền tảng (Platforms)",
     danhSach: [
-      { icon: "monitor-play", tieuDe: "eLearning (LMS)", moTa: "Hệ thống đào tạo trực tuyến. Nơi bạn tham gia các khoá học Onboarding, làm bài kiểm tra và theo dõi lộ trình phát triển năng lực. <em>Lưu ý: LMS hiện chưa hỗ trợ trên điện thoại — vui lòng truy cập bằng máy tính.</em>",
-        linkNgoai: { url: "https://id.ipas.com.vn/login?redirect-app=elearning-web", tieuDeNut: "Truy cập tại đây" } },
+      { icon: "monitor-play", tieuDe: "Elearning (LMS)", moTa: "Nền tảng học tập trực tuyến. Nơi bạn tham gia các khoá học theo lộ trình, theo dõi tiến độ và hoàn thành các bài đánh giá năng lực. <br><em>Lưu ý: LMS hiện chưa hỗ trợ trên điện thoại — vui lòng truy cập bằng máy tính.</em>",
+        linkNgoai: { url: "https://id.ipas.com.vn/login?redirect-app=elearning-web", tieuDeNut: "Truy cập tại đây" },
+        tieuDeDauMoi: "Đầu mối hỗ trợ kỹ thuật &amp; hệ thống LMS",
+        dauMoiHoTro: [
+          { ten: "Mr Nguyễn Sỹ Đắc",    email: "dac.nguyensy@ipam.vn" },
+          { ten: "Ms Nguyễn Thu Hương", email: "huong.nguyenthu13@ipam.vn" }
+        ] },
       { icon: "database",      tieuDe: "KMS",             moTa: "Kho tri thức tập đoàn (Knowledge Management System). Nơi lưu trữ, chia sẻ các tài liệu nghiệp vụ, thư viện số và bài viết chuyên môn từ chuyên gia IPAG.",
         linkNgoai: { url: "https://kms.ivnd.com.vn/", tieuDeNut: "Truy cập tại đây" } },
-      { icon: "file-text",     tieuDe: "dPolicy",         moTa: "Cổng tra cứu chính sách, quy trình, quy định nội bộ. Đảm bảo mọi hoạt động vận hành luôn tuân thủ đúng quy chuẩn của tập đoàn.",
+      { icon: "file-text",     tieuDe: "Dpolicy",         moTa: "Cổng tra cứu chính sách, quy trình, quy định nội bộ. Đảm bảo mọi hoạt động vận hành luôn tuân thủ đúng quy chuẩn của tập đoàn.",
         linkNgoai: { url: "https://dpolicy.ipam.vn/#/dang-nhap?targetUrl=%2F", tieuDeNut: "Truy cập tại đây" } },
-      { icon: "check-square",  tieuDe: "iLead",           moTa: "Hệ thống trình duyệt điện tử. Nơi bạn khởi tạo, đề xuất và phê duyệt các yêu cầu, tờ trình, hợp đồng thay cho giấy tờ truyền thống.",
+      { icon: "check-square",  tieuDe: "iLead Platform",           moTa: "Hệ thống trình duyệt điện tử. Nơi bạn khởi tạo, đề xuất và phê duyệt các yêu cầu, tờ trình, hợp đồng thay cho giấy tờ truyền thống.",
         linkNgoai: { url: "https://ilead.ipam.vn/", tieuDeNut: "Truy cập tại đây" } }
     ]
   }

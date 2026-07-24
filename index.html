@@ -36,10 +36,13 @@
       <h1 class="ob-title" id="welcome-title"></h1>
       <p class="ob-desc" id="welcome-loichao" style="margin-bottom: 16px; color: var(--text-main); font-weight: 500;"></p>
       <p class="ob-desc" id="welcome-mota" style="margin-bottom: 24px;"></p>
-      <div id="welcome-thu"></div>
       <p class="ob-desc" id="welcome-huongdan" style="font-style: italic; font-size: 14px;"></p>
     </div>
-    <div class="ob-right" id="ob-step-container"></div>
+    <div class="ob-right">
+      <!-- Box Thư Chủ tịch — nằm trên phần chọn SBU/khối -->
+      <div id="welcome-thu"></div>
+      <div id="ob-step-container"></div>
+    </div>
   </div>
 </section>
 
@@ -326,8 +329,14 @@ function showDashboard() {
 }
 
 function updateHeaderContext() {
-  const sbuName = sbus[state.sbu]?.tenDayDu || state.sbu;
-  const khoiName = sbus[state.sbu]?.khoi[state.khoi] || state.khoi;
+  const sbu = sbus[state.sbu];
+  const sbuName = sbu?.tenDayDu || state.sbu;
+  // SBU có khoiMacDinh -> nhân sự không phải chọn khối, nên chỉ hiện tên SBU
+  if (sbu?.khoiMacDinh) {
+    document.getElementById('header-context-val').textContent = sbuName;
+    return;
+  }
+  const khoiName = sbu?.khoi[state.khoi] || state.khoi;
   document.getElementById('header-context-val').textContent = `${sbuName} - ${khoiName}`;
 }
 
@@ -819,8 +828,15 @@ function renderNguonLucModule(container) {
   `).join('');
 
   // Đầu mối khác — accordion
+  // Hỗ trợ 2 kiểu liên hệ:
+  //   - dauMoiTheoSBU: { SBU: [{ten, email}] }  -> hiện danh sách riêng theo SBU đã chọn
+  //   - email: "..."                            -> dùng khi SBU chưa được khai báo (fallback)
   const dauMoiHtml = nguonLucContent.dauMoiKhac.danhSach.map((item, idx) => {
     const itemId = `daumoi-${idx}`;
+    const dsSbu = item.dauMoiTheoSBU?.[state.sbu];
+    const lienHeHtml = (dsSbu && dsSbu.length)
+      ? dsSbu.map(n => `<div class="accordion-email"><i data-lucide="mail" style="width:14px;"></i> <strong>${n.ten}</strong> — ${n.email}</div>`).join('')
+      : (item.email ? `<div class="accordion-email"><i data-lucide="mail" style="width:14px;"></i> ${item.email}</div>` : '');
     return `
       <div class="accordion-item" id="${itemId}">
         <div class="accordion-header" onclick="toggleAccordion('${itemId}')">
@@ -832,15 +848,20 @@ function renderNguonLucModule(container) {
         </div>
         <div class="accordion-body">
           <p>${item.moTa}</p>
-          <div class="accordion-email"><i data-lucide="mail" style="width:14px;"></i> ${item.email}</div>
+          ${lienHeHtml}
         </div>
       </div>
     `;
   }).join('');
 
-  // Nền tảng — accordion (giữ giống cũ)
+  // Nền tảng — accordion
+  // Hỗ trợ thêm: dauMoiHoTro: [{ten, email}] + tieuDeDauMoi (tuỳ chọn)
   const ntHtml = nguonLucContent.nenTang.danhSach.map((item, idx) => {
     const itemId = `nentang-${idx}`;
+    const dmHtml = (item.dauMoiHoTro && item.dauMoiHoTro.length)
+      ? `<div style="font-weight:600; color:var(--navy); font-size:13px; margin-top:16px; margin-bottom:6px;">${item.tieuDeDauMoi || 'Đầu mối hỗ trợ'}</div>`
+        + item.dauMoiHoTro.map(n => `<div class="accordion-email"><i data-lucide="mail" style="width:14px;"></i> <strong>${n.ten}</strong> — ${n.email}</div>`).join('')
+      : '';
     return `
       <div class="accordion-item" id="${itemId}">
         <div class="accordion-header" onclick="toggleAccordion('${itemId}')">
@@ -852,7 +873,7 @@ function renderNguonLucModule(container) {
           </div>
           <i data-lucide="chevron-down" class="accordion-chevron"></i>
         </div>
-        <div class="accordion-body"><p>${item.moTa}</p>${item.linkNgoai ? `<a href="${item.linkNgoai.url}" target="_blank" rel="noopener noreferrer" class="btn-external"><i data-lucide="external-link"></i>${item.linkNgoai.tieuDeNut}</a>` : ''}</div>
+        <div class="accordion-body"><p>${item.moTa}</p>${item.linkNgoai ? `<a href="${item.linkNgoai.url}" target="_blank" rel="noopener noreferrer" class="btn-external"><i data-lucide="external-link"></i>${item.linkNgoai.tieuDeNut}</a>` : ''}${dmHtml}</div>
       </div>
     `;
   }).join('');

@@ -560,6 +560,14 @@ body {
 .hatang-sub { color: var(--text-muted); font-size: 12.5px; font-style: italic; margin-bottom: 8px; }
 .hatang-desc { font-size: 13.5px; line-height: 1.65; }
 
+/* Số ô lẻ -> ô cuối kéo dài hết chiều ngang để lưới không bị hụt một bên.
+   VD: 3 tầng HWG thì ô "Grow · Sống Vui" trải rộng bằng 2 ô phía trên.
+   Trên mobile lưới đã là 1 cột nên quy tắc này không ảnh hưởng. */
+.hatang-grid > .hatang-card:last-child:nth-child(odd),
+.ipag-way-grid > .ipag-way-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 /* --- LỊCH SỬ 27 NĂM — vertical timeline --- */
 .lichsu-list { margin-top: 16px; padding-left: 8px; }
 .lichsu-item {
