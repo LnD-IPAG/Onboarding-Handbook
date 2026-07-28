@@ -122,9 +122,9 @@ function init() {
   // Inject text vào welcome
   document.getElementById('welcome-brand').textContent = welcomeContent.brand;
   document.getElementById('welcome-title').innerHTML = welcomeContent.tieuDe;
-  document.getElementById('welcome-loichao').textContent = welcomeContent.loiChao;
+  document.getElementById('welcome-loichao').innerHTML = welcomeContent.loiChao;
   document.getElementById('welcome-mota').innerHTML = welcomeContent.moTa;
-  document.getElementById('welcome-huongdan').textContent = welcomeContent.huongDan;
+  document.getElementById('welcome-huongdan').innerHTML = welcomeContent.huongDan;
 
   // Box Thư Chủ tịch (config trong content.js — welcomeContent.thuChuTich)
   const thu = welcomeContent.thuChuTich;
@@ -469,21 +469,23 @@ function renderIPAGModule(container) {
       </div>`;
     }
 
-    // Phần có nhóm nền tảng (nhịp Hai) -> mỗi nhóm: tiêu đề + grid card
+    // Phần có nhóm nền tảng (nhịp Hai) -> mỗi nhóm: tiêu đề + (mô tả) + grid card
     if (phan.nhomNen) {
       bodyExtra += phan.nhomNen.map(nhom => `
         <div class="vt-section-title" style="margin-top: 16px;">
-          <i data-lucide="layers"></i> ${nhom.tieuDe}
+          <i data-lucide="${nhom.icon || 'layers'}"></i> ${nhom.tieuDe}
         </div>
-        <div class="hatang-grid">
+        ${nhom.phuDe ? `<div class="hatang-sub" style="margin: -4px 0 8px 2px;">${nhom.phuDe}</div>` : ''}
+        ${nhom.moTa ? `<p style="margin-bottom: 4px;">${nhom.moTa}</p>` : ''}
+        ${nhom.cards ? `<div class="hatang-grid">
           ${nhom.cards.map(h => `
             <div class="hatang-card">
               <div class="hatang-head"><i data-lucide="${h.icon}"></i> <span class="hatang-name">${h.ten}</span></div>
-              <div class="hatang-sub">${h.phuDe}</div>
+              ${h.phuDe ? `<div class="hatang-sub">${h.phuDe}</div>` : ''}
               <div class="hatang-desc">${h.noiDung}</div>
             </div>
           `).join('')}
-        </div>
+        </div>` : ''}
       `).join('');
     }
 
