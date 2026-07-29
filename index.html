@@ -425,9 +425,130 @@ function toggleMacc(id) {
   }
 }
 
+// Card thu gọn (nhịp phẳng)
+function toggleMcard(head){
+  const card = head.closest('.mcard');
+  const body = card.querySelector('.mcard-body');
+  card.classList.toggle('open');
+  body.style.maxHeight = card.classList.contains('open') ? body.scrollHeight + 'px' : '0';
+}
+// Phần thu gọn (nhịp có nhóm)
+function toggleGroup(head){
+  const p = head.closest('.pcard');
+  const body = p.querySelector('.pcard-body');
+  p.classList.toggle('open');
+  body.style.maxHeight = p.classList.contains('open') ? body.scrollHeight + 'px' : '0';
+}
+// Mở/đóng tất cả Phần + card trong 1 nhịp
+function toggleAll(btn){
+  const macc = btn.closest('.macc-item');
+  const groups = macc.querySelectorAll('.pcard');
+  const cards = macc.querySelectorAll('.mcard');
+  const allOpen = [...groups].every(g => g.classList.contains('open')) &&
+                  [...cards].every(c => c.classList.contains('open'));
+  const willOpen = !allOpen;
+  groups.forEach(g => { const b = g.querySelector('.pcard-body'); g.classList.toggle('open', willOpen); b.style.maxHeight = willOpen ? b.scrollHeight + 'px' : '0'; });
+  cards.forEach(c => { const b = c.querySelector('.mcard-body'); c.classList.toggle('open', willOpen); b.style.maxHeight = willOpen ? b.scrollHeight + 'px' : '0'; });
+  btn.textContent = willOpen ? 'Thu gọn' : 'Mở tất cả';
+}
+// Mở/đóng 1 card thu gọn trong nhịp
+function toggleMcard(head){
+  const card = head.closest('.mcard');
+  const body = card.querySelector('.mcard-body');
+  card.classList.toggle('open');
+  body.style.maxHeight = card.classList.contains('open') ? body.scrollHeight + 'px' : '0';
+}
+
+// Mở/đóng tất cả card trong 1 nhịp
+function toggleAllMcards(btn){
+  const macc = btn.closest('.macc-item');
+  const cards = macc.querySelectorAll('.mcard');
+  const willOpen = ![...cards].every(c => c.classList.contains('open'));
+  cards.forEach(c => {
+    const body = c.querySelector('.mcard-body');
+    c.classList.toggle('open', willOpen);
+    body.style.maxHeight = willOpen ? body.scrollHeight + 'px' : '0';
+  });
+  btn.textContent = willOpen ? 'Thu gọn' : 'Mở tất cả';
+}
 // =============================================================================
 // MODULE: IPAG LÀ AI?
 // =============================================================================
+// Tách câu tagline (chữ <em> đầu, chỉ khi ngắn và có <br><br> theo sau)
+function tachTagline(html){
+  html = html || '';
+  const m = html.match(/^\s*<em>([\s\S]*?)<\/em>\s*(?:<br\s*\/?>\s*){2,}/i);
+  if(m && m[1].length <= 140){ return { tag: m[1], than: html.slice(m[0].length) }; }
+  return { tag: '', than: html };
+}
+
+// Render 1 card thu gọn (tap để mở/đóng)
+function renderMcard(h){
+  return `
+    <div class="mcard">
+      <div class="mcard-head" onclick="toggleMcard(this)">
+        <div class="mcard-ic"><i data-lucide="${h.icon || 'circle'}"></i></div>
+        <div class="mcard-tt">
+          <div class="mcard-name">${h.ten}</div>
+          ${h.phuDe ? `<div class="mcard-sub">${h.phuDe}</div>` : ''}
+        </div>
+        <i data-lucide="chevron-right" class="mcard-chev"></i>
+      </div>
+      <div class="mcard-body"><div class="mcard-text">${h.noiDung}</div></div>
+    </div>`;
+}
+
+// Tách tagline (câu <em> đầu, chỉ khi ngắn + có <br><br> theo sau)
+function tachTagline(html){
+  html = html || '';
+  const m = html.match(/^\s*<em>([\s\S]*?)<\/em>\s*(?:<br\s*\/?>\s*){2,}/i);
+  if(m && m[1].length <= 140){ return { tag: m[1], than: html.slice(m[0].length) }; }
+  return { tag: '', than: html };
+}
+
+// CARD thu gọn tap-mở — dùng ở NHỊP PHẲNG (hangTang)
+function renderMcard(h){
+  return `
+    <div class="mcard">
+      <div class="mcard-head" onclick="toggleMcard(this)">
+        <div class="mcard-ic"><i data-lucide="${h.icon || 'circle'}"></i></div>
+        <div class="mcard-tt">
+          <div class="mcard-name">${h.ten}</div>
+          ${h.phuDe ? `<div class="mcard-sub">${h.phuDe}</div>` : ''}
+        </div>
+        <i data-lucide="chevron-right" class="mcard-chev"></i>
+      </div>
+      <div class="mcard-body"><div class="mcard-text">${h.noiDung}</div></div>
+    </div>`;
+}
+
+// PHẦN thu gọn — mở ra card con hiện đầy đủ. Dùng ở NHỊP CÓ NHÓM (nhomNen)
+function renderPcard(nhom){
+  const cardsHtml = nhom.cards ? `<div class="hatang-grid">
+    ${nhom.cards.map(h => `
+      <div class="hatang-card">
+        <div class="hatang-head"><i data-lucide="${h.icon || 'circle'}"></i> <span class="hatang-name">${h.ten}</span></div>
+        ${h.phuDe ? `<div class="hatang-sub">${h.phuDe}</div>` : ''}
+        <div class="hatang-desc">${h.noiDung}</div>
+      </div>
+    `).join('')}
+  </div>` : '';
+  return `
+    <div class="pcard">
+      <div class="pcard-head" onclick="toggleGroup(this)">
+        <div class="pcard-ic"><i data-lucide="${nhom.icon || 'layers'}"></i></div>
+        <div class="pcard-tt"><div class="pcard-name">${nhom.tieuDe}</div></div>
+        <i data-lucide="chevron-right" class="pcard-chev"></i>
+      </div>
+      <div class="pcard-body"><div class="pcard-inner">
+        ${nhom.phuDe ? `<div class="pcard-sub">${nhom.phuDe}</div>` : ''}
+        ${nhom.moTa ? `<p class="pcard-mota">${nhom.moTa}</p>` : ''}
+        ${cardsHtml}
+        ${nhom.ketNhom ? `<p class="pcard-ket">${nhom.ketNhom}</p>` : ''}
+      </div></div>
+    </div>`;
+}
+
 function renderIPAGModule(container) {
   const statsHtml = `<div class="stats-grid">
     ${iPAGContent.conSo.map(s => `
@@ -441,9 +562,9 @@ function renderIPAGModule(container) {
 
   const phanHtml = iPAGContent.cacPhan.map((phan, idx) => {
     const itemId = `ipag-phan-${idx}`;
+    const { tag, than } = tachTagline(phan.noiDung);
     let bodyExtra = '';
 
-    // Phần có IPAG Way -> render 4 chữ
     if (phan.ipagWay) {
       bodyExtra += `<div class="ipag-way-grid">
         ${phan.ipagWay.map(w => `
@@ -456,41 +577,16 @@ function renderIPAGModule(container) {
       </div>`;
     }
 
-    // Phần có 4 hạ tầng -> render cards
+    // NHỊP PHẲNG -> card thu gọn tap-mở
     if (phan.hangTang) {
-      bodyExtra += `<div class="hatang-grid">
-        ${phan.hangTang.map(h => `
-          <div class="hatang-card">
-            <div class="hatang-head"><i data-lucide="${h.icon}"></i> <span class="hatang-name">${h.ten}</span></div>
-            <div class="hatang-sub">${h.phuDe}</div>
-            <div class="hatang-desc">${h.noiDung}</div>
-          </div>
-        `).join('')}
-      </div>`;
+      bodyExtra += `<div class="mcard-list">${phan.hangTang.map(renderMcard).join('')}</div>`;
     }
 
-    // Phần có nhóm nền tảng (nhịp Hai) -> mỗi nhóm: tiêu đề + (mô tả) + grid card
+    // NHỊP CÓ NHÓM -> mỗi Phần thu gọn, mở ra card con đầy đủ
     if (phan.nhomNen) {
-      bodyExtra += phan.nhomNen.map(nhom => `
-        <div class="vt-section-title" style="margin-top: 16px;">
-          <i data-lucide="${nhom.icon || 'layers'}"></i> ${nhom.tieuDe}
-        </div>
-        ${nhom.phuDe ? `<div class="hatang-sub" style="margin: -4px 0 8px 2px;">${nhom.phuDe}</div>` : ''}
-        ${nhom.moTa ? `<p style="margin-bottom: 4px;">${nhom.moTa}</p>` : ''}
-        ${nhom.cards ? `<div class="hatang-grid">
-          ${nhom.cards.map(h => `
-            <div class="hatang-card">
-              <div class="hatang-head"><i data-lucide="${h.icon}"></i> <span class="hatang-name">${h.ten}</span></div>
-              ${h.phuDe ? `<div class="hatang-sub">${h.phuDe}</div>` : ''}
-              <div class="hatang-desc">${h.noiDung}</div>
-            </div>
-          `).join('')}
-        </div>` : ''}
-        ${nhom.ketNhom ? `<p style="margin-top: 12px;">${nhom.ketNhom}</p>` : ''}
-      `).join('');
+      bodyExtra += `<div class="pcard-list">${phan.nhomNen.map(renderPcard).join('')}</div>`;
     }
 
-    // Phần lịch sử -> render timeline dọc
     if (phan.mocLichSu) {
       bodyExtra += `<div class="lichsu-list">
         ${phan.mocLichSu.map(m => `
@@ -503,17 +599,24 @@ function renderIPAGModule(container) {
       </div>`;
     }
 
+    const hasToggle = !!(phan.hangTang || (phan.nhomNen && phan.nhomNen.some(g => g.cards)));
+    const openAllBar = hasToggle
+      ? `<div class="openall-bar"><button class="openall-btn" onclick="toggleAll(this)">Mở tất cả</button></div>`
+      : '';
+
     return `
       <div class="macc-item" id="${itemId}">
         <div class="macc-head" onclick="toggleMacc('${itemId}')">
-          <div class="macc-icon"><i data-lucide="${phan.icon}"></i></div>
+          <div class="macc-num">${idx + 1}</div>
           <div class="macc-title-wrap">
             <div class="macc-title">${phan.tieuDe}</div>
+            ${tag ? `<div class="macc-tagline">${tag}</div>` : ''}
           </div>
           <i data-lucide="chevron-down" class="macc-chevron"></i>
         </div>
         <div class="macc-body">
-          <p>${phan.noiDung}</p>
+          ${than ? `<p>${than}</p>` : ''}
+          ${openAllBar}
           ${bodyExtra}
           ${phan.ketLuan ? `<div class="vt-nguyentac"><i data-lucide="quote"></i> <em>${phan.ketLuan}</em></div>` : ''}
         </div>
