@@ -582,9 +582,32 @@ function renderNhipDem(content, tipId, idPrefix, container) {
       </div>`;
     }
 
-    // NHỊP PHẲNG -> card thu gọn tap-mở
+    // NHỊP PHẲNG:
+    //  - phan.moSan = true  -> hiển thị THẲNG bằng thẻ tĩnh (lưới 2 cột, không cần tap)
+    //  - mặc định           -> card thu gọn tap-mở
     if (phan.hangTang) {
-      bodyExtra += `<div class="mcard-list">${phan.hangTang.map(renderMcard).join('')}</div>`;
+      if (phan.moSan) {
+        bodyExtra += `<div class="hatang-grid">${phan.hangTang.map(h => `
+          <div class="hatang-card">
+            <div class="hatang-head">${h.icon ? `<i data-lucide="${h.icon}"></i>` : ''}<span class="hatang-name">${h.ten}</span></div>
+            ${h.phuDe ? `<div class="hatang-sub">${h.phuDe}</div>` : ''}
+            <div class="hatang-desc">${h.noiDung}</div>
+          </div>`).join('')}</div>`;
+      } else {
+        bodyExtra += `<div class="mcard-list">${phan.hangTang.map(renderMcard).join('')}</div>`;
+      }
+    }
+
+    // BẢNG VƯỜN ƯƠM (Vườn ươm — Bao gồm) — hiển thị thẳng, không tap
+    if (phan.bangVuonUom) {
+      bodyExtra += `<div class="vuon-list">
+        <div class="vuon-row vuon-head"><div>Vườn ươm</div><div>Bao gồm</div></div>
+        ${phan.bangVuonUom.map(v => `
+          <div class="vuon-row">
+            <div class="vuon-name">${v.ten}</div>
+            <div class="vuon-includes">${v.baoGom}</div>
+          </div>`).join('')}
+      </div>`;
     }
 
     // NHỊP CÓ NHÓM -> mỗi Phần thu gọn, mở ra card con đầy đủ
@@ -613,7 +636,7 @@ function renderNhipDem(content, tipId, idPrefix, container) {
       </div>`;
     }
 
-    const hasToggle = !!(phan.hangTang || (phan.nhomNen && phan.nhomNen.some(g => g.cards)));
+    const hasToggle = !!((phan.hangTang && !phan.moSan) || (phan.nhomNen && phan.nhomNen.some(g => g.cards)));
     const openAllBar = hasToggle
       ? `<div class="openall-bar"><button class="openall-btn" onclick="toggleAll(this)">Mở tất cả</button></div>`
       : '';

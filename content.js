@@ -227,6 +227,7 @@ const iPAGContent = {
       icon: "recycle",
       tieuDe: "Năm — Năm nếp nghề",
       noiDung: "<em>Trà Việt · La Bàn · Soi Sáng · Gửi Trao · Trao Truyền.</em><br><br>Nhịp Năm nói về cách IPAG giữ năng lực kinh doanh trong người, trong việc và trong hệ. Nếu bốn chuỗi là cách lời hứa đi qua vận hành, thì năm nếp nghề là cách người trong chuỗi làm việc có nếp, để năng lực không nằm rời trong một cá nhân, một đội hay một thời điểm.<br><br>Với 5 nếp nghề, người làm nghề trong IPAG đi qua ba vòng:",
+      moSan: true,
       hangTang: [
         { ten: "Thừa kế", phuDe: "Nhận gia tài của người trước", icon: "download", noiDung: "Nhận phần năng lực và chuẩn mực người trước để lại." },
         { ten: "Gửi trao", phuDe: "Làm tốt hơn rồi gửi lại vào hệ", icon: "send", noiDung: "Làm cho phần mình nhận được tốt hơn và gửi lại vào hệ." },
@@ -238,7 +239,15 @@ const iPAGContent = {
       icon: "sprout",
       tieuDe: "Sáu — Sáu vườn ươm",
       noiDung: "<em>Tích đức · Tích nghề · Tích tín.</em><br><br>IPAG có 6 lĩnh vực kinh doanh chính, được gọi là 6 vườn ươm năng lực. Gọi là «vườn ươm» vì mỗi vườn không chỉ vận hành một mảng kinh doanh, mà còn có nhiệm vụ nuôi dưỡng năng lực, phát triển giá trị mới và đóng góp vào mục tiêu chung của Tập đoàn.",
-      ketLuan: "Sáu vườn ươm khác nhau ở lĩnh vực và cách làm nghề, nhưng cùng chung một đích đến: <strong>Wellbeing cho cộng đồng người Việt</strong>. Danh sách sáu vườn ươm cùng ba điều mỗi người IPAG tích lũy — <strong>Tích đức · Tích nghề · Tích tín</strong> — được kể chi tiết ở phần Văn hoá quản trị EPIC."
+      bangVuonUom: [
+        { ten: "1. Tài chính Bền vững",        baoGom: "Chứng khoán · Bảo hiểm · Quản lý Quỹ" },
+        { ten: "2. Công nghệ Sinh học",         baoGom: "NAO Solution · GAO Solution · Khang Tuệ · Bản Địa Việt" },
+        { ten: "3. Thực phẩm Bền vững",         baoGom: "Vietcharm · Delivie · Homefood Vinabee" },
+        { ten: "4. Sức khỏe và Y tế dự phòng",  baoGom: "AnVie Life · AnVie GSF · AnVie CBX" },
+        { ten: "5. Đầu tư ESG",                 baoGom: "Năng lượng Bắc Hà — hai nhà máy thủy điện Nậm Phàng" },
+        { ten: "6. Giáo dục và Đào tạo",        baoGom: "Living MBA — lõi của IPAG" }
+      ],
+      ketLuan: "Sáu vườn ươm khác nhau ở lĩnh vực và cách làm nghề, nhưng cùng chung một đích đến: <strong>Wellbeing cho cộng đồng người Việt</strong>. Ba điều mỗi người IPAG tích lũy — <strong>Tích đức · Tích nghề · Tích tín</strong> — bạn sẽ gặp ở phần Văn hoá quản trị EPIC."
     }
   ]
 };
@@ -453,6 +462,7 @@ const epicContent = {
       icon: "sprout",
       tieuDe: "Sáu — Sáu vườn ươm",
       noiDung: "<em>Tích đức · Tích nghề · Tích tín.</em><br><br>IPAG có 6 lĩnh vực kinh doanh chính, gọi là 6 vườn ươm năng lực. Gọi là «vườn ươm» vì mỗi vườn không chỉ vận hành một mảng kinh doanh, mà còn nuôi dưỡng năng lực, phát triển giá trị mới và đóng góp vào mục tiêu chung của Tập đoàn. Mỗi vườn ươm có một sứ mệnh riêng:",
+      moSan: true,
       hangTang: [
         { ten: "1. Tài chính bền vững", phuDe: "Vốn · chứng khoán · bảo hiểm", icon: "landmark", noiDung: "Ươm năng lực về vốn, chứng khoán và bảo hiểm cho người Việt." },
         { ten: "2. Sức khỏe & Đời sống", phuDe: "Cái ăn · cái ở · chất lượng sống", icon: "heart-pulse", noiDung: "Nuôi dưỡng cách sống thuận tự nhiên, chăm cái ăn, cái ở và chất lượng sống cho mỗi gia đình Việt." },
