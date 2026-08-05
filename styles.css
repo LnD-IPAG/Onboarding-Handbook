@@ -1643,6 +1643,9 @@ body {
 .nhip-thap-info{ display:flex; flex-direction:column; line-height:1.35; }
 .nhip-thap-info strong{ font-size:16px; color:var(--navy); }
 .nhip-thap-info span{ font-size:13px; color:var(--text-muted); }
+.nhip-thap-desc{ font-size:13.5px; color:var(--text-main); line-height:1.55; margin-top:6px; display:block; }
+.nhip-thap-do{ font-size:12.5px; color:var(--orange); font-weight:600; margin-top:6px; display:flex; align-items:center; gap:5px; }
+.nhip-thap-do i{ width:13px; }
 
 /* --- Bảng Vườn ươm — Bao gồm (hiển thị thẳng) --- */
 .vuon-list{

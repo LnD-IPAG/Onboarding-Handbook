@@ -620,7 +620,11 @@ function renderNhipDem(content, tipId, idPrefix, container) {
       bodyExtra += `<div class="nhip-thap">${phan.thap.map(t => `
         <div class="nhip-thap-tier">
           <span class="nhip-thap-chu">${t.chu}</span>
-          <span class="nhip-thap-info"><strong>${t.ten}</strong><span>${t.nhan}</span></span>
+          <span class="nhip-thap-info">
+            <strong>${t.ten}</strong><span>${t.nhan}</span>
+            ${t.noiDung ? `<span class="nhip-thap-desc">${t.noiDung}</span>` : ''}
+            ${t.thuocDo ? `<span class="nhip-thap-do"><i data-lucide="ruler"></i> Thước đo: <strong>${t.thuocDo}</strong></span>` : ''}
+          </span>
         </div>`).join('')}</div>`;
     }
 
