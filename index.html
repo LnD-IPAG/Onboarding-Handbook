@@ -184,7 +184,7 @@ function buildSidebar() {
   const menuEl = document.getElementById('sb-menu');
   let html = '';
   menuConfig.forEach(group => {
-    html += `<div class="menu-group-title">${group.nhom}</div>`;
+    if (group.nhom) html += `<div class="menu-group-title">${group.nhom}</div>`;
     group.cacMuc.forEach(item => {
       html += `<a class="menu-item" data-module="${item.id}" title="${item.ten}" onclick="switchModule('${item.id}')"><i data-lucide="${item.icon}"></i> <span class="menu-item-text">${item.ten}</span></a>`;
     });
@@ -371,6 +371,7 @@ function switchModule(moduleId) {
   document.querySelector('.content-wrapper').scrollTop = 0;
 
   const renderMap = {
+    'dan-nhap':    renderDanNhapModule,
     'ipag-la-ai':  renderIPAGModule,
     'vai-tro':     renderVaiTroModule,
     'epic':        renderEpicModule,
@@ -549,19 +550,23 @@ function renderPcard(nhom){
     </div>`;
 }
 
-function renderIPAGModule(container) {
-  const statsHtml = `<div class="stats-grid">
-    ${iPAGContent.conSo.map(s => `
+// Engine chung cho module "Nhịp Đếm" (IPAG là ai + Văn hoá EPIC).
+//  content : object có { tieuDe, moTa, [conSo], cacPhan[], [ketModule] }
+//  tipId   : id để hiện nút Mẹo ở hero (null = không hiện)
+//  idPrefix : tiền tố id accordion (vd 'ipag', 'epic') — tránh trùng id giữa 2 module
+function renderNhipDem(content, tipId, idPrefix, container) {
+  const statsHtml = content.conSo ? `<div class="stats-grid">
+    ${content.conSo.map(s => `
       <div class="stat-card">
         <i data-lucide="${s.icon}"></i>
         <div class="stat-num">${s.soLieu}</div>
         <div class="stat-label">${s.nhan}</div>
       </div>
     `).join('')}
-  </div>`;
+  </div>` : '';
 
-  const phanHtml = iPAGContent.cacPhan.map((phan, idx) => {
-    const itemId = `ipag-phan-${idx}`;
+  const phanHtml = content.cacPhan.map((phan, idx) => {
+    const itemId = `${idPrefix}-phan-${idx}`;
     const { tag, than } = tachTagline(phan.noiDung);
     let bodyExtra = '';
 
@@ -585,6 +590,15 @@ function renderIPAGModule(container) {
     // NHỊP CÓ NHÓM -> mỗi Phần thu gọn, mở ra card con đầy đủ
     if (phan.nhomNen) {
       bodyExtra += `<div class="pcard-list">${phan.nhomNen.map(renderPcard).join('')}</div>`;
+    }
+
+    // THÁP 3 tầng (vd Tháp Sự Nghiệp HWG ở EPIC nhịp Ba) — render bằng chữ, không ảnh
+    if (phan.thap) {
+      bodyExtra += `<div class="nhip-thap">${phan.thap.map(t => `
+        <div class="nhip-thap-tier">
+          <span class="nhip-thap-chu">${t.chu}</span>
+          <span class="nhip-thap-info"><strong>${t.ten}</strong><span>${t.nhan}</span></span>
+        </div>`).join('')}</div>`;
     }
 
     if (phan.mocLichSu) {
@@ -624,8 +638,17 @@ function renderIPAGModule(container) {
     `;
   }).join('');
 
-  container.innerHTML = renderHero(iPAGContent.tieuDe, iPAGContent.moTa, 'ipag-la-ai', statsHtml) +
-                        `<div class="module-accordion">${phanHtml}</div>`;
+  const ketModuleHtml = content.ketModule
+    ? `<div class="nhip-ket-module"><i data-lucide="flag"></i><p>${content.ketModule}</p></div>`
+    : '';
+
+  container.innerHTML = renderHero(content.tieuDe, content.moTa, tipId, statsHtml) +
+                        `<div class="module-accordion">${phanHtml}</div>` +
+                        ketModuleHtml;
+}
+
+function renderIPAGModule(container) {
+  renderNhipDem(iPAGContent, 'ipag-la-ai', 'ipag', container);
 }
 
 // =============================================================================
@@ -716,39 +739,41 @@ function renderBangSimple(bang) {
 // MODULE: VĂN HOÁ EPIC
 // =============================================================================
 function renderEpicModule(container) {
-  // Mở ảnh gốc ở tab mới — browser tự cung cấp viewer với pinch-zoom (mobile)
-  // và click/scroll zoom (desktop). Không dùng modal/iframe để tương thích Android.
-  const cardHtml = `
-    <div class="epic-card-frame">
-      <a href="${epicContent.pocketCard.anh}" target="_blank" rel="noopener">
-        <img src="${epicContent.pocketCard.anh}" alt="EPIC Pocket Card"
-             class="epic-card-image">
-      </a>
-      <div class="epic-card-caption">${uiText.epicCardCaption}</div>
-      <div class="epic-card-actions">
-        <a class="btn-pdf" href="${epicContent.pocketCard.anh}" target="_blank" rel="noopener">
-          <i data-lucide="maximize" style="width:16px;"></i> ${uiText.epicPdfFullscreen}
-        </a>
-      </div>
-    </div>
-  `;
+  // EPIC nay dùng chung engine "Nhịp Đếm" với module IPAG là ai (6 nhịp accordion).
+  renderNhipDem(epicContent, 'epic', 'epic', container);
+}
 
-  // 4 card chữ E-P-I-C chỉ render khi epicContent.hienBonChu !== false (config trong content.js)
-  const lettersHtml = epicContent.hienBonChu === false ? '' : `<div class="epic-letter-grid">
-    ${epicContent.bonChu.map(c => `
-      <div class="epic-letter-card">
-        <div class="epic-letter-big">${c.chu}</div>
-        <div class="epic-letter-text">
-          <h3>${c.tieuDe}</h3>
-          <div class="epic-sub">${c.phuDe}</div>
-          <p>${c.noiDung}</p>
-        </div>
-      </div>
-    `).join('')}
-  </div>`;
+// =============================================================================
+// MODULE: DẪN NHẬP (thiết kế riêng — không dùng accordion)
+// =============================================================================
+function renderDanNhapModule(container) {
+  const c = danNhapContent;
 
-  container.innerHTML = renderHero(epicContent.tieuDe, epicContent.moTa, 'epic') +
-                        cardHtml + lettersHtml;
+  const truCotHtml = c.truCot.map(t => `
+    <div class="dn-pillar">
+      <div class="dn-pillar-letter">${t.chu}</div>
+      <div class="dn-pillar-name">${t.ten}</div>
+      <div class="dn-pillar-vt">${t.vietTat}</div>
+      <div class="dn-pillar-text">${t.noiDung}</div>
+      ${t.tamBao ? `<div class="dn-tambao">${t.tamBao.map(b => `
+        <div class="dn-tambao-item"><span class="dn-tambao-ma">${b.ma}</span> ${b.vt}</div>`).join('')}</div>` : ''}
+    </div>`).join('');
+
+  container.innerHTML = `
+    <div class="dn-wrap">
+      <div class="dn-hero">
+        <div class="dn-lead">${c.moTaLead}</div>
+        <div class="dn-quote">${c.cauLoi}</div>
+      </div>
+      <p class="dn-para">${c.dienGiai}</p>
+      <div class="dn-diemtua">
+        <span class="dn-diemtua-tag">${c.diemTua.nhan}</span>
+        <span class="dn-diemtua-sub">${c.diemTua.phuDe}</span>
+      </div>
+      <p class="dn-para dn-para--center">${c.dienGiaiIPA}</p>
+      <div class="dn-pillars">${truCotHtml}</div>
+      <div class="dn-ket"><i data-lucide="waypoints"></i><p>${c.ketLuan}</p></div>
+    </div>`;
 }
 
 // =============================================================================
