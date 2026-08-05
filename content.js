@@ -410,9 +410,9 @@ const epicContent = {
       tieuDe: "Ba — Ba dòng một cội: Tháp Sự Nghiệp HWG",
       noiDung: "<em>Health · Wealth · Grow: từ giá trị đến sự nghiệp.</em><br><br>Ba dòng Đạo, Nho, Phật kết tinh ở Trúc Lâm thành một cội chung của người Việt. Từ cội ấy, IPAG dựng nên <strong>Tháp Sự Nghiệp</strong> của bạn — ba tầng H·W·G: nền vững trước, tăng trưởng sau, tuệ giác là đích.",
       thap: [
-        { chu: "G", ten: "Grow", nhan: "Tuệ giác là đích", noiDung: "Tầng tuệ giác — nhìn sâu vào con người, công việc và hệ thống; biết điều gì đáng gìn giữ, điều gì cần chuyển hóa.", thuocDo: "Wisdom to Success" },
-        { chu: "W", ten: "Wealth", nhan: "Tăng trưởng sau", noiDung: "Độ giàu của sự nghiệp — phạm vi trách nhiệm bạn có thể gánh vác: vai trò, tầm ảnh hưởng, khả năng tạo giá trị.", thuocDo: "SOA" },
-        { chu: "H", ten: "Health", nhan: "Nền vững trước", noiDung: "Nền của sự nghiệp — \"sức khỏe nghề nghiệp\", độ chín trong hành vi, sống đúng Nền và Nếp.", thuocDo: "BMI" }
+        { chu: "G", ten: "Grow", nhan: "Sống vui", noiDung: "Tầng tuệ giác — nhìn sâu vào con người, công việc và hệ thống; biết điều gì đáng gìn giữ, điều gì cần chuyển hóa.", thuocDo: "Wisdom to Success" },
+        { chu: "W", ten: "Wealth", nhan: "Sống giàu", noiDung: "Độ giàu của sự nghiệp — phạm vi trách nhiệm bạn có thể gánh vác: vai trò, tầm ảnh hưởng, khả năng tạo giá trị.", thuocDo: "SOA" },
+        { chu: "H", ten: "Health", nhan: "Sống khỏe", noiDung: "Nền của sự nghiệp — \"sức khỏe nghề nghiệp\", độ chín trong hành vi, sống đúng Nền và Nếp.", thuocDo: "BMI" }
       ],
       ketLuan: "💎 Tầng G — tuệ giác — chính là chữ Tuệ, quả cuối cùng của năm nếp nghề bạn sẽ gặp ở Nhịp Năm."
     },
