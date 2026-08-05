@@ -496,17 +496,17 @@ const danNhapContent = {
   tieuDe: "Dẫn nhập",
   moTaLead: "Mọi thiết kế về tổ chức và con người tại IPAG đều bắt nguồn từ một câu duy nhất:",
   cauLoi: "IPA là Nếp Nhà — IPAGer là Nếp Nghề — IPAG là dòng chảy trí tuệ của một tập thể tỉnh thức.",
-  dienGiai: "Đây là nền tảng chuẩn mực văn hóa quản trị, với điểm tựa là <strong>Intention: phụng sự con người</strong>. Nếp nhà giữ người, nếp nghề giữ chuẩn, dòng chảy giữ trí tuệ — nền tảng này bất biến trong mọi thiết kế về tổ chức và con người tại IPA Group.",
+  dienGiai: "Đây là nền tảng chuẩn mực văn hóa quản trị, với điểm tựa là <strong>Intention: phụng sự con người</strong>. Ba chữ I·P·A ấy tạo nên ba điều:<br>• <strong>Nếp Nhà</strong> giữ người<br>• <strong>Nếp Nghề</strong> giữ chuẩn<br>• <strong>Dòng chảy</strong> giữ tuệ<br><br>Nền tảng này bất biến trong mọi thiết kế về tổ chức và con người tại IPA Group.",
   dienGiaiIPA: "Nếp nhà IPA được đọc bằng ba chữ <strong>I · P · A</strong> — và cả ba đều chảy ra từ một điểm tựa duy nhất.",
   diemTua: { nhan: "Intention", phuDe: "Lấy con người làm trung tâm — hướng tới phụng sự" },
   truCot: [
     {
       chu: "I", ten: "Intention", vietTat: "Chí hướng / Chủ đích",
-      noiDung: "Điểm tựa gốc: lấy con người làm trung tâm, hướng tới phụng sự. Mọi thiết kế đều bắt đầu bằng một câu hỏi duy nhất: <em>«Điều này phụng sự ai?»</em> Vì I là điểm tựa chung, cả Tam Bảo đều quy về chữ này:",
+      noiDung: "Điểm tựa gốc: lấy con người làm trung tâm, lấy khách hàng làm trung tâm, hướng tới phụng sự. Mọi thiết kế đều bắt đầu bằng một câu hỏi duy nhất: <em>«Điều này phụng sự ai?»</em> Vì I là điểm tựa chung, cả Tam Bảo đều quy về chữ này:",
       tamBao: [
-        { ma: "COL", vt: "Lãnh đạo giữ Chí hướng" },
-        { ma: "COP", vt: "Chuẩn mực giữ Chuẩn" },
-        { ma: "COE", vt: "Đồng nghiệp giữ Nhịp" }
+        { ma: "COL", vt: "Lãnh đạo (Center of Leadership) giữ Chí hướng" },
+        { ma: "COP", vt: "Chuẩn mực tổ chức (Center of Practice) giữ Chuẩn" },
+        { ma: "COE", vt: "Đồng nghiệp (Center of Excellence) giữ Nhịp" }
       ]
     },
     {
@@ -518,7 +518,7 @@ const danNhapContent = {
       noiDung: "Có mặt đủ lâu thì bắt đầu thấy nhau — thấy rằng mình và người xung quanh không tách rời. Từ ý thức đó: cùng trao quyền · cùng tiếp sức · cùng cộng tác · cùng tạo giá trị."
     }
   ],
-  ketLuan: "Ba chữ ấy làm nên <strong>Nếp Nhà</strong> — ngôi nhà bạn vừa bước vào. Năm nếp theo ngũ hành làm nên <strong>Nếp Nghề</strong> — điều bạn sẽ rèn và mang theo suốt sự nghiệp. Và nhiều thế hệ người IPAG cùng sống những nếp ấy làm nên <strong>IPAG</strong> — chữ G là <em>Generation</em>, dòng chảy trí tuệ xuyên thế hệ mà từ hôm nay, bạn cũng là một phần trong đó."
+  ketLuan: "Ba chữ ấy làm nên <strong>Nếp Nhà</strong> — ngôi nhà bạn vừa bước vào. Năm nếp làm nên <strong>Nếp Nghề</strong> — điều bạn sẽ rèn và mang theo suốt sự nghiệp. Và nhiều thế hệ người IPAG cùng sống những nếp ấy làm nên <strong>IPAG</strong> — chữ G là <em>Generation</em>, dòng chảy trí tuệ xuyên thế hệ mà từ hôm nay, bạn cũng là một phần trong đó."
 };
 
 // --- 2.4. MODULE: LỘ TRÌNH 60 NGÀY ---
