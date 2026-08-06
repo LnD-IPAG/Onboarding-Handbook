@@ -442,19 +442,69 @@ const epicContent = {
       icon: "recycle",
       tieuDe: "Năm — Năm nếp nghề của IPAGer",
       noiDung: "<em>Trà Việt · La Bàn · Soi Sáng · Gửi Trao · Trao Truyền.</em><br><br>Đây là năm bộ kỹ năng sống nghề, đi theo đúng thứ tự bạn sẽ trải qua — không phải năm khóa học rời rạc. Khi bạn biết mình đang gặt quả gì, bạn sẽ thấy rõ hơn vì sao nếp ấy đáng luyện.",
-      hangTang: [
-        { ten: "1. Nếp Trà Việt", phuDe: "Làm Bạn trước khi Bàn việc", icon: "coffee", noiDung: "Làm Bạn trước khi Bàn việc, rồi Bầy cùng nhau. Khi bạn ngồi lại và có mặt với người khác, việc gì cũng nói ra được, giải quyết được. Bàn trà không phân biệt cao thấp — ai cũng được lắng nghe, được thấy, được cảm thông." },
-        { ten: "2. Nếp La Bàn", phuDe: "Đưa việc từ ý định tới lúc làm chủ", icon: "compass", noiDung: "Đưa việc từ ý định tới lúc làm chủ, qua bốn kim: đích, việc, đội nhóm, đường đã đi. <strong>IPAM Way</strong> — phương pháp bên trong nếp này — bắt đầu bằng chữ NHÌN và kết thúc bằng chữ THẤY: có thể nhìn mà không thấy, nhưng không thể thấy mà chưa nhìn." },
-        { ten: "3. Nếp Soi Sáng", phuDe: "Soi tâm · soi tầm · soi trí", icon: "lightbulb", noiDung: "Soi tâm, soi tầm, soi trí — không phải để bị phán xét, mà để chính bạn thấy mình rõ hơn. Đây cũng là nơi mười bốn chuẩn mực ứng xử được sống mỗi ngày." },
-        { ten: "4. Nếp Gửi Trao", phuDe: "Không giữ riêng điều mình học được", icon: "send", noiDung: "Ba việc: gửi khuôn mẫu khi tìm ra cách làm mới đã thử hiệu quả; gửi chữ vào Codebook trước khi dùng; và gửi cả bài học từ những lần thử mà không chạy, vì nó cứu người sau khỏi đi lại đúng con đường ấy." },
-        { ten: "5. Nếp Trao Truyền", phuDe: "Trao cả lý do WHY, không chỉ cách làm HOW", icon: "repeat", noiDung: "Người đi trước kèm người sau, không làm hộ — soi cùng khi người mới làm sai. Trao cả lý do WHY, không chỉ cách làm HOW: người nhận được cách làm thì lặp lại máy móc, người nhận được lý do thì sửa được khi hoàn cảnh đổi." }
-      ],
+      nhomNenTieuDe: "Chi tiết từng nếp",
       nhomNen: [
+        {
+          tieuDe: "1. Nếp Trà Việt",
+          phuDe: "Bạn · Bàn · Bày",
+          icon: "coffee",
+          moTa: "Làm Bạn trước khi Bàn việc, rồi Bày cùng nhau. Ba chữ B, ba tầng sâu:",
+          cards: [
+            { ten: "Bạn", phuDe: "Thấy tận gốc", icon: "search", noiDung: "Gặp được người, hiểu người từ gốc rễ." },
+            { ten: "Bàn", phuDe: "Thông tận ngọn", icon: "messages-square", noiDung: "Hiểu nhu cầu, rủi ro và trải nghiệm của người ấy." },
+            { ten: "Bày", phuDe: "Làm tận tâm", icon: "heart-handshake", noiDung: "Trình bày và làm việc với trái tim." }
+          ],
+          ketNhom: "Khi bạn ngồi lại và có mặt với người khác, việc gì cũng nói ra được, giải quyết được. Bàn trà không phân biệt cao thấp — ai cũng được lắng nghe, được thấy, được cảm thông."
+        },
+        {
+          tieuDe: "2. Nếp La Bàn",
+          phuDe: "IPAM Way",
+          icon: "compass",
+          moTa: "Đưa việc từ ý định tới lúc làm chủ, qua bốn kim: đích, việc, đội nhóm, đường đã đi. <strong>IPAM Way</strong> — phương pháp bên trong nếp này — bắt đầu bằng chữ NHÌN và kết thúc bằng chữ THẤY: có thể nhìn mà không thấy, nhưng không thể thấy mà chưa nhìn."
+        },
+        {
+          tieuDe: "3. Nếp Soi Sáng",
+          phuDe: "Tâm · Tầm · Trí",
+          icon: "lightbulb",
+          moTa: "Soi tâm, soi tầm, soi trí — không phải để bị phán xét, mà để chính bạn thấy mình rõ hơn. Ba khuôn để soi:",
+          cards: [
+            { ten: "SBI", phuDe: "Soi sự việc", icon: "clipboard-list", noiDung: "Kể lại sự việc, mô tả hành vi, rút ra cái thấy." },
+            { ten: "TAC", phuDe: "Soi luồng việc", icon: "workflow", noiDung: "Chuyển hóa, nhân lên, tiếp nối." },
+            { ten: "CAT", phuDe: "Soi người", icon: "heart", noiDung: "Trái tim dẫn, thêm giá trị, rồi trao lại." }
+          ],
+          ketNhom: "Đây cũng là nơi mười bốn chuẩn mực ứng xử được sống mỗi ngày."
+        },
+        {
+          tieuDe: "4. Nếp Gửi Trao",
+          phuDe: "Tứ Quy",
+          icon: "send",
+          moTa: "Làm ra khuôn mẫu để người khác dùng lại. Gửi vào Tứ Quy — bốn tầng chuẩn mực của ngôi nhà:",
+          cards: [
+            { ten: "Quy tắc", icon: "compass", noiDung: "Cái bất biến, kim chỉ nam." },
+            { ten: "Quy chuẩn", icon: "book-open", noiDung: "Từ điển, bản đồ, chuẩn mực." },
+            { ten: "Quy trình", icon: "list-ordered", noiDung: "Cách làm từng bước." },
+            { ten: "Quy định", icon: "ruler", noiDung: "Điều phải giữ, con số cụ thể." }
+          ],
+          ketNhom: "Khi bạn tìm ra cách làm tốt, gửi lại cho hệ thống — để trở thành tài sản chung."
+        },
+        {
+          tieuDe: "5. Nếp Trao Truyền",
+          phuDe: "Dẫn · Dụng · Dưỡng",
+          icon: "repeat",
+          moTa: "Người đi trước kèm người sau, không làm hộ — soi cùng khi người mới làm sai. Trao cả lý do WHY, không chỉ cách làm HOW: người nhận được cách làm thì lặp lại máy móc, người nhận được lý do thì sửa được khi hoàn cảnh đổi."
+        },
         {
           tieuDe: "Năm nếp nuôi nhau theo chu trình liên tục",
           icon: "recycle",
-          moTa: "Năm nếp không đứng riêng lẻ, mà nuôi dưỡng lẫn nhau trong một chu trình không có điểm kết thúc:<span class=\"nhip-flow\">Trà Việt → Soi Sáng → Gửi Trao → La Bàn → Trao Truyền → <em>(quay lại)</em> Trà Việt</span>Mỗi nếp làm dày nếp kế tiếp: bạn gặp người (Trà Việt) rồi soi lại mình (Soi Sáng), từ đó gửi lại kinh nghiệm (Gửi Trao), dùng để làm việc có phương pháp (La Bàn), và kèm người đi sau (Trao Truyền) — rồi lại gặp người mới, chu trình tiếp diễn.<br><br>Còn năm lực — Tín, Tấn, Niệm, Định, Tuệ — chảy theo mạch tích lũy: lực này làm dày lực kia, không ai «học xong» một nếp rồi mới sang nếp khác.<span class=\"nhip-flow nhip-flow--accent\">Tín → Tấn → Niệm → Định → Tuệ = WISDOM (Trí tuệ)</span>Cả mạch năm lực gộp lại thành một chữ: Wisdom — chính là chữ Tuệ ở tầng G của Tháp Sự Nghiệp bạn gặp ở Nhịp Ba."
+          moTa: "Năm nếp không đứng riêng lẻ, mà nuôi dưỡng lẫn nhau trong một chu trình không có điểm kết thúc:<span class=\"nhip-flow\">Trà Việt → Soi Sáng → Gửi Trao → La Bàn → Trao Truyền → <em>(quay lại)</em> Trà Việt</span>Mỗi nếp làm dày nếp kế tiếp: bạn gặp người (Trà Việt) rồi soi lại mình (Soi Sáng), từ đó gửi lại kinh nghiệm (Gửi Trao), dùng để làm việc có phương pháp (La Bàn), và kèm người đi sau (Trao Truyền) — rồi lại gặp người mới, chu trình tiếp diễn.<br><br>Còn năm lực — Tín, Tấn, Niệm, Định, Tuệ — chảy theo mạch tích lũy: lực này làm dày lực kia, không ai «học xong» một nếp rồi mới sang nếp khác. Cả năm nếp, bạn sẽ học và sống cùng lúc, suốt sự nghiệp.<span class=\"nhip-flow nhip-flow--accent\">Tín → Tấn → Niệm → Định → Tuệ = WISDOM (Trí tuệ)</span>Cả mạch năm lực gộp lại thành một chữ: Wisdom — chính là chữ Tuệ ở tầng G của Tháp Sự Nghiệp bạn gặp ở Nhịp Ba."
         }
+      ],
+      bangNep: [
+        { nep: "Nếp Trà Việt",    tag: "Bạn · Bàn · Bày",    yNghia: "Gặp được người trước khi bàn được việc",  qua: "TÍN",  moc: "Có người mình dám hỏi khi chưa biết" },
+        { nep: "Nếp La Bàn",      tag: "IPAM Way",           yNghia: "Đưa việc từ ý định tới làm chủ",          qua: "TẤN",  moc: "Làm được việc dài không cần ai nhắc, và biết lúc dừng" },
+        { nep: "Nếp Soi Sáng",    tag: "Tâm · Tầm · Trí",    yNghia: "Soi việc và soi mình mà không phán xét",  qua: "NIỆM", moc: "Kể lại việc khó mà không lẫn phán xét vào lời kể" },
+        { nep: "Nếp Gửi Trao",    tag: "Tứ Quy",             yNghia: "Làm ra khuôn mẫu để người khác dùng lại", qua: "ĐỊNH", moc: "Có thứ mình làm ra mà người khác dùng lại được" },
+        { nep: "Nếp Trao Truyền", tag: "Dẫn · Dụng · Dưỡng", yNghia: "Người cũ kèm người mới, không làm hộ",    qua: "TUỆ",  moc: "Người mình kèm nay tự làm được, và kèm được người khác" }
       ],
       ketLuan: "Năm nếp ấy là vòng tròn mở rộng dần: một người, rồi một việc, rồi một chuỗi việc, rồi cả hệ, rồi đời sau. Và những nếp ấy sống trong những khu vườn cụ thể — Nhịp Sáu, nhé."
     },
@@ -518,7 +568,7 @@ const danNhapContent = {
       noiDung: "Có mặt đủ lâu thì bắt đầu thấy nhau — thấy rằng mình và người xung quanh không tách rời. Từ ý thức đó: cùng trao quyền · cùng tiếp sức · cùng cộng tác · cùng tạo giá trị."
     }
   ],
-  ketLuan: "Ba chữ ấy làm nên <strong>Nếp Nhà</strong> — ngôi nhà bạn vừa bước vào. Năm nếp làm nên <strong>Nếp Nghề</strong> — điều bạn sẽ rèn và mang theo suốt sự nghiệp. Và nhiều thế hệ người IPAG cùng sống những nếp ấy làm nên <strong>IPAG</strong> — chữ G là <em>Generation</em>, dòng chảy trí tuệ xuyên thế hệ mà từ hôm nay, bạn cũng là một phần trong đó."
+  ketLuan: "Ba chữ ấy làm nên <strong>Nếp Nhà</strong> — ngôi nhà bạn vừa bước vào. Năm nếp làm nên <strong>Nếp Nghề</strong> — điều bạn sẽ rèn và mang theo suốt sự nghiệp. Và nhiều thế hệ người IPAG cùng sống những nếp ấy làm nên <strong>IPAG</strong> — chữ G là <em><strong>Generation</strong></em>, dòng chảy trí tuệ xuyên thế hệ mà từ hôm nay, bạn cũng là một phần trong đó."
 };
 
 // --- 2.4. MODULE: LỘ TRÌNH 60 NGÀY ---

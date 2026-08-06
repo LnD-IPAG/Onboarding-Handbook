@@ -610,11 +610,29 @@ function renderNhipDem(content, tipId, idPrefix, container) {
       </div>`;
     }
 
-    // NHỊP CÓ NHÓM -> mỗi Phần thu gọn, mở ra card con đầy đủ
-    if (phan.nhomNen) {
-      bodyExtra += `<div class="pcard-list">${phan.nhomNen.map(renderPcard).join('')}</div>`;
+    // BẢNG TỔNG KẾT NĂM NẾP (Nếp · Ý nghĩa · Quả · Mốc) — hiển thị thẳng, mobile tự xếp dọc
+    if (phan.bangNep) {
+      bodyExtra += `<div class="nep-table">
+        <div class="nep-row nep-head"><div>Nếp</div><div>Ý nghĩa</div><div>Quả</div><div>Mốc thấy được quả</div></div>
+        ${phan.bangNep.map(r => `
+          <div class="nep-row">
+            <div class="nep-c nep-c-nep">
+              <div class="nep-name">${r.nep}</div>${r.tag ? `<div class="nep-tag">${r.tag}</div>` : ''}
+            </div>
+            <div class="nep-c"><span class="nep-lbl">Ý nghĩa</span><span>${r.yNghia}</span></div>
+            <div class="nep-c nep-c-q"><span class="nep-lbl">Quả</span><span class="nep-pill">${r.qua}</span></div>
+            <div class="nep-c"><span class="nep-lbl">Mốc thấy được quả</span><span>${r.moc}</span></div>
+          </div>`).join('')}
+      </div>`;
     }
 
+    // NHỊP CÓ NHÓM -> mỗi Phần thu gọn, mở ra card con đầy đủ
+    if (phan.nhomNen) {
+      if (phan.nhomNenTieuDe) {
+        bodyExtra += `<div class="nhip-subtitle">${phan.nhomNenTieuDe}</div>`;
+      }
+      bodyExtra += `<div class="pcard-list">${phan.nhomNen.map(renderPcard).join('')}</div>`;
+    }
     // THÁP 3 tầng (vd Tháp Sự Nghiệp HWG ở EPIC nhịp Ba) — render bằng chữ, không ảnh
     if (phan.thap) {
       bodyExtra += `<div class="nhip-thap">${phan.thap.map(t => `
