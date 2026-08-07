@@ -372,6 +372,7 @@ function switchModule(moduleId) {
 
   const renderMap = {
     'dan-nhap':    renderDanNhapModule,
+    'con-nguoi-ipa': renderConNguoiIPAModule,
     'ipag-la-ai':  renderIPAGModule,
     'vai-tro':     renderVaiTroModule,
     'epic':        renderEpicModule,
@@ -598,6 +599,16 @@ function renderNhipDem(content, tipId, idPrefix, container) {
       }
     }
 
+    // BẢNG GENERIC (Nhịp Hai/Ba/Sáu...) — desktop = bảng, mobile = xếp dọc có nhãn.
+    //   phan.bang = { tieuDe?, moTa?, cols:[...], rows:[[cell,...],...] }  (cell cho phép HTML)
+    if (phan.bang) {
+      const b = phan.bang;
+      bodyExtra += `${b.tieuDe ? `<div class="nhip-subtitle">${b.tieuDe}</div>` : ''}${b.moTa ? `<p class="bang-mota">${b.moTa}</p>` : ''}<div class="bang-wrap"><table class="bang">
+        <thead><tr>${b.cols.map(c => `<th>${c}</th>`).join('')}</tr></thead>
+        <tbody>${b.rows.map(r => `<tr>${r.map((cell, ci) => `<td data-label="${b.cols[ci]}">${cell}</td>`).join('')}</tr>`).join('')}</tbody>
+      </table></div>`;
+    }
+
     // BẢNG VƯỜN ƯƠM (Vườn ươm — Bao gồm) — hiển thị thẳng, không tap
     if (phan.bangVuonUom) {
       bodyExtra += `<div class="vuon-list">
@@ -694,6 +705,11 @@ function renderNhipDem(content, tipId, idPrefix, container) {
 
 function renderIPAGModule(container) {
   renderNhipDem(iPAGContent, 'ipag-la-ai', 'ipag', container);
+}
+
+// MODULE: CON NGƯỜI IPA — dùng chung engine "nhịp" (accordion nhomNen/hangTang/bang).
+function renderConNguoiIPAModule(container) {
+  renderNhipDem(conNguoiIPAContent, null, 'cni', container);
 }
 
 // =============================================================================

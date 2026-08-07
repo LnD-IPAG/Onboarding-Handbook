@@ -1779,3 +1779,37 @@ body {
 .nhip-subtitle::before{
   content:""; width:4px; height:14px; background:var(--orange); border-radius:2px; flex:none;
 }
+/* --- Bảng generic dùng chung (Nhịp Hai/Ba/Sáu...) — desktop = bảng, mobile = xếp dọc có nhãn --- */
+.bang-mota{ font-size:13.5px; line-height:1.7; color:var(--text-muted); margin:0 0 12px; }
+.bang-wrap{ margin:6px 0 4px; border:1px solid var(--border); border-radius:12px; overflow:hidden; box-shadow:var(--shadow-sm); }
+table.bang{ width:100%; border-collapse:collapse; font-size:13px; line-height:1.6; }
+table.bang th{
+  background:var(--navy); color:#fff; text-align:left; font-weight:700;
+  font-size:11.5px; text-transform:uppercase; letter-spacing:.4px;
+  padding:11px 14px; vertical-align:top;
+}
+table.bang td{
+  padding:12px 14px; vertical-align:top; border-top:1px solid var(--border);
+  color:var(--text-main);
+}
+table.bang td:first-child{ font-weight:600; color:var(--navy); white-space:normal; }
+table.bang tbody tr:nth-child(even){ background:rgba(4,48,87,0.025); }
+table.bang tbody tr:nth-child(even){ background:rgba(4,48,87,0.025); }
+table.bang strong{ color:var(--navy); }
+table.bang em{ color:var(--steel); font-style:italic; font-weight:600; }
+
+@media (max-width: 768px){
+  /* Mỗi hàng thành 1 thẻ; ô xếp dọc, hiện nhãn cột bằng data-label */
+  table.bang, table.bang thead, table.bang tbody, table.bang tr, table.bang td{ display:block; width:100%; }
+  table.bang thead{ display:none; }
+  table.bang tr{ border-top:4px solid var(--navy); padding:4px 0 8px; }
+  table.bang tr:first-child{ border-top:0; }
+  table.bang td{ border-top:0; padding:8px 14px 0; }
+  table.bang td:first-child{ font-size:15px; padding-top:12px; }
+  table.bang td::before{
+    content:attr(data-label); display:block; margin-bottom:3px;
+    font-size:10.5px; font-weight:700; letter-spacing:.4px; text-transform:uppercase;
+    color:var(--orange);
+  }
+  table.bang td:first-child::before{ color:var(--steel); }
+}
