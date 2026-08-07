@@ -684,7 +684,7 @@ const conNguoiIPAContent = {
     },
     {
       icon: "sparkles",
-      tieuDe: "A · Awareness — Trí tuệ giác EPIC",
+      tieuDe: "A · Awareness — Nếp EPIC",
       noiDung: "<em>Có tỉnh thức: thấy các mối tương quan.</em><br><br>Khi một người có chủ đích và có mặt đủ lâu, người ấy bắt đầu thấy rõ hơn: mình không làm việc một mình, và việc của mình không tách rời việc của người khác. Từ cái thấy ấy sinh ra Awareness — sự tỉnh thức về các mối tương quan.<br><br>Ở IPA, Awareness không chỉ là biết mình đang làm gì, mà còn là thấy việc mình làm đang chạm đến ai, ảnh hưởng đến đội nhóm nào, tạo ra giá trị gì, và để lại điều gì cho người sau. Từ ý thức ấy, Nếp EPIC được sống bằng bốn chữ Cùng:",
       moSan: true,
       hangTang: [
