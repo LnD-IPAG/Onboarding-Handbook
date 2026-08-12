@@ -49,8 +49,8 @@ const menuConfig = [
   {
     nhom: "Hiểu IPAG",
     cacMuc: [
-      { id: "con-nguoi-ipa",  ten: "Con người IPA",         icon: "heart-handshake" },
-      { id: "ipag-la-ai",     ten: "Tập đoàn IPA",          icon: "compass" },
+      { id: "con-nguoi-ipa",  ten: "Nếp nhà IPA",         icon: "heart-handshake" },
+      { id: "ipag-la-ai",     ten: "Kiến trúc IPAG",          icon: "compass" },
       // { id: "epic",           ten: "Văn hoá quản trị EPIC", icon: "sparkles" },  // TẠM ẨN 08/2026 — nội dung đã hợp nhất vào "IPAG là ai" (6 nhịp). Bỏ comment để bật lại.
       { id: "vai-tro",        ten: "Vai trò của bạn",       icon: "user-cog" }
     ]
@@ -151,7 +151,7 @@ const welcomeContent = {
 // Field tuỳ chọn cho mỗi nhịp: ipagWay (grid 4 chữ) / hangTang (grid card) /
 // nhomNen (nhóm card có tiêu đề riêng) / ketLuan (câu chốt dạng quote).
 const iPAGContent = {
-  tieuDe: "Tập đoàn IPA",
+  tieuDe: "Kiến trúc IPAG",
   moTa: "Ngày đầu bước vào một tổ chức mới, điều bạn cần nhất không phải là biết mình ngồi ở đâu, báo cáo cho ai, hay dùng hệ thống nào. Điều quan trọng hơn là hiểu: mình đang bước vào một ngôi nhà như thế nào, ngôi nhà ấy tin vào điều gì, và mình sẽ lớn lên cùng nó ra sao.<br><br>IPAG không tự định nghĩa mình bằng một danh sách công ty hay một sơ đồ tổ chức. IPAG là một bản đồ tích hợp — nơi mọi năng lực, mọi con người, mọi giá trị đều được đếm trên cùng một bàn tay.<br><br><strong>Nhịp Đếm IPAG</strong>— sáu nhịp thật tự nhiên, dẫn bạn từ bức tranh toàn cảnh cho đến đời sống làm việc mỗi ngày. Bản đồ ấy có một cách rất giản dị để bạn đi qua, gọi là Nhịp Đếm IPAG:<br><strong>MỘT NGÔI NHÀ · HAI NĂNG LỰC · BA DÒNG MỘT CỘI THÁP · BỐN CHUỖI MỘT NGÂN HÀNG NĂNG LỰC · NĂM NẾP NGHỀ · SÁU VƯỜN ƯƠM</strong><br><br>Hãy để sáu nhịp ấy dẫn bạn đi — không vội, không áp lực. Chỉ cần bắt đầu từ Một.",
   // 4 con số nổi bật ở hero card đầu module
   conSo: [
@@ -205,7 +205,7 @@ const iPAGContent = {
     },
     {
       icon: "mountain",
-      tieuDe: "Ba — Ba dòng một cội HWG",
+      tieuDe: "Ba — Ba dòng một cội — HWG",
       noiDung: "Ba dòng Đạo, Nho, Phật kết tinh ở Trúc Lâm Yên Tử thành một cội chung của người Việt. Từ cội ấy, IPAG dựng nên tháp HWG là ba tầng của một hành trình sống trọn vẹn: Health — Wealth — Grow. Đó cũng chính là ba nếp mà IPAG vun bồi cho mỗi người, mỗi gia đình — đi từ Sống Khỏe, lên Sống Giàu, tới đỉnh Sống Vui.<br><br>IPAG là một hệ sinh thái rộng lớn với hơn 35 công ty thành viên, hơn 7.000 con người và hàng chục sản phẩm, dịch vụ khác nhau. HWG là sợi chỉ đỏ giữ cho tất cả cùng chảy về một hướng: nền vững trước — tăng trưởng sau — cộng đồng là đích.",
       nhomNen: [
         {
@@ -450,8 +450,8 @@ const epicContent = {
           cards: [
             { ten: "E — Empowering", phuDe: "Cùng trao quyền", icon: "key", noiDung: "Giao việc thì giao cả quyền quyết." },
             { ten: "P — People", phuDe: "Cùng tiếp sức", icon: "hand-heart", noiDung: "Thấy người bên cạnh đuối thì đỡ." },
-            { ten: "I — Impact", phuDe: "Cùng cộng tác", icon: "users-round", noiDung: "Làm cùng nhau là mặc định, làm một mình mới là ngoại lệ." },
-            { ten: "C — Collaboration", phuDe: "Cùng tạo giá trị", icon: "gift", noiDung: "Đo bằng cái để lại, và cái để lại là của chung." }
+            { ten: "I — Impact", phuDe: "Cùng tạo giá trị", icon: "users-round", noiDung: "Đo bằng cái để lại, và cái để lại là của chung." },
+            { ten: "C — Collaboration", phuDe: "Cùng cộng tác", icon: "gift", noiDung: "Làm cùng nhau là mặc định, làm một mình mới là ngoại lệ." }
           ]
         }
       ],
@@ -620,7 +620,7 @@ const epicContent = {
 // --- 2.0b. MODULE: CON NGƯỜI IPA (đầu nhóm "Hiểu IPAG") ---
 // Nội dung theo file "update_con người IPA". Dùng chung engine renderNhipDem().
 const conNguoiIPAContent = {
-  tieuDe: "Con người IPA",
+  tieuDe: "Nếp nhà IPA",
   moTa: "Trước khi đi vào kiến trúc của ngôi nhà, mình muốn kể với bạn về phần nền mà mọi thứ trong nhà này đều xây trên đó.<br><br>Đó là gia tài mỗi IPAGer được thừa hưởng khi bước vào IPA: <strong>Tam Bảo</strong> để quay về, <strong>Nền cội Trúc Lâm</strong> để sống nghề, và <strong>Nếp EPIC</strong> để làm việc cùng nhau.<br><br>Ba điều ấy không phải để học thuộc. Chúng giúp bạn trả lời những câu hỏi rất thật trong công việc hằng ngày: khi lạc hướng thì quay về đâu, khi không chắc đúng sai thì dựa vào chuẩn nào, khi đuối sức thì ai sẽ tiếp sức cho mình. Và quan trọng hơn cả: trong ngôi nhà này, <strong>bạn không đứng một mình</strong>.",
   cacPhan: [
     {
@@ -672,8 +672,8 @@ const conNguoiIPAContent = {
       hangTang: [
         { ten: "E — Empowering", phuDe: "Cùng trao quyền", icon: "key", noiDung: "Giao việc thì giao cả quyền quyết." },
         { ten: "P — People", phuDe: "Cùng tiếp sức", icon: "hand-heart", noiDung: "Thấy người bên cạnh đuối thì đỡ. Tiếp sức không phải làm hộ, mà là đỡ để người ta tự làm được." },
-        { ten: "I — Impact", phuDe: "Cùng cộng tác", icon: "users-round", noiDung: "Làm cùng nhau là mặc định, làm một mình mới là ngoại lệ." },
-        { ten: "C — Collaboration", phuDe: "Cùng tạo giá trị", icon: "gift", noiDung: "Đo bằng cái để lại, và cái để lại là của chung." }
+        { ten: "I — Impact", phuDe: "Cùng tạo giá trị", icon: "users-round", noiDung: "Đo bằng cái để lại, và cái để lại là của chung." },
+        { ten: "C — Collaboration", phuDe: "Cùng cộng tác", icon: "gift", noiDung: "Làm cùng nhau là mặc định, làm một mình mới là ngoại lệ." }
       ]
     },
     {
@@ -1041,7 +1041,7 @@ const faqData = [
 const daoTaoData = {
   intro: {
     tieuDe: "Chương trình đào tạo hội nhập",
-    moTa: "Toàn bộ khoá học Onboarding được đồng bộ từ lộ trình chuẩn. Click vào nút <em>Tới lớp học LMS</em> để hệ thống tự động chuyển hướng sang LMS.",
+    moTa: "<strong>Lộ trình học tập bên dưới áp dụng cho nhân sự mới. Với nhân sự cũ đã hoàn thành lộ trình Onboarding, khuyến khích học tập để cập nhật kiến thức mới.</strong><br><br>Click vào nút <em>Tới lớp học LMS</em> để hệ thống tự động chuyển hướng sang LMS.",
     luuY: "Hệ thống LMS hiện chưa hỗ trợ học trên điện thoại. Bạn vui lòng mở các khoá học bằng <strong>máy tính / laptop</strong> để đảm bảo quá trình học và kết quả được ghi nhận đầy đủ.",
     mucTieu: "Trang bị cho bạn kiến thức nền tảng về IPAG Group, văn hoá tập đoàn, hệ sinh thái sản phẩm và kỹ năng nghiệp vụ.",
     quyDinh: "Hoàn thành đầy đủ tất cả khoá học trong lộ trình đào tạo là một trong những điều kiện để được xác nhận đạt yêu cầu thử việc."
