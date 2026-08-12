@@ -1682,7 +1682,7 @@ body {
   border-radius:16px; padding:26px 22px; color:#fff; box-shadow:var(--shadow-md);
 }
 .dn-lead{ font-size:13.5px; opacity:.82; margin-bottom:14px; }
-.dn-quote{ font-size:20px; font-weight:700; line-height:1.5; font-style:italic; }
+.dn-quote{ font-size:20px; font-weight:700; line-height:1.5; font-style:normal; }
 .dn-para{ font-size:14.5px; line-height:1.8; color:var(--text-main); margin:0; }
 .dn-para strong{ color:var(--navy); }
 .dn-para--center{ text-align:center; color:var(--text-muted); }

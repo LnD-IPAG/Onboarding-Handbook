@@ -1041,7 +1041,7 @@ const faqData = [
 const daoTaoData = {
   intro: {
     tieuDe: "Chương trình đào tạo hội nhập",
-    moTa: "<strong>Lộ trình học tập bên dưới áp dụng cho nhân sự mới. Với nhân sự cũ đã hoàn thành lộ trình Onboarding, khuyến khích học tập để cập nhật kiến thức mới.</strong><br><br>Click vào nút <em>Tới lớp học LMS</em> để hệ thống tự động chuyển hướng sang LMS.",
+    moTa: "<strong style=\"color: var(--orange);\">Lộ trình học tập bên dưới áp dụng cho nhân sự mới. Với nhân sự cũ đã hoàn thành lộ trình Onboarding, khuyến khích học tập để cập nhật kiến thức mới.</strong><br><br>Click vào nút <em>Tới lớp học LMS</em> để hệ thống tự động chuyển hướng sang LMS.",
     luuY: "Hệ thống LMS hiện chưa hỗ trợ học trên điện thoại. Bạn vui lòng mở các khoá học bằng <strong>máy tính / laptop</strong> để đảm bảo quá trình học và kết quả được ghi nhận đầy đủ.",
     mucTieu: "Trang bị cho bạn kiến thức nền tảng về IPAG Group, văn hoá tập đoàn, hệ sinh thái sản phẩm và kỹ năng nghiệp vụ.",
     quyDinh: "Hoàn thành đầy đủ tất cả khoá học trong lộ trình đào tạo là một trong những điều kiện để được xác nhận đạt yêu cầu thử việc."
