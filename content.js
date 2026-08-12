@@ -50,7 +50,7 @@ const menuConfig = [
     nhom: "Hiểu IPAG",
     cacMuc: [
       { id: "con-nguoi-ipa",  ten: "Con người IPA",         icon: "heart-handshake" },
-      { id: "ipag-la-ai",     ten: "IPAG là ai?",          icon: "compass" },
+      { id: "ipag-la-ai",     ten: "Tập đoàn IPA",          icon: "compass" },
       // { id: "epic",           ten: "Văn hoá quản trị EPIC", icon: "sparkles" },  // TẠM ẨN 08/2026 — nội dung đã hợp nhất vào "IPAG là ai" (6 nhịp). Bỏ comment để bật lại.
       { id: "vai-tro",        ten: "Vai trò của bạn",       icon: "user-cog" }
     ]
@@ -151,7 +151,7 @@ const welcomeContent = {
 // Field tuỳ chọn cho mỗi nhịp: ipagWay (grid 4 chữ) / hangTang (grid card) /
 // nhomNen (nhóm card có tiêu đề riêng) / ketLuan (câu chốt dạng quote).
 const iPAGContent = {
-  tieuDe: "IPAG là ai?",
+  tieuDe: "Tập đoàn IPA",
   moTa: "Ngày đầu bước vào một tổ chức mới, điều bạn cần nhất không phải là biết mình ngồi ở đâu, báo cáo cho ai, hay dùng hệ thống nào. Điều quan trọng hơn là hiểu: mình đang bước vào một ngôi nhà như thế nào, ngôi nhà ấy tin vào điều gì, và mình sẽ lớn lên cùng nó ra sao.<br><br>IPAG không tự định nghĩa mình bằng một danh sách công ty hay một sơ đồ tổ chức. IPAG là một bản đồ tích hợp — nơi mọi năng lực, mọi con người, mọi giá trị đều được đếm trên cùng một bàn tay.<br><br><strong>Nhịp Đếm IPAG</strong>— sáu nhịp thật tự nhiên, dẫn bạn từ bức tranh toàn cảnh cho đến đời sống làm việc mỗi ngày. Bản đồ ấy có một cách rất giản dị để bạn đi qua, gọi là Nhịp Đếm IPAG:<br><strong>MỘT NGÔI NHÀ · HAI NĂNG LỰC · BA DÒNG MỘT CỘI THÁP · BỐN CHUỖI MỘT NGÂN HÀNG NĂNG LỰC · NĂM NẾP NGHỀ · SÁU VƯỜN ƯƠM</strong><br><br>Hãy để sáu nhịp ấy dẫn bạn đi — không vội, không áp lực. Chỉ cần bắt đầu từ Một.",
   // 4 con số nổi bật ở hero card đầu module
   conSo: [
@@ -165,182 +165,164 @@ const iPAGContent = {
     {
       icon: "home",
       tieuDe: "Một — Một ngôi nhà",
-      noiDung: "<em>Hệ sinh thái IPAG.</em><br><br>IPA Group (HNX: IPA) là hệ sinh thái Wellbeing của Việt Nam — gần 30 năm kiến tạo trên ba dòng chảy: tài chính, bảo hiểm và đời sống. Hệ vận hành trên hai nền tảng: <strong>IPA Capability</strong> — nơi năng lực được tích lũy theo mô hình Ngân hàng Năng lực, và <strong>IPA Living</strong> — nơi nếp sống được trải vào đời thường qua ba nếp Sống Khỏe · Sống Giàu · Sống Vui.",
+      noiDung: "IPA Group (HNX: IPA) là hệ sinh thái Wellbeing của Việt Nam — gần 30 năm kiến tạo trên ba dòng chảy: tài chính, bảo hiểm và đời sống. Hệ vận hành trên hai nền tảng: IPA Capability — nơi năng lực được tích lũy theo mô hình Ngân hàng Năng lực, và IPA Living — nơi nếp sống được trải vào đời thường qua ba nếp Sống Khỏe · Sống Giàu · Sống Vui.",
       nhomNen: [
         {
-          tieuDe: "1. Tầm nhìn · Sứ mệnh · Phương châm",
-          icon: "compass",
-          moTa: "Ngôi nhà IPAG bắt đầu từ một đích đến chung và một cách sống chung.",
+          tieuDe: "Tầm nhìn · Sứ mệnh · Phương châm",
+          icon: "target",
           cards: [
-            { ten: "Tầm nhìn", phuDe: "Một Việt Nam Wellbeing", icon: "eye", noiDung: "Một Việt Nam Wellbeing — nơi người người sống khỏe, nhà nhà sống giàu, cộng đồng sống vui, bắt đầu từ những lựa chọn nhỏ mỗi ngày.<br><br><em>Wellbeing không chỉ là sống khỏe, mà là sống trọn vẹn — về thể chất, tài chính và tinh thần.</em>" },
-            { ten: "Sứ mệnh", phuDe: "Gìn giữ gia tài trí tuệ Việt", icon: "target", noiDung: "Kết nối, gìn giữ và trao truyền gia tài trí tuệ Việt — vun bồi Wellbeing cho mỗi người, mỗi gia đình và mỗi tổ chức." },
+            { ten: "Tầm nhìn", phuDe: "Một Việt Nam Wellbeing", icon: "eye", noiDung: "Một Việt Nam Wellbeing — nơi người người sống khỏe, nhà nhà sống giàu, cộng đồng sống vui, bắt đầu từ những lựa chọn nhỏ mỗi ngày.<br><br>Wellbeing không chỉ là sống khỏe, mà là sống trọn vẹn — về thể chất, tài chính và tinh thần." },
+            { ten: "Sứ mệnh", phuDe: "Trao truyền gia tài trí tuệ Việt", icon: "flag", noiDung: "Kết nối, gìn giữ và trao truyền gia tài trí tuệ Việt — vun bồi Wellbeing cho mỗi người, mỗi gia đình và mỗi tổ chức." },
             { ten: "Phương châm", phuDe: "Wellbeing là một cách sống", icon: "sun", noiDung: "Wellbeing không phải là đích đến, mà là một cách sống — tỉnh thức theo IPA, trọn vẹn theo HWG, bắt đầu sống từ lựa chọn của chúng ta mỗi ngày." }
           ]
         },
         {
-          tieuDe: "2. Bốn hệ giá trị I·P·A·G",
+          tieuDe: "Bốn hệ giá trị I·P·A·G",
           icon: "gem",
-          moTa: "Giá trị cốt lõi của IPAG được đúc kết trong bốn chữ I·P·A·G.",
           cards: [
             { ten: "I — Insight & Integration", phuDe: "Thấu hiểu rồi mới tích hợp", icon: "eye", noiDung: "Hiểu con người, thị trường và vấn đề trước khi hành động." },
             { ten: "P — Pathway & Partnership", phuDe: "Định hướng và đồng hành", icon: "route", noiDung: "Không chỉ làm theo từng giao dịch, mà đi cùng khách hàng, đối tác và đồng đội trên cả chặng đường phát triển." },
             { ten: "A — Action & Accountability", phuDe: "Hành động và trách nhiệm", icon: "target", noiDung: "Dám làm, làm đến nơi đến chốn và chịu trách nhiệm với kết quả tạo ra." },
             { ten: "G — Greatness & Generation", phuDe: "Vượt trội và xuyên thế hệ", icon: "trending-up", noiDung: "Làm tốt hôm nay để tạo ra giá trị bền vững cho ngày mai." }
           ],
-          ketNhom: "Và trong ngôi nhà IPAG, mỗi CBNV đều được thừa hưởng một gia tài khi bước vào — đó là <strong>Tam Bảo</strong> để biết nơi nương tựa và quay về, <strong>Nền cội Trúc Lâm</strong> để sống nghề, và <strong>Nếp EPIC</strong> để làm việc cùng nhau."
+          ketNhom: "Và trong ngôi nhà IPAG, mỗi CBNV đều được thừa hưởng một gia tài khi bước vào — đó là Tam Bảo để biết nơi nương tựa và quay về, Nền cội Trúc Lâm để sống nghề, và Nếp EPIC để làm việc cùng nhau. IPAG không chỉ là nơi bạn bắt đầu một công việc mới, mà là nơi bạn được rèn năng lực, tích lũy giá trị, trưởng dưỡng sự trưởng thành cùng đồng đội và góp phần vào mục tiêu chung: MAKING VIETNAM A BETTER PLACE TO LIVE — FOR GENERATIONS TO COME."
         }
       ],
-      ketLuan: "IPAG không chỉ là nơi bạn bắt đầu một công việc mới, mà là nơi bạn được rèn năng lực, tích lũy giá trị, trưởng dưỡng sự trưởng thành cùng đồng đội và góp phần vào mục tiêu chung:<br><strong>«MAKING VIETNAM A BETTER PLACE TO LIVE — FOR GENERATIONS TO COME.»</strong><br>Và để làm được điều đó, IPAG cần những người có năng lực. Năng lực ấy là gì? Câu trả lời sẽ có ở Nhịp Hai."
+      ketLuan: "Và để làm được điều đó, IPAG cần những người có năng lực. Năng lực ấy là gì? Câu trả lời sẽ có ở Nhịp Hai."
     },
     {
       icon: "layers",
       tieuDe: "Hai — Hai năng lực: Sống nghề · Phụng sự",
-      noiDung: "<em>Sống nghề · Phụng sự.</em><br><br>Hệ sinh thái IPAG vận hành trên hai năng lực song hành: một bên tạo <strong>CUNG</strong>, một bên tạo <strong>CẦU</strong>. Với người làm nghề cụ thể, hai năng lực ấy có tên khác: <strong>Sống nghề</strong> và <strong>Phụng sự</strong>.",
+      noiDung: "Hệ sinh thái IPAG vận hành trên hai năng lực song hành: một bên tạo CUNG, một bên tạo CẦU. Với người làm nghề cụ thể, hai năng lực ấy có tên khác: Sống nghề và Phụng sự.",
       bang: {
         cols: ["Năng lực", "Chiều Tổ chức", "Chiều Cá nhân"],
         rows: [
-          [
-            "<strong>Sống nghề</strong><br><em>IPA Capability (Cung)</em>",
-            "<strong>Ngân hàng Năng lực:</strong><br>• <strong>IPA Solution (IPAS)</strong> — tri thức, công nghệ, dữ liệu, chuyển đổi số<br>• <strong>IPA Management (IPAM)</strong> — la bàn chuẩn mực, con người, quản trị, vận hành<br>• <strong>IPA Partners (IPAP)</strong> — dẫn vốn đầu tư",
-            "<strong>SC — Skill Competency:</strong> kiến thức, kỹ năng, kinh nghiệm và phẩm chất chuyên môn bạn tích luỹ. SC cho thấy bạn biết gì, có gì, đã chuẩn bị được gì."
-          ],
-          [
-            "<strong>Phụng sự</strong><br><em>IPA Living (Cầu)</em>",
-            "Đưa Wellbeing vào đời sống qua <strong>AnVie</strong> (đời sống, sức khoẻ), <strong>VNDIRECT</strong> (tài chính, đầu tư), <strong>PTI</strong> (bảo hiểm, bảo vệ), nối liền bởi nền tảng số <strong>D-one</strong>.",
-            "<strong>DC — Delivery Competency:</strong> năng lực biến SC thành việc thật, tạo giá trị thực cho người bạn phục vụ. DC cho thấy bạn làm được gì, tác động ra sao."
-          ]
+          ["<strong>Sống nghề</strong><br>IPA Capability (Cung)", "Ngân hàng Năng lực: IPA Solution (IPAS) — tri thức, công nghệ, dữ liệu, chuyển đổi số · IPA Management (IPAM) — la bàn chuẩn mực, con người, quản trị, vận hành · IPA Partners (IPAP) — dẫn vốn đầu tư", "<strong>SC (Skill Competency):</strong> kiến thức, kỹ năng, kinh nghiệm và phẩm chất chuyên môn bạn tích luỹ. SC cho thấy bạn biết gì, có gì, đã chuẩn bị được gì"],
+          ["<strong>Phụng sự</strong><br>IPA Living (Cầu)", "Đưa Wellbeing vào đời sống qua AnVie (đời sống, sức khoẻ), VNDIRECT (tài chính, đầu tư), PTI (bảo hiểm, bảo vệ), nối liền bởi nền tảng số D-one", "<strong>DC (Delivery Competency):</strong> năng lực biến SC thành việc thật, tạo giá trị thực cho người bạn phục vụ. DC cho thấy bạn làm được gì, tác động ra sao"]
         ]
       },
-      ketLuan: "<strong>Sống nghề đến trước, phụng sự đến sau — không phải ngược lại.</strong> Một người có SC nhưng chưa chuyển hoá thành DC là người biết nhưng chưa ra việc. Khi SC được sống thành DC đủ lâu, trên một nếp làm nghề bền bỉ, nó dựng nên con đường sự nghiệp."
+      ketLuan: "Sống nghề đến trước, phụng sự đến sau — không phải ngược lại. Một người có SC nhưng chưa chuyển hoá thành DC là người biết nhưng chưa ra việc. Khi SC được sống thành DC đủ lâu, trên một nếp làm nghề bền bỉ, nó dựng nên con đường sự nghiệp."
     },
     {
       icon: "mountain",
-      tieuDe: "Ba — Ba dòng một cội: Health · Wealth · Grow",
-      noiDung: "<em>Health · Wealth · Grow.</em><br><br>Ba dòng Đạo, Nho, Phật kết tinh ở Trúc Lâm Yên Tử thành một cội chung của người Việt. Từ cội ấy, IPAG dựng nên tháp HWG là ba tầng của một hành trình sống trọn vẹn: Health — Wealth — Grow. Đó cũng chính là ba nếp mà IPAG vun bồi cho mỗi người, mỗi gia đình — đi từ Sống Khỏe, lên Sống Giàu, tới đỉnh Sống Vui.<br><br>IPAG là một hệ sinh thái rộng lớn với hơn 35 công ty thành viên, hơn 7.000 con người và hàng chục sản phẩm, dịch vụ khác nhau. HWG là sợi chỉ đỏ giữ cho tất cả cùng chảy về một hướng: <strong>nền vững trước — tăng trưởng sau — cộng đồng là đích</strong>.<br><br><strong>Phần Một · HWG — Ba tầng giá trị sống</strong> <em>(giá trị IPAG mang lại cho khách hàng và cộng đồng)</em>",
-      moSan: true,
-      hangTang: [
-        { ten: "H — Health · Sống Khỏe", phuDe: "Tầng nền tảng", icon: "heart-pulse", noiDung: "Trước khi phát triển, mỗi người cần có sức khỏe được chăm sóc, tài chính được bảo vệ và những rủi ro lớn được che chắn. Sống Khỏe là có nền vững để yên tâm đi tiếp." },
-        { ten: "W — Wealth · Sống Giàu", phuDe: "Tầng gìn giữ và tích lũy", icon: "coins", noiDung: "Khi nền đã vững, con người bắt đầu tích sản, xây dựng gia tài lâu dài và làm cho cuộc sống ngày càng vững vàng hơn. Sống Giàu không chỉ là tiền, mà là mọi giá trị lớn dần theo thời gian." },
-        { ten: "G — Grow · Sống Vui", phuDe: "Tầng mở ra cộng đồng", icon: "sun", noiDung: "Khi đã có nền vững và biết tích lũy, con người có thể sống rộng hơn: biết chia sẻ, chở che và cùng người khác lớn lên. Sống Vui là niềm vui của sự thuộc về một cộng đồng có ý nghĩa.<br><br>Ba cộng đồng của ba gian — <strong>VNDGO, AnVie Life, PTICare</strong> — đều là nơi tầng Grow được sống thật." }
-      ],
-      bang: {
-        tieuDe: "Phần Hai · HWG — Ba tầng sự nghiệp",
-        moTa: "Con đường phát triển của bạn ở IPAG. Ba tầng HWG không chỉ là giá trị IPAG mang lại cho khách hàng, mà còn là con đường sự nghiệp của chính bạn ở IPAG.",
-        cols: ["Tầng", "Ý nghĩa", "Thước đo"],
-        rows: [
-          ["<strong>H — Health</strong><br><em>Nền của sự nghiệp</em>", "«Sức khỏe nghề nghiệp» của một con người — độ chín trong hành vi tuân theo Nền và Nếp của IPAG, cũng như trong năng lực SC và DC → đi sâu hơn vào độ chín của chính mình.", "<strong>BMI</strong> — chiều sâu trưởng thành để một người biết tự quản trị mình, sống đúng Nền và Nếp, tạo ra kết quả thật mỗi ngày."],
-          ["<strong>W — Wealth</strong><br><em>Độ «giàu» của sự nghiệp</em>", "Phạm vi trách nhiệm mà một người có thể gánh vác. Khi nền bên trong đã đủ vững, bạn bắt đầu mở rộng vai trò, tầm ảnh hưởng và khả năng tạo giá trị → đi rộng hơn trong trách nhiệm mình đảm nhận.", "<strong>SOA</strong> — phạm vi trách nhiệm bạn đảm nhận."],
-          ["<strong>G — Grow</strong><br><em>Tầng của tuệ giác</em>", "Khả năng nhìn sâu vào con người, công việc và hệ thống; biết điều gì là đúng, điều gì là bền, điều gì cần gìn giữ và chuyển hóa → đi xa hơn bằng tuệ giác tích lũy qua làm nghề.", "<strong>Wisdom to Success</strong> — tuệ giác để đi đến thành công, không chỉ cho riêng mình, mà cho cộng đồng mình phụng sự."]
-        ]
-      }
+      tieuDe: "Ba — Ba dòng một cội HWG",
+      noiDung: "Ba dòng Đạo, Nho, Phật kết tinh ở Trúc Lâm Yên Tử thành một cội chung của người Việt. Từ cội ấy, IPAG dựng nên tháp HWG là ba tầng của một hành trình sống trọn vẹn: Health — Wealth — Grow. Đó cũng chính là ba nếp mà IPAG vun bồi cho mỗi người, mỗi gia đình — đi từ Sống Khỏe, lên Sống Giàu, tới đỉnh Sống Vui.<br><br>IPAG là một hệ sinh thái rộng lớn với hơn 35 công ty thành viên, hơn 7.000 con người và hàng chục sản phẩm, dịch vụ khác nhau. HWG là sợi chỉ đỏ giữ cho tất cả cùng chảy về một hướng: nền vững trước — tăng trưởng sau — cộng đồng là đích.",
+      nhomNen: [
+        {
+          tieuDe: "Phần Một · HWG — Ba tầng giá trị sống",
+          icon: "heart-handshake",
+          phuDe: "Giá trị IPAG mang lại cho khách hàng và cộng đồng",
+          moTa: "HWG là cách IPAG giúp mỗi người và mỗi gia đình xây nền vững, tích lũy bền, rồi cùng cộng đồng lớn lên.",
+          cards: [
+            { ten: "H — Health · Sống Khỏe", phuDe: "Tầng nền tảng", icon: "heart-pulse", noiDung: "Trước khi phát triển, mỗi người cần có sức khỏe được chăm sóc, tài chính được bảo vệ và những rủi ro lớn được che chắn. Sống Khỏe là có nền vững để yên tâm đi tiếp." },
+            { ten: "W — Wealth · Sống Giàu", phuDe: "Tầng gìn giữ và tích lũy", icon: "coins", noiDung: "Khi nền đã vững, con người bắt đầu tích sản, xây dựng gia tài lâu dài và làm cho cuộc sống ngày càng vững vàng hơn. Sống Giàu không chỉ là tiền, mà là mọi giá trị lớn dần theo thời gian." },
+            { ten: "G — Grow · Sống Vui", phuDe: "Tầng mở ra cộng đồng", icon: "sun", noiDung: "Khi đã có nền vững và biết tích lũy, con người có thể sống rộng hơn: biết chia sẻ, chở che và cùng người khác lớn lên. Sống Vui là niềm vui của sự thuộc về một cộng đồng có ý nghĩa.<br><br><em>Ba cộng đồng của ba gian — VNDGO, AnVie Life, PTICare — đều là nơi tầng Grow được sống thật.</em>" }
+          ]
+        },
+        {
+          tieuDe: "Phần Hai · HWG — Ba tầng sự nghiệp",
+          icon: "trending-up",
+          phuDe: "Con đường phát triển của bạn ở IPAG",
+          moTa: "Ba tầng HWG không chỉ là giá trị IPAG mang lại cho khách hàng, mà còn là con đường sự nghiệp của chính bạn ở IPAG.",
+          cards: [
+            { ten: "H — Health — Nền của sự nghiệp", phuDe: "Thước đo: BMI", icon: "heart-pulse", noiDung: "«Sức khỏe nghề nghiệp» của một con người — độ chín trong hành vi tuân theo Nền và Nếp của IPAG, cũng như trong năng lực SC và DC → đi sâu hơn vào độ chín của chính mình.<br><br><strong>BMI</strong> — chiều sâu trưởng thành để một người biết tự quản trị mình, sống đúng Nền và Nếp, tạo ra kết quả thật mỗi ngày." },
+            { ten: "W — Wealth — Độ «giàu» của sự nghiệp", phuDe: "Thước đo: SOA", icon: "coins", noiDung: "Phạm vi trách nhiệm mà một người có thể gánh vác. Khi nền bên trong đã đủ vững, bạn bắt đầu mở rộng vai trò, tầm ảnh hưởng và khả năng tạo giá trị → đi rộng hơn trong trách nhiệm mình đảm nhận.<br><br><strong>SOA</strong> — phạm vi trách nhiệm bạn đảm nhận." },
+            { ten: "G — Grow — Tầng của tuệ giác", phuDe: "Thước đo: Wisdom to Success", icon: "sun", noiDung: "Khả năng nhìn sâu vào con người, công việc và hệ thống; biết điều gì là đúng, điều gì là bền, điều gì cần gìn giữ và chuyển hóa → đi xa hơn bằng tuệ giác tích lũy qua làm nghề.<br><br><strong>Wisdom to Success</strong> — tuệ giác để đi đến thành công, không chỉ cho riêng mình, mà cho cộng đồng mình phụng sự." }
+          ]
+        }
+      ]
     },
     {
       icon: "git-branch",
       tieuDe: "Bốn — Bốn chuỗi giá trị, bốn hướng nghề",
-      noiDung: "<em>GTM · VCO · BIS · CG: từ tổ chức đến sự nghiệp.</em><br><br>Nếu HWG là ba tầng giá trị IPAG tạo ra, thì bốn chuỗi giá trị GTM — VCO — BIS — CG chính là cách IPAG vận hành để tạo ra giá trị đó.<br><br>Tại IPAG, hoạt động của tổ chức được vận hành qua bốn chuỗi giá trị chính: GTM, VCO, BIS và CG. Mỗi chuỗi có vai trò riêng, nhưng không hoạt động tách rời. Tất cả cùng kết nối để tạo nên một hệ thống vận hành thống nhất — từ phát triển thị trường, phục vụ khách hàng, hỗ trợ ra quyết định, đến xây dựng nền tảng nội bộ.",
-      moSan: true,
+      noiDung: "<em>GTM · VCO · BIS · CG: từ tổ chức đến sự nghiệp</em><br><br>Nếu HWG là ba tầng giá trị IPAG tạo ra, thì bốn chuỗi giá trị GTM — VCO — BIS — CG chính là cách IPAG vận hành để tạo ra giá trị đó.<br><br>Tại IPAG, hoạt động của tổ chức được vận hành qua bốn chuỗi giá trị chính: GTM, VCO, BIS và CG. Mỗi chuỗi có vai trò riêng, nhưng không hoạt động tách rời. Tất cả cùng kết nối để tạo nên một hệ thống vận hành thống nhất — từ phát triển thị trường, phục vụ khách hàng, hỗ trợ ra quyết định, đến xây dựng nền tảng nội bộ.",
       hangTang: [
         { ten: "GTM — Go-To-Market", phuDe: "Mạch chảy ra ngoài", icon: "trending-up", noiDung: "GTM là chuỗi giá trị hướng ra thị trường, chịu trách nhiệm cho tăng trưởng, tiếp cận khách hàng mới và mở rộng cơ hội kinh doanh. Đây là «mạch chảy ra ngoài» của IPAG — nơi tổ chức đưa sản phẩm, dịch vụ và cơ hội mới đến với thị trường." },
         { ten: "VCO — Value Chain Operation", phuDe: "Mạch giữ lời hứa", icon: "heart-handshake", noiDung: "VCO là chuỗi giá trị phụ trách vận hành và đồng hành cùng khách hàng. Nếu GTM giúp IPAG có được khách hàng, thì VCO đảm bảo IPAG phục vụ khách hàng tốt. Đây là «mạch giữ lời hứa» — nơi lời hứa được thực hiện bằng trải nghiệm thật." },
-        { ten: "BIS — Business Information System", phuDe: "Mạch soi đường", icon: "lightbulb", noiDung: "BIS là chuỗi giá trị hỗ trợ quản trị và ra quyết định. Đây là «mạch soi đường» của IPAG — giúp tổ chức có dữ liệu, thông tin, chính sách và hệ thống cần thiết để vận hành minh bạch, hiệu quả, đúng hướng." },
-        { ten: "CG — Capability Guardian", phuDe: "Mạch giữ nền", icon: "shield", noiDung: "CG là chuỗi giá trị nền tảng nội bộ, cung cấp dịch vụ dùng chung và năng lực quản trị xuyên suốt cho toàn bộ SBU trong IPAG Group — hiện gồm Fincon, Workplace, SAS, Cyber Workplace, IT Services và EPIC HR Services (danh sách đang được chuẩn hoá theo Từ điển KB). Đây là «mạch giữ nền» — giúp các SBU và các «ngôi nhà nhỏ» trong IPAG vận hành ổn định, an toàn và hiệu quả hơn." }
+        { ten: "BIS — Business Intelligent Solution", phuDe: "Mạch soi đường", icon: "lightbulb", noiDung: "BIS là chuỗi giá trị hỗ trợ quản trị và ra quyết định. Đây là «mạch soi đường» của IPAG — giúp tổ chức có dữ liệu, thông tin, chính sách và hệ thống cần thiết để vận hành minh bạch, hiệu quả, đúng hướng." },
+        { ten: "CG — Capability Guardian", phuDe: "Mạch giữ nền", icon: "shield", noiDung: "CG là chuỗi giá trị nền tảng nội bộ, cung cấp dịch vụ dùng chung và năng lực quản trị xuyên suốt cho toàn bộ SBU trong IPAG Group — hiện gồm Fincon, Workplace, SAS, Cyber Workplace, IT Services và EPIC HR Services (danh sách đang được chuẩn hoá theo Từ điển KB).<br><br>Đây là «mạch giữ nền» — giúp các SBU và các «ngôi nhà nhỏ» trong IPAG vận hành ổn định, an toàn và hiệu quả hơn." }
       ]
     },
     {
-      icon: "recycle",
+      icon: "heart-handshake",
       tieuDe: "Năm — Năm nếp nghề IPAGer",
-      noiDung: "<em>Trà Việt · La Bàn · Soi Sáng · Gửi Trao · Trao Truyền.</em><br><br>Năm bộ kỹ năng sống nghề, đi theo đúng thứ tự bạn sẽ trải qua, không phải năm khoá học rời rạc.",
+      noiDung: "Trà Việt · La Bàn · Soi Sáng · Gửi Trao · Trao Truyền — năm bộ kỹ năng sống nghề, đi theo đúng thứ tự bạn sẽ trải qua, không phải năm khoá học rời rạc.",
       bangNep: [
-        { nep: "Nếp Trà Việt", tag: "IPA_3B · Bạn · Bàn · Bày", yNghia: "Gặp được người trước khi bàn được việc", qua: "TÍN", moc: "Có người mình dám hỏi khi chưa biết" },
+        { nep: "Nếp Trà Việt", tag: "IPA_3B (Bạn · Bàn · Bày)", yNghia: "Gặp được người trước khi bàn được việc", qua: "TÍN", moc: "Có người mình dám hỏi khi chưa biết" },
         { nep: "Nếp La Bàn", tag: "IPAM Way", yNghia: "Đưa việc từ ý định tới làm chủ", qua: "TẤN", moc: "Làm được việc dài không cần ai nhắc, và biết lúc dừng" },
-        { nep: "Nếp Soi Sáng", tag: "IPAX · Tâm · Tầm · Trí", yNghia: "Soi việc và soi mình mà không phán xét", qua: "NIỆM", moc: "Kể lại việc khó mà không lẫn phán xét vào lời kể" },
-        { nep: "Nếp Gửi Trao", tag: "Tứ Quy", yNghia: "Làm ra khuôn mẫu để người khác dùng lại", qua: "ĐỊNH", moc: "Có thứ mình làm ra mà người khác dùng lại được" },
-        { nep: "Nếp Trao Truyền", tag: "IPAL · Dẫn · Dụng · Dưỡng", yNghia: "Người cũ kèm người mới, không làm hộ", qua: "TUỆ", moc: "Người mình kèm nay tự làm được, và kèm được người khác" }
+        { nep: "Nếp Soi Sáng", tag: "IPAX (Tâm · Tầm · Trí)", yNghia: "Soi việc và soi mình mà không phán xét", qua: "NIỆM", moc: "Kể lại việc khó mà không lẫn phán xét vào lời kể" },
+        { nep: "Nếp Gửi Trao", tag: "IPAC (Tứ Quy)", yNghia: "Làm ra khuôn mẫu để người khác dùng lại", qua: "ĐỊNH", moc: "Có thứ mình làm ra mà người khác dùng lại được" },
+        { nep: "Nếp Trao Truyền", tag: "IPAL (Dẫn · Dụng · Dưỡng)", yNghia: "Người cũ kèm người mới, không làm hộ", qua: "TUỆ", moc: "Người mình kèm nay tự làm được, và kèm được người khác" }
       ],
-      nhomNenTieuDe: "Chi tiết từng nếp",
       nhomNen: [
         {
           tieuDe: "1. Nếp Trà Việt",
           phuDe: "Bạn · Bàn · Bày",
           icon: "coffee",
-          moTa: "Làm Bạn trước khi Bàn việc, rồi Bày cùng nhau. Ba chữ B, ba tầng sâu:",
+          moTa: "Làm Bạn trước khi Bàn việc, rồi Bày cùng nhau. Ba chữ B, ba tầng sâu. Bàn trà không phân biệt cao thấp — ai cũng được lắng nghe, được thấy, được cảm thông.",
           cards: [
-            { ten: "Bạn", phuDe: "Thấy tận gốc động cơ", icon: "search", noiDung: "Gặp được người, hiểu người từ gốc rễ." },
-            { ten: "Bàn", phuDe: "Thông tận ngọn", icon: "messages-square", noiDung: "Hiểu nhu cầu, rủi ro và trải nghiệm." },
+            { ten: "Bạn", phuDe: "Thấy tận gốc động cơ", icon: "users", noiDung: "Gặp được người, hiểu người từ gốc rễ." },
+            { ten: "Bàn", phuDe: "Thông tận ngọn", icon: "message-circle", noiDung: "Hiểu nhu cầu, rủi ro và trải nghiệm." },
             { ten: "Bày", phuDe: "Làm tận tâm", icon: "heart-handshake", noiDung: "Trình bày và làm việc với trái tim." }
-          ],
-          ketNhom: "Bàn trà không phân biệt cao thấp — ai cũng được lắng nghe, được thấy, được cảm thông."
+          ]
         },
         {
           tieuDe: "2. Nếp La Bàn",
           phuDe: "IPAM Way",
           icon: "compass",
-          moTa: "Đưa việc từ ý định tới lúc làm chủ, qua bốn kim: đích, việc, đội nhóm, đường đã đi. <strong>IPAM Way</strong> — phương pháp bên trong nếp này — bắt đầu bằng chữ NHÌN và kết thúc bằng chữ THẤY: có thể nhìn mà không thấy, nhưng không thể thấy mà chưa nhìn."
+          moTa: "Đưa việc từ ý định tới lúc làm chủ, qua bốn kim: đích, việc, đội nhóm, đường đã đi. IPAM Way — phương pháp bên trong nếp này — bắt đầu bằng chữ NHÌN và kết thúc bằng chữ THẤY: có thể nhìn mà không thấy, nhưng không thể thấy mà chưa nhìn.<br><br>Nếp La Bàn là nếp biết dừng lại soi hướng trước khi làm việc. Ở IPAG, làm việc không chỉ cần nhanh mà cần đúng hướng. IPAG dùng IPA Map gồm 4 La Bàn như một cách tự kiểm tra trước, trong và sau khi làm việc:",
+          cards: [
+            { ten: "dGo", phuDe: "Thấy đúng vai trò và mục đích", icon: "compass", noiDung: "Thấy đúng vai trò và mục đích." },
+            { ten: "dWork", phuDe: "Hành động đúng phần việc và trách nhiệm", icon: "check-square", noiDung: "Hành động đúng phần việc và trách nhiệm." },
+            { ten: "dLink", phuDe: "Kết nối đúng người, đúng nguồn lực", icon: "link", noiDung: "Kết nối đúng người, đúng nguồn lực." },
+            { ten: "dValue", phuDe: "Nhìn lại giá trị thật", icon: "gem", noiDung: "Nhìn lại kết quả có tạo ra giá trị thật và được ghi nhận đúng hay không." }
+          ]
         },
         {
           tieuDe: "3. Nếp Soi Sáng",
-          phuDe: "IPAX · Tâm · Tầm · Trí",
+          phuDe: "IPAX — Tâm · Tầm · Trí",
           icon: "lightbulb",
-          moTa: "Soi tâm, soi tầm, soi trí — không phải để bị phán xét, mà để chính bạn thấy mình rõ hơn. Ba khuôn để soi:",
+          moTa: "Soi tâm, soi tầm, soi trí — không phải để bị phán xét, mà để chính bạn thấy mình rõ hơn. Đây cũng là nơi mười bốn chuẩn mực ứng xử (14 CoC) được sống mỗi ngày.",
           cards: [
-            { ten: "SBI", phuDe: "Soi sự việc", icon: "clipboard-list", noiDung: "Kể lại sự việc, mô tả hành vi, rút ra cái thấy." },
-            { ten: "TAC", phuDe: "Soi luồng việc", icon: "workflow", noiDung: "Chuyển hoá, nhân lên, tiếp nối." },
-            { ten: "CAT", phuDe: "Soi người", icon: "heart", noiDung: "Trái tim dẫn, thêm giá trị, rồi trao lại." }
-          ],
-          ketNhom: "Đây cũng là nơi mười bốn chuẩn mực ứng xử (14 CoC) được sống mỗi ngày."
+            { ten: "SBI — Soi sự việc", phuDe: "Kể lại sự việc", icon: "search", noiDung: "Kể lại sự việc, mô tả hành vi, rút ra cái thấy." },
+            { ten: "TAC — Soi luồng việc", phuDe: "Chuyển hoá và tiếp nối", icon: "git-branch", noiDung: "Chuyển hoá, nhân lên, tiếp nối." },
+            { ten: "CAT — Soi người", phuDe: "Trái tim dẫn", icon: "heart", noiDung: "Trái tim dẫn, thêm giá trị, rồi trao lại." }
+          ]
         },
         {
           tieuDe: "4. Nếp Gửi Trao",
-          phuDe: "nạp vào Tứ Quy",
+          phuDe: "Nạp vào Tứ Quy",
           icon: "send",
           moTa: "Khi bạn tìm ra cách làm tốt, bạn gửi lại cho hệ thống để trở thành tài sản chung — dưới ba dạng sản phẩm cụ thể:",
           cards: [
             { ten: "Chữ", phuDe: "Codebook · Glossary", icon: "type", noiDung: "Một chữ mới được đặt tên và định nghĩa rõ." },
             { ten: "Khuôn mẫu", phuDe: "Framework làm việc", icon: "layout-template", noiDung: "Cách làm được đúc thành khuôn để người khác dùng lại." },
-            { ten: "Bài học", phuDe: "Thành công lẫn sai sót", icon: "book-open", noiDung: "Những bài học thật trong quá trình làm nghề — cả thành công lẫn sai sót — được ghi lại để người sau học hỏi được từ đó, không phải một lời khuyên chung chung." }
+            { ten: "Bài học", phuDe: "Cả thành công lẫn sai sót", icon: "book-open", noiDung: "Những bài học thật trong quá trình làm nghề — cả thành công lẫn sai sót — được ghi lại để người sau học hỏi được từ đó, không phải một lời khuyên chung chung." }
           ],
-          ketNhom: "Ba sản phẩm ấy được nạp vào <strong>Tứ Quy</strong> — bốn tầng chuẩn mực của ngôi nhà:<br>• <strong>Quy tắc</strong> — cái bất biến, kim chỉ nam<br>• <strong>Quy chuẩn</strong> — từ điển, bản đồ, chuẩn mực<br>• <strong>Quy trình</strong> — cách làm từng bước<br>• <strong>Quy định</strong> — điều phải giữ, con số cụ thể<br><br><em>Chữ · Khuôn mẫu · Bài học là BA dạng sản phẩm Nếp Gửi Trao tạo ra; Tứ Quy vẫn là BỐN tầng chuẩn mực nhận vào — hai tầng khái niệm khác nhau, không phải một cái thay cho cái kia.</em>"
-        },
-        {
-          tieuDe: "5. Nếp Trao Truyền",
-          phuDe: "IPAL · Dẫn · Dụng · Dưỡng",
-          icon: "repeat",
-          moTa: "Người đi trước kèm người sau, không làm hộ — soi cùng khi người mới làm sai. Trao cả lý do WHY, không chỉ cách làm HOW: người nhận được cách làm thì lặp lại máy móc, người nhận được lý do thì sửa được khi hoàn cảnh đổi."
-        },
-        {
-          tieuDe: "Năm nếp nuôi nhau theo chu trình liên tục",
-          icon: "recycle",
-          moTa: "Năm nếp không đứng riêng lẻ, mà nuôi dưỡng lẫn nhau trong một chu trình không có điểm kết thúc:<span class=\"nhip-flow\">Trà Việt → Soi Sáng → Gửi Trao → La Bàn → Trao Truyền → <em>(quay lại)</em> Trà Việt</span>Mỗi nếp làm dày nếp kế tiếp: bạn gặp người (Trà Việt) rồi soi lại mình (Soi Sáng), từ đó gửi lại kinh nghiệm (Gửi Trao), dùng để làm việc có phương pháp (La Bàn), và kèm người đi sau (Trao Truyền) — rồi lại gặp người mới, chu trình tiếp diễn."
+          ketNhom: "Ba sản phẩm ấy được nạp vào Tứ Quy — bốn tầng chuẩn mực của ngôi nhà: Quy tắc (cái bất biến, kim chỉ nam) · Quy chuẩn (từ điển, bản đồ, chuẩn mực) · Quy trình (cách làm từng bước) · Quy định (điều phải giữ, con số cụ thể). Chữ · Khuôn mẫu · Bài học là BA dạng sản phẩm Nếp Gửi Trao tạo ra; Tứ Quy vẫn là BỐN tầng chuẩn mực nhận vào — hai tầng khái niệm khác nhau, không phải một cái thay cho cái kia."
         }
-      ]
+      ],
+      hangTang: [
+        { ten: "5. Nếp Trao Truyền", phuDe: "Dẫn · Dụng · Dưỡng", icon: "repeat", noiDung: "Người đi trước kèm người sau, không làm hộ — soi cùng khi người mới làm sai. Trao cả lý do WHY, không chỉ cách làm HOW: người nhận được cách làm thì lặp lại máy móc, người nhận được lý do thì sửa được khi hoàn cảnh đổi." }
+      ],
+      ketLuan: "Năm nếp nuôi nhau theo chu trình liên tục: Trà Việt → La Bàn → Soi Sáng → Gửi Trao → Trao Truyền → (quay lại) Trà Việt. Mỗi nếp làm dày nếp kế tiếp: bạn gặp người (Trà Việt), cùng để làm việc có phương pháp (La Bàn), rồi soi lại mình (Soi Sáng), từ đó gửi lại kinh nghiệm (Gửi Trao), và kèm người đi sau (Trao Truyền) — rồi lại gặp người mới, chu trình tiếp diễn."
     },
     {
       icon: "sprout",
       tieuDe: "Sáu — Sáu vườn ươm năng lực",
-      noiDung: "<em>Tích đức · Tích nghề · Tích tín.</em><br><br>IPAG có 6 lĩnh vực kinh doanh chính, gọi là 6 vườn ươm năng lực — mỗi vườn không chỉ vận hành một mảng kinh doanh, mà còn nuôi dưỡng năng lực, phát triển giá trị mới và đóng góp vào mục tiêu chung của Tập đoàn.",
+      noiDung: "IPAG có 6 lĩnh vực kinh doanh chính, gọi là 6 vườn ươm năng lực — mỗi vườn không chỉ vận hành một mảng kinh doanh, mà còn nuôi dưỡng năng lực, phát triển giá trị mới và đóng góp vào mục tiêu chung của Tập đoàn.",
       bang: {
-        cols: ["Vườn ươm", "Bao gồm", "Sứ mệnh"],
+        cols: ["STT", "Vườn ươm", "Bao gồm", "Sứ mệnh"],
         rows: [
-          ["<strong>1. Tài chính Bền vững</strong>", "Chứng khoán · Bảo hiểm · Quản lý Quỹ", "Ươm năng lực về vốn, chứng khoán và bảo hiểm cho người Việt."],
-          ["<strong>2. Công nghệ Sinh học</strong>", "NAO Solution · GAO Solution · Khang Tuệ · Bản Địa Việt", "Gìn giữ di sản thiên nhiên, phát triển giải pháp sinh học, mở đường cho tăng trưởng xanh."],
-          ["<strong>3. Thực phẩm Bền vững</strong>", "Vietcharm · Delivie · Homefood Vinabee", "Chăm cái ăn, cái ở cho mỗi gia đình Việt — cùng đích Wellbeing với vườn Sức khỏe & Y tế dự phòng."],
-          ["<strong>4. Sức khỏe và Y tế dự phòng</strong>", "AnVie Life · AnVie GSF · AnVie CBX", "Nuôi dưỡng cách sống thuận tự nhiên, chăm sức khoẻ và chất lượng sống."],
-          ["<strong>5. Đầu tư ESG</strong>", "Năng lượng Bắc Hà — hai nhà máy thuỷ điện Nậm Phàng", "Dẫn dòng vốn tới những giá trị bền vững, có trách nhiệm với môi trường và xã hội."],
-          ["<strong>6. Giáo dục và Đào tạo</strong>", "Living MBA — lõi của IPAG", "Vun bồi con người, gieo tri thức và trao truyền năng lực cho thế hệ sau."]
+          ["1", "Tài chính Bền vững", "Chứng khoán · Bảo hiểm · Quản lý Quỹ", "Ươm năng lực về vốn, chứng khoán và bảo hiểm cho người Việt"],
+          ["2", "Công nghệ Sinh học", "NAO Solution · GAO Solution · Khang Tuệ · Bản Địa Việt", "Gìn giữ di sản thiên nhiên, phát triển giải pháp sinh học, mở đường cho tăng trưởng xanh"],
+          ["3", "Thực phẩm Bền vững", "Vietcharm · Delivie · Homefood Vinabee", "Chăm cái ăn, cái ở cho mỗi gia đình Việt — cùng đích Wellbeing với vườn Sức khỏe & Y tế dự phòng"],
+          ["4", "Sức khỏe và Y tế dự phòng", "AnVie Life · AnVie GSF · AnVie CBX", "Nuôi dưỡng cách sống thuận tự nhiên, chăm sức khoẻ và chất lượng sống"],
+          ["5", "Đầu tư ESG", "Năng lượng Bắc Hà — hai nhà máy thuỷ điện Nậm Phàng", "Dẫn dòng vốn tới những giá trị bền vững, có trách nhiệm với môi trường và xã hội"],
+          ["6", "Giáo dục và Đào tạo", "Living MBA — lõi của IPAG", "Vun bồi con người, gieo tri thức và trao truyền năng lực cho thế hệ sau"]
         ]
       },
-      nhomNen: [
-        {
-          tieuDe: "Ba điều mỗi người IPAG tích lũy",
-          icon: "user-check",
-          moTa: "Sáu vườn ươm khác nhau ở lĩnh vực và cách làm nghề, nhưng cùng chung một đích đến: <strong>Wellbeing cho cộng đồng người Việt</strong>.<br><br>Dù ở vườn ươm nào, người IPAG đều được kỳ vọng tích luỹ ba điều:",
-          cards: [
-            { ten: "Tích đức", phuDe: "Nhân cách & tâm thế đúng đắn", icon: "heart-handshake", noiDung: "Làm nghề chuẩn mực, giữ nhân cách và tâm thế đúng đắn." },
-            { ten: "Tích nghề", phuDe: "Chuyên môn vượt trội", icon: "wrench", noiDung: "Không ngừng nâng cao tay nghề, rèn luyện chuyên môn vượt trội." },
-            { ten: "Tích tín", phuDe: "Uy tín bền vững", icon: "badge-check", noiDung: "Giữ chữ tín trong từng việc cụ thể, xây dựng uy tín bền vững." }
-          ]
-        }
-      ]
+      ketLuan: "Sáu vườn ươm khác nhau ở lĩnh vực và cách làm nghề, nhưng cùng chung một đích đến: Wellbeing cho cộng đồng người Việt. Dù ở vườn ươm nào, người IPAG đều được kỳ vọng tích luỹ ba điều: Tích đức — làm nghề chuẩn mực, giữ nhân cách và tâm thế đúng đắn; Tích nghề — không ngừng nâng cao tay nghề, rèn luyện chuyên môn vượt trội; Tích tín — giữ chữ tín trong từng việc cụ thể, xây dựng uy tín bền vững."
     }
   ],
   // KẾT · DÒNG CHẢY IPAG — chương chốt cuối module (render dưới accordion)
@@ -709,30 +691,30 @@ const conNguoiIPAContent = {
 const danNhapContent = {
   tieuDe: "Dẫn nhập",
   moTaLead: "Mọi thiết kế về tổ chức và con người tại IPAG đều bắt nguồn từ một câu duy nhất:",
-  cauLoi: "IPA là Nếp Nhà — IPAGer là Nếp Nghề — IPAG là dòng chảy trí tuệ của một tập thể tỉnh thức.",
-  dienGiai: "Đây là nền tảng chuẩn mực văn hóa quản trị của IPAG — câu mà mọi thiết kế về tổ chức và con người đều bắt nguồn từ đó. Câu này bất biến, và mở đầu MỌI tài liệu ở mọi bộ. Lặp lại là có chủ ý.<br><br>Ba chữ trong câu ấy — <strong>I·P·A</strong> — đều chảy ra từ một điểm tựa duy nhất: <strong>Intention</strong> (phụng sự con người). Và ba chữ ấy tạo nên ba điều:<br>• <strong>Nếp Nhà</strong> giữ người<br>• <strong>Nếp Nghề</strong> giữ chuẩn<br>• <strong>Dòng chảy</strong> giữ tuệ",
+  cauLoi: "NẾP NHÀ IPA GIỮ NGƯỜI — NẾP NGHỀ IPAGer GIỮ CHUẨN — DÒNG CHẢY IPAG GIỮ TUỆ.",
+  dienGiai: "Đây là nền tảng chuẩn mực văn hóa quản trị của IPAG — câu mà mọi thiết kế về tổ chức và con người đều bắt nguồn từ đó. Câu này bất biến, và mở đầu MỌI tài liệu ở mọi bộ. Lặp lại là có chủ ý.<br><br>Ba chữ trong câu ấy — <strong>I·P·A</strong> — đều chảy ra từ một điểm tựa duy nhất: <strong>Intention</strong> (phụng sự con người). Và ba chữ ấy tạo nên ba điều:<br>• <strong>Nếp Nhà IPA</strong> giữ người<br>• <strong>Nếp Nghề IPAGer</strong> giữ chuẩn<br>• <strong>Dòng chảy IPAG</strong> giữ tuệ",
   dienGiaiIPA: "Nếp nhà IPA được đọc bằng ba chữ <strong>I · P · A</strong> — và cả ba đều chảy ra từ một điểm tựa duy nhất.",
   diemTua: { nhan: "Intention", phuDe: "Lấy con người làm trung tâm — hướng tới phụng sự" },
   truCot: [
     {
       chu: "I", ten: "Intention", vietTat: "Lấy con người làm trung tâm",
-      noiDung: "Điểm tựa gốc: lấy con người làm trung tâm, lấy khách hàng làm trung tâm, hướng tới phụng sự. Mọi thiết kế đều bắt đầu bằng một câu hỏi duy nhất: <em>«Điều này phụng sự ai?»</em> Vì I là điểm tựa chung, cả Tam Bảo đều quy về chữ này:",
+      noiDung: "Điểm tựa gốc: lấy con người làm trung tâm, lấy khách hàng làm trung tâm, hướng tới phụng sự. Mọi thiết kế trong nhà đều bắt đầu bằng một câu hỏi: <em>«Điều này phụng sự ai?»</em>",
       tamBao: [
-        { ma: "COL", vt: "Lãnh đạo (Center of Leadership) giữ Chí hướng" },
-        { ma: "COP", vt: "Chuẩn mực tổ chức (Center of Practice) giữ Chuẩn" },
-        { ma: "COE", vt: "Đồng nghiệp (Center of Excellence) giữ Nhịp" }
+        { ma: "COL", vt: "Lãnh đạo (Center of Leadership) giữ CHÍ HƯỚNG, quay về khi Lạc đường" },
+        { ma: "COP", vt: "Chuẩn mực tổ chức (Center of Practice) giữ CHUẨN, quay về khi Hoang mang" },
+        { ma: "COE", vt: "Đồng nghiệp (Center of Excellence) giữ NHỊP, quay về khi Đuối" }
       ]
     },
     {
       chu: "P", ten: "Presence", vietTat: "Có mặt thật sự",
-      noiDung: "Có chủ đích rồi thì phải có mặt thật sự để thực hiện nó. IPAG lấy gốc từ <strong>Nền cội Trúc Lâm</strong> — triết lý tỉnh thức của người Việt — làm nền cho văn hóa và cách làm nghề trong nhà."
+      noiDung: "IPAG lấy gốc từ <strong>Nền cội Trúc Lâm</strong> — triết lý tỉnh thức của người Việt — làm nền cho văn hóa và cách làm nghề trong nhà. <em>«Sống ở đời · Vui với đạo · Thả tùy duyên.»</em>"
     },
     {
-      chu: "A", ten: "Awareness", vietTat: "Ý thức tương tức",
-      noiDung: "Có mặt đủ lâu thì bắt đầu thấy nhau — thấy rằng mình và người xung quanh không tách rời. Từ ý thức đó sinh ra <strong>Nếp EPIC</strong>: cùng trao quyền · cùng tiếp sức · cùng cộng tác · cùng tạo giá trị."
+      chu: "A", ten: "Awareness", vietTat: "Ý thức tương tồn",
+      noiDung: "Thấy mình và mọi đồng nghiệp TƯƠNG TỒN, không tách rời; từ đó thành <strong>Nếp EPIC</strong>: cùng trao quyền · cùng tiếp sức · cùng cộng tác · cùng tạo giá trị."
     }
   ],
-  ketLuan: "<strong>Ba chữ ấy tạo nên gì?</strong><br>• I·P·A làm nên <strong>NẾP NHÀ</strong> — ngôi nhà bạn vừa bước vào.<br>• Năm nếp làm nên <strong>NẾP NGHỀ</strong> — điều bạn sẽ rèn và mang theo suốt sự nghiệp.<br>• Nhiều đời IPAGer cùng sống những nếp ấy làm nên <strong>IPAG</strong> — chữ G là <em>Generation</em>, dòng chảy trí tuệ xuyên thế hệ.<br><br>Từ hôm nay, bạn cũng là một phần trong dòng chảy ấy."
+  ketLuan: "<strong>Năm nếp nghề IPAGer</strong> là năm nếp: Trà Việt · IPA_3B, La Bàn · IPAM, Soi Sáng · IPAX, Gửi Trao · IPAC, Trao Truyền · IPAL.<br><br><strong>Dòng chảy IPAG</strong> đọc bằng bốn cặp giá trị I·P·A·G — mỗi cặp tự mang lan can của chính mình: Insight thiếu Integration → chỉ biết mà không làm; Pathway thiếu Partnership → chỉ đưa đường mà không đi cùng; Action thiếu Accountability → chỉ làm mà không chịu trách nhiệm; Greatness thiếu Generation → chỉ tốt hôm nay mà không bền vững.<br><br><strong>NẾP NHÀ GIỮ NGƯỜI — NẾP NGHỀ GIỮ CHUẨN — DÒNG CHẢY GIỮ TUỆ.</strong> Từ hôm nay, bạn cũng là một phần trong dòng chảy ấy."
 };
 
 // --- 2.4. MODULE: LỘ TRÌNH 60 NGÀY ---
@@ -1103,7 +1085,7 @@ const daoTaoData = {
 const globalTips = {
   'ipag-la-ai': {
     tieuDe: "Đọc theo Nhịp Đếm — không cần thuộc lòng",
-    noiDung: "Module này có 6 nhịp: **Một nhà · Hai nền tảng năng lực · Ba tầng HWG · Bốn chuỗi giá trị · Năm nếp nhà · Sáu vườn ươm** — không cần đọc hết trong 1 lần.\n\n1. **Lượt 1:** đọc nhịp *Một* để hiểu ngôi nhà: Tam Bảo nuôi dưỡng, Nền chuẩn mực và Nếp sống hằng ngày.\n2. **Lượt 2:** đọc *Hai* + *Ba* khi bạn bắt đầu làm việc với các đơn vị khác trong hệ sinh thái.\n3. **Lượt 3:** đọc *Bốn* + *Năm* + *Sáu* song song với chương trình đào tạo hội nhập.\n\nMẹo: tap vào từng nhịp để mở/đóng — chỉ cần bắt đầu từ Một."
+    noiDung: "Module này có 6 nhịp: **Một ngôi nhà · Hai năng lực · Ba dòng một cội HWG · Bốn chuỗi giá trị · Năm nếp nghề · Sáu vườn ươm** — không cần đọc hết trong 1 lần.\n\n1. **Lượt 1:** đọc nhịp *Một* để hiểu ngôi nhà: tầm nhìn, sứ mệnh và bốn hệ giá trị I·P·A·G.\n2. **Lượt 2:** đọc *Hai* + *Ba* khi bạn bắt đầu hình dung con đường sự nghiệp của mình.\n3. **Lượt 3:** đọc *Bốn* + *Năm* + *Sáu* song song với chương trình đào tạo hội nhập.\n\nMẹo: tap vào từng nhịp để mở/đóng — chỉ cần bắt đầu từ Một."
   },
   'vai-tro': {
     tieuDe: "Bạn không phải cấp dưới — bạn là một nguồn lực",

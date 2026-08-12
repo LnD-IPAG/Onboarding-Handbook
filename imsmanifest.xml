@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="ipag_onboarding_handbook_v1"
+          version="1.0"
+          xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+          xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                              http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+
+  <organizations default="ipag_ob_org">
+    <organization identifier="ipag_ob_org">
+      <title>Sổ tay Hội nhập IPAG</title>
+      <item identifier="item_1" identifierref="resource_1" isvisible="true">
+        <title>Sổ tay Hội nhập IPAG</title>
+      </item>
+    </organization>
+  </organizations>
+
+  <resources>
+    <resource identifier="resource_1" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <file href="index.html"/>
+      <file href="scorm_wrapper.js"/>
+      <file href="content.js"/>
+      <file href="styles.css"/>
+      <file href="manifest.json"/>
+      <!-- Nếu có thêm thư mục images/ fonts/ ... hãy khai báo thêm <file href="..."/> ở đây -->
+    </resource>
+  </resources>
+
+</manifest>
