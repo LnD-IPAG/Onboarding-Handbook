@@ -300,10 +300,13 @@ const iPAGContent = {
             { ten: "Bài học", phuDe: "Cả thành công lẫn sai sót", icon: "book-open", noiDung: "Những bài học thật trong quá trình làm nghề — cả thành công lẫn sai sót — được ghi lại để người sau học hỏi được từ đó, không phải một lời khuyên chung chung." }
           ],
           ketNhom: "Ba sản phẩm ấy được nạp vào Tứ Quy — bốn tầng chuẩn mực của ngôi nhà: Quy tắc (cái bất biến, kim chỉ nam) · Quy chuẩn (từ điển, bản đồ, chuẩn mực) · Quy trình (cách làm từng bước) · Quy định (điều phải giữ, con số cụ thể). Chữ · Khuôn mẫu · Bài học là BA dạng sản phẩm Nếp Gửi Trao tạo ra; Tứ Quy vẫn là BỐN tầng chuẩn mực nhận vào — hai tầng khái niệm khác nhau, không phải một cái thay cho cái kia."
+        },
+        {
+          tieuDe: "5. Nếp Trao Truyền",
+          phuDe: "Dẫn · Dụng · Dưỡng",
+          icon: "repeat",
+          moTa: "Người đi trước kèm người sau, không làm hộ — soi cùng khi người mới làm sai. Trao cả lý do WHY, không chỉ cách làm HOW: người nhận được cách làm thì lặp lại máy móc, người nhận được lý do thì sửa được khi hoàn cảnh đổi."
         }
-      ],
-      hangTang: [
-        { ten: "5. Nếp Trao Truyền", phuDe: "Dẫn · Dụng · Dưỡng", icon: "repeat", noiDung: "Người đi trước kèm người sau, không làm hộ — soi cùng khi người mới làm sai. Trao cả lý do WHY, không chỉ cách làm HOW: người nhận được cách làm thì lặp lại máy móc, người nhận được lý do thì sửa được khi hoàn cảnh đổi." }
       ],
       ketLuan: "Năm nếp nuôi nhau theo chu trình liên tục: Trà Việt → La Bàn → Soi Sáng → Gửi Trao → Trao Truyền → (quay lại) Trà Việt. Mỗi nếp làm dày nếp kế tiếp: bạn gặp người (Trà Việt), cùng để làm việc có phương pháp (La Bàn), rồi soi lại mình (Soi Sáng), từ đó gửi lại kinh nghiệm (Gửi Trao), và kèm người đi sau (Trao Truyền) — rồi lại gặp người mới, chu trình tiếp diễn."
     },
