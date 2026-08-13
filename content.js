@@ -450,8 +450,8 @@ const epicContent = {
           cards: [
             { ten: "E — Empowering", phuDe: "Cùng trao quyền", icon: "key", noiDung: "Giao việc thì giao cả quyền quyết." },
             { ten: "P — People", phuDe: "Cùng tiếp sức", icon: "hand-heart", noiDung: "Thấy người bên cạnh đuối thì đỡ." },
-            { ten: "I — Impact", phuDe: "Cùng tạo giá trị", icon: "users-round", noiDung: "Đo bằng cái để lại, và cái để lại là của chung." },
-            { ten: "C — Collaboration", phuDe: "Cùng cộng tác", icon: "gift", noiDung: "Làm cùng nhau là mặc định, làm một mình mới là ngoại lệ." }
+            { ten: "C — Collaboration", phuDe: "Cùng cộng tác", icon: "gift", noiDung: "Làm cùng nhau là mặc định, làm một mình mới là ngoại lệ." },
+            { ten: "I — Impact", phuDe: "Cùng tạo giá trị", icon: "users-round", noiDung: "Đo bằng cái để lại, và cái để lại là của chung." }
           ]
         }
       ],
@@ -672,8 +672,8 @@ const conNguoiIPAContent = {
       hangTang: [
         { ten: "E — Empowering", phuDe: "Cùng trao quyền", icon: "key", noiDung: "Giao việc thì giao cả quyền quyết." },
         { ten: "P — People", phuDe: "Cùng tiếp sức", icon: "hand-heart", noiDung: "Thấy người bên cạnh đuối thì đỡ. Tiếp sức không phải làm hộ, mà là đỡ để người ta tự làm được." },
-        { ten: "I — Impact", phuDe: "Cùng tạo giá trị", icon: "users-round", noiDung: "Đo bằng cái để lại, và cái để lại là của chung." },
-        { ten: "C — Collaboration", phuDe: "Cùng cộng tác", icon: "gift", noiDung: "Làm cùng nhau là mặc định, làm một mình mới là ngoại lệ." }
+        { ten: "C — Collaboration", phuDe: "Cùng cộng tác", icon: "gift", noiDung: "Làm cùng nhau là mặc định, làm một mình mới là ngoại lệ." },
+        { ten: "I — Impact", phuDe: "Cùng tạo giá trị", icon: "users-round", noiDung: "Đo bằng cái để lại, và cái để lại là của chung." }
       ]
     },
     {
