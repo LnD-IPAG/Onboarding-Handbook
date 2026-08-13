@@ -114,7 +114,7 @@
 let state = {
   sbu: null,
   khoi: null,
-  currentModule: 'ipag-la-ai'  // module mặc định khi vào dashboard
+  currentModule: null,  // sẽ tự lấy module đầu tiên của menu khi vào dashboard
 };
 let openAccordionId = null;     // accordion đang mở (chỉ 1 cùng lúc)
 
@@ -326,7 +326,7 @@ function showDashboard() {
   document.getElementById('onboarding-screen').classList.remove('active');
   document.getElementById('main-app').classList.add('active');
   updateHeaderContext();
-  switchModule(state.currentModule);
+  switchModule(state.currentModule || getFirstModuleId());
 }
 
 function updateHeaderContext() {
@@ -351,6 +351,14 @@ function getModuleTitle(id) {
   return id;
 }
 
+// Lấy id module đầu tiên trong menu (module trên cùng của sidebar).
+// Nhờ đó, đổi thứ tự menu trong content.js thì trang tự vào đúng module trên cùng.
+function getFirstModuleId() {
+  for (const nhom of menuConfig) {
+    if (nhom.cacMuc && nhom.cacMuc.length) return nhom.cacMuc[0].id;
+  }
+  return 'dan-nhap'; // dự phòng
+}
 function switchModule(moduleId) {
   state.currentModule = moduleId;
   localStorage.setItem('ipag-handbook-state', JSON.stringify(state));
