@@ -648,8 +648,8 @@ const conNguoiIPAContent = {
           cards: [
             { ten: "COE Lead", phuDe: "Chăm người · Dưỡng", icon: "user-round", noiDung: "Chăm đường nghề của bạn: bạn đi tới đâu, bạn đang lớn lên thế nào." },
             { ten: "FD Lead", phuDe: "Chăm người · Dưỡng", icon: "graduation-cap", noiDung: "Chăm chuẩn nghề: làm thế nào là giỏi, làm thế nào là đúng chuẩn." },
-            { ten: "FCM", phuDe: "Chăm việc · Dẫn", icon: "briefcase", noiDung: "Chăm việc đang chạy: chỗ đứng của bạn, việc bạn đang làm." },
-            { ten: "OCM", phuDe: "Chăm việc · Dụng", icon: "sparkles", noiDung: "Chăm cơ hội mới: chỗ bạn được thử, được học thêm." }
+            { ten: "FC Head", phuDe: "Chăm việc · Dẫn", icon: "briefcase", noiDung: "Chăm việc đang chạy: chỗ đứng của bạn, việc bạn đang làm." },
+            { ten: "OC Head", phuDe: "Chăm việc · Dụng", icon: "sparkles", noiDung: "Chăm cơ hội mới: chỗ bạn được thử, được học thêm." }
           ],
           ketNhom: "<strong>Bốn người chăm không phải người phê duyệt — họ là người đỡ bạn.</strong><br>COL không phải người bạn cần xin phép trước khi làm việc gì. COL là người bạn tìm đến khi cần được soi, được hỏi, được trao đổi.<br><br>Và chính bạn cũng có một vai COL của mình: chí hướng ấy là đường nghề của chính bạn. <strong>COL không bắt đầu từ cấp quản lý — nó bắt đầu từ chính bạn.</strong>"
         }
