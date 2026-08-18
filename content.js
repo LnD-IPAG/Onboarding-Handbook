@@ -663,7 +663,7 @@ const conNguoiIPAContent = {
       hangTang: [
         { ten: "Sống đời", phuDe: "Rèn luyện ngay trong nghề", icon: "footprints", noiDung: "Cuộc đời làm nghề là một trải nghiệm giúp mỗi chúng ta được sống và rèn luyện ngay trong nghề. Chỗ khó nhất của nghề chính là cơ hội để khám phá bản thân và tự sửa mình. Thiếu chữ này, người ta phải đóng hai vai khác nhau — trong giờ làm, và ngoài giờ làm." },
         { ten: "Vui đạo", phuDe: "Vui khi làm việc", icon: "smile", noiDung: "Đạo là con đường sống nghề, phụng sự. Người làm nghề phải có khả năng vui khi làm việc, dù trong bất cứ hoàn cảnh nào. Thiếu chữ này, người ta chỉ làm với động cơ lợi ích — hết lợi ích thì hết niềm vui, hết cả ý chí vượt khó." },
-        { ten: "Thả tùy duyên", phuDe: "\"Khế lý khế cơ\"", icon: "wind", noiDung: "Người làm nghề phải có tuệ giác để khế lý khế cơ. Nghịch duyên thì đổi cách, không đổi chuẩn mực. Tùy duyên ở cách — bất biến ở chuẩn mực và mục đích." }
+        { ten: "Thả tùy duyên", phuDe: "\"Khế lý khế cơ\"", icon: "wind", noiDung: "Người làm nghề phải có tuệ giác để \"khế lý khế cơ\". Nghịch duyên thì đổi cách, không đổi chuẩn mực. Tùy duyên ở cách — bất biến ở chuẩn mực và mục đích." }
       ],
       ketLuan: "Ba câu bạn có thể tự hỏi mình: Mình có đang được là chính mình, cả trong công việc lẫn trong cuộc sống, không? Tuần này có lúc nào mình vui vì chính việc mình làm không? Và việc này đang khó vì chưa đủ duyên, hay vì mình đang đi sai cách?"
     },
