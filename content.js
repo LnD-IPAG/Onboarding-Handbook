@@ -893,12 +893,12 @@ const nguonLucContent = {
         // Đầu mối riêng theo SBU — engine tự lọc theo SBU đã chọn ở màn welcome.
         // Cách thêm/sửa: mỗi SBU là 1 mảng, mỗi người là 1 dòng { ten, email }.
         dauMoiTheoSBU: {
-          IPAG:  [ { ten: "Ms Nga Đặng",       email: "nga.dang2@ipam.vn" } ],
+          IPAG:  [ { ten: "Ms Hoàn Trần",       email: "hoan.tranthu@ipam.vn" } ],
           VNDS:  [ { ten: "Ms Mai Hoàng",      email: "mai.vuhoang@ipam.vn" },
                    { ten: "Ms Thu Hương",      email: "huong.nguyenthu13@ipam.vn" } ],
           PTI:   [ { ten: "Ms Trần Thu Hằng",  email: "hang.tranthu@ipam.vn" },
                    { ten: "Ms Phạm Hiếu Ngân", email: "ngan.phamhieu@ipam.vn" } ],
-          IPAS:  [ { ten: "Ms Nga Đặng",       email: "nga.dang2@ipam.vn" } ],
+          IPAS:  [ { ten: "Ms Phạm Hiếu Ngân", email: "ngan.phamhieu@ipam.vn" } ],
           ANVIE: [ { ten: "Ms Hoàn Trần",      email: "hoan.tranthu@ipam.vn" } ]
         },
         // Dự phòng: hiện khi SBU chưa được khai báo ở trên
